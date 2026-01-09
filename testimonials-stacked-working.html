@@ -1,0 +1,292 @@
+<!-- ============================================================================
+     TESTIMONIALS STACKED - WORKING DRUMMER (READABLE VERSION)
+     Lorenzo, Jason, Tony - Single Column Layout
+     Copy and paste this into a Kajabi Custom HTML block
+     ============================================================================ -->
+
+<style>
+/* Stacked Testimonials Container */
+.testimonials-stacked-working {
+    background: #FFEFCC !important;
+    padding: 80px 40px !important;
+    margin: 0 -40px !important;
+}
+
+.testimonials-stacked-working-container {
+    max-width: 900px !important;
+    margin: 0 auto !important;
+}
+
+.testimonials-stacked-working-header {
+    text-align: center !important;
+    margin-bottom: 50px !important;
+}
+
+.testimonials-stacked-working-header h2 {
+    font-size: 42px !important;
+    color: #060102 !important;
+    margin-bottom: 15px !important;
+    font-weight: 800 !important;
+}
+
+.testimonials-stacked-working-header .accent {
+    color: #2C5F6F !important;
+}
+
+.testimonials-stacked-working-header .rating {
+    color: #FF8C42 !important;
+    font-size: 24px !important;
+    margin-bottom: 10px !important;
+    letter-spacing: 4px !important;
+}
+
+.testimonials-stacked-working-header p {
+    font-size: 18px !important;
+    color: rgba(6, 1, 2, 0.7) !important;
+}
+
+/* Stacked Cards */
+.testimonial-stacked-working-card {
+    background: white !important;
+    padding: 40px !important;
+    border-radius: 12px !important;
+    border-left: 5px solid #2C5F6F !important;
+    margin-bottom: 30px !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05) !important;
+}
+
+.testimonial-stacked-working-card:hover {
+    border-left-color: #FF8C42 !important;
+    transform: translateX(5px) !important;
+    box-shadow: 0 10px 30px rgba(44, 95, 111, 0.2) !important;
+}
+
+/* Quote Icon */
+.quote-working-icon {
+    color: #2C5F6F !important;
+    font-size: 40px !important;
+    line-height: 1 !important;
+    margin-bottom: 15px !important;
+    font-family: Georgia, serif !important;
+}
+
+/* Stacked Text */
+.stacked-working-text {
+    color: #060102 !important;
+    font-size: 18px !important;
+    line-height: 1.8 !important;
+    margin-bottom: 25px !important;
+    font-style: italic !important;
+}
+
+/* Highlight key phrases */
+.stacked-working-text strong {
+    color: #2C5F6F !important;
+    font-weight: 700 !important;
+    font-style: normal !important;
+}
+
+/* Stacked Author - Horizontal Layout */
+.stacked-working-author {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding-top: 20px !important;
+    border-top: 2px solid rgba(6, 1, 2, 0.1) !important;
+}
+
+.stacked-working-author-left {
+    display: flex !important;
+    align-items: center !important;
+    gap: 15px !important;
+}
+
+.stacked-working-avatar {
+    width: 55px !important;
+    height: 55px !important;
+    border-radius: 50% !important;
+    background: #2C5F6F !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #FFEFCC !important;
+    font-weight: 700 !important;
+    font-size: 20px !important;
+    flex-shrink: 0 !important;
+}
+
+.stacked-working-author-info h4 {
+    color: #060102 !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    margin: 0 0 3px 0 !important;
+}
+
+.stacked-working-author-info p {
+    color: rgba(6, 1, 2, 0.6) !important;
+    font-size: 15px !important;
+    margin: 0 !important;
+}
+
+/* Stars on Right */
+.stacked-working-stars {
+    color: #FF8C42 !important;
+    font-size: 20px !important;
+    white-space: nowrap !important;
+}
+
+/* Bottom CTA */
+.testimonials-working-cta {
+    text-align: center !important;
+    margin-top: 50px !important;
+    padding: 40px !important;
+    background: #060102 !important;
+    border-radius: 12px !important;
+}
+
+.testimonials-working-cta h3 {
+    color: #FFEFCC !important;
+    font-size: 28px !important;
+    margin-bottom: 15px !important;
+}
+
+.testimonials-working-cta p {
+    color: rgba(255, 239, 204, 0.8) !important;
+    font-size: 18px !important;
+    margin-bottom: 30px !important;
+}
+
+.testimonials-working-cta .btn-primary {
+    background: #FF8C42 !important;
+    color: #060102 !important;
+    padding: 18px 40px !important;
+    border-radius: 8px !important;
+    text-decoration: none !important;
+    font-weight: 700 !important;
+    font-size: 18px !important;
+    display: inline-block !important;
+    transition: all 0.3s ease !important;
+}
+
+.testimonials-working-cta .btn-primary:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(255, 140, 66, 0.5) !important;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .testimonials-stacked-working {
+        padding: 60px 20px !important;
+    }
+
+    .testimonials-stacked-working-header h2 {
+        font-size: 32px !important;
+    }
+
+    .testimonial-stacked-working-card {
+        padding: 30px 25px !important;
+    }
+
+    .stacked-working-text {
+        font-size: 16px !important;
+    }
+
+    .stacked-working-author {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 15px !important;
+    }
+
+    .stacked-working-stars {
+        align-self: flex-start !important;
+    }
+}
+</style>
+
+<!-- Stacked Testimonials HTML -->
+<div class="testimonials-stacked-working">
+    <div class="testimonials-stacked-working-container">
+
+        <!-- Header -->
+        <div class="testimonials-stacked-working-header">
+            <div class="rating">★★★★★</div>
+            <h2>Student <span class="accent">Success Stories</span></h2>
+            <p>Real transformations from The Working Drummer community</p>
+        </div>
+
+        <!-- Testimonial 1 - Lorenzo Ciacci -->
+        <div class="testimonial-stacked-working-card">
+            <div class="quote-working-icon">"</div>
+            <p class="stacked-working-text">
+                Client came back weeks later wanting 'tweaks' that were basically re-records. Before this community I would've just done it. Now? <strong>'This is a new session.'</strong> Felt good to value my time properly.
+            </p>
+            <div class="stacked-working-author">
+                <div class="stacked-working-author-left">
+                    <div class="stacked-working-avatar">LC</div>
+                    <div class="stacked-working-author-info">
+                        <h4>Lorenzo Ciacci</h4>
+                        <p>Session Drummer</p>
+                    </div>
+                </div>
+                <div class="stacked-working-stars">★★★★★</div>
+            </div>
+        </div>
+
+        <!-- Testimonial 2 - Jason Slota -->
+        <div class="testimonial-stacked-working-card">
+            <div class="quote-working-icon">"</div>
+            <p class="stacked-working-text">
+                Five minutes to set up. I used a pair of knockoff 87s and a kick mic and I was like... <strong>revelatory.</strong> I could not believe how evenly everything came across.
+            </p>
+            <div class="stacked-working-author">
+                <div class="stacked-working-author-left">
+                    <div class="stacked-working-avatar">JS</div>
+                    <div class="stacked-working-author-info">
+                        <h4>Jason Slota</h4>
+                        <p>Recording Drummer</p>
+                    </div>
+                </div>
+                <div class="stacked-working-stars">★★★★★</div>
+            </div>
+        </div>
+
+        <!-- Testimonial 3 - Tony Barbata -->
+        <div class="testimonial-stacked-working-card">
+            <div class="quote-working-icon">"</div>
+            <p class="stacked-working-text">
+                I've been playing drums for 35 years but learning to record them? Different beast. The course helped me understand <strong>WHY</strong> I'm doing things, not just WHAT to do. Now when something sounds right, I trust it.
+            </p>
+            <div class="stacked-working-author">
+                <div class="stacked-working-author-left">
+                    <div class="stacked-working-avatar">TB</div>
+                    <div class="stacked-working-author-info">
+                        <h4>Tony Barbata</h4>
+                        <p>Professional Drummer</p>
+                    </div>
+                </div>
+                <div class="stacked-working-stars">★★★★★</div>
+            </div>
+        </div>
+
+        <!-- Optional CTA -->
+        <div class="testimonials-working-cta">
+            <h3>Ready to Join Them?</h3>
+            <p>Start your recording transformation today</p>
+            <a href="https://www.therecordingdrummer.com/course-comparison" class="btn-primary">Book Your Strategy Call</a>
+        </div>
+
+    </div>
+</div>
+
+<!-- ============================================================================
+     INSTALLATION INSTRUCTIONS:
+
+     1. In Kajabi page editor, add a "Custom HTML" block
+     2. Copy this entire code
+     3. Paste into the Custom HTML block
+     4. Click "Update"
+
+     BUTTON LINK: Now points to course comparison page
+
+     ============================================================================ -->
