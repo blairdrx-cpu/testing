@@ -1,0 +1,867 @@
+<!-- ============================================================================
+     PROGRAMS COMPARISON - KAJABI CUSTOM HTML SECTIONS
+     Copy each section separately into Kajabi Custom HTML blocks
+     ============================================================================ -->
+
+<!-- ============================================================================
+     SECTION 1: HERO
+     ============================================================================ -->
+
+
+<!-- ============================================================================
+     SECTION 2: COMPARISON TABLE
+     ============================================================================ -->
+<style>
+.comparison-section {
+    background: #FFEFCC;
+    padding: 80px 40px;
+    margin: 0 -40px;
+}
+
+.comparison-table-wrapper {
+    overflow-x: auto;
+    margin: 0 auto;
+    max-width: 1200px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    min-width: 600px;
+}
+
+.comparison-table thead {
+    background: #2C5F6F;
+    color: #FFEFCC;
+}
+
+.comparison-table th {
+    padding: 25px 20px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 18px;
+    border-right: 1px solid rgba(255, 239, 204, 0.2);
+}
+
+.comparison-table th:first-child {
+    font-size: 16px;
+    width: 30%;
+}
+
+.comparison-table th:last-child {
+    border-right: none;
+}
+
+.comparison-table td {
+    padding: 20px;
+    border-bottom: 1px solid rgba(6, 1, 2, 0.1);
+    border-right: 1px solid rgba(6, 1, 2, 0.1);
+    font-size: 15px;
+}
+
+.comparison-table td:first-child {
+    font-weight: 600;
+    background: rgba(44, 95, 111, 0.05);
+}
+
+.comparison-table td:last-child {
+    border-right: none;
+}
+
+.comparison-table tr:last-child td {
+    border-bottom: none;
+}
+
+.comparison-table .price-row td {
+    font-size: 28px;
+    font-weight: 800;
+    color: #2C5F6F;
+    padding: 30px 20px;
+    background: rgba(44, 95, 111, 0.05);
+}
+
+.comparison-table .price-row td:first-child {
+    font-size: 16px;
+    font-weight: 600;
+    color: #060102;
+}
+
+.checkmark {
+    color: #2C5F6F;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.xmark {
+    color: rgba(6, 1, 2, 0.3);
+    font-weight: 700;
+    font-size: 18px;
+}
+
+@media (max-width: 768px) {
+    .comparison-section {
+        padding: 40px 15px;
+        margin: 0 -15px;
+    }
+
+    .comparison-table {
+        min-width: 500px;
+    }
+
+    .comparison-table th:first-child,
+    .comparison-table td:first-child {
+        position: sticky;
+        left: 0;
+        background: white;
+        z-index: 10;
+        min-width: 120px;
+    }
+
+    .comparison-table thead th:first-child {
+        background: #2C5F6F;
+        z-index: 11;
+    }
+
+    .comparison-table .price-row td:first-child {
+        background: rgba(44, 95, 111, 0.05);
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+        padding: 12px 10px;
+        font-size: 13px;
+    }
+
+    .comparison-table .price-row td {
+        font-size: 20px;
+        padding: 20px 10px;
+    }
+}
+</style>
+
+<div class="comparison-section">
+    <div class="comparison-table-wrapper">
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Self Paced</th>
+                    <th>Group Coaching</th>
+                    <th>Premium Personal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Total Modules</td>
+                    <td>80</td>
+                    <td>145</td>
+                    <td>160</td>
+                </tr>
+                <tr>
+                    <td>Group Q&A Sessions</td>
+                    <td><span class="xmark">✗</span></td>
+                    <td>16 weeks</td>
+                    <td>20 weeks</td>
+                </tr>
+                <tr>
+                    <td>1-on-1 Coaching</td>
+                    <td><span class="xmark">✗</span></td>
+                    <td><span class="xmark">✗</span></td>
+                    <td>12 weeks</td>
+                </tr>
+                <tr>
+                    <td>Source Sounds</td>
+                    <td><span class="checkmark">✓</span></td>
+                    <td><span class="checkmark">✓</span></td>
+                    <td><span class="checkmark">✓</span></td>
+                </tr>
+                <tr>
+                    <td>Mic Fundamentals</td>
+                    <td><span class="checkmark">✓</span></td>
+                    <td><span class="checkmark">✓</span> Advanced</td>
+                    <td><span class="checkmark">✓</span> Advanced</td>
+                </tr>
+                <tr>
+                    <td>EQ & Compression</td>
+                    <td>Fundamentals</td>
+                    <td><span class="checkmark">✓</span> Advanced</td>
+                    <td><span class="checkmark">✓</span> Advanced</td>
+                </tr>
+                <tr>
+                    <td>Effects</td>
+                    <td><span class="xmark">✗</span></td>
+                    <td><span class="checkmark">✓</span></td>
+                    <td><span class="checkmark">✓</span></td>
+                </tr>
+                <tr>
+                    <td>Business Systems</td>
+                    <td>Basics</td>
+                    <td><span class="checkmark">✓</span> Complete</td>
+                    <td><span class="checkmark">✓</span> Complete</td>
+                </tr>
+                <tr>
+                    <td>Career Pathways Book</td>
+                    <td><span class="xmark">✗</span></td>
+                    <td><span class="xmark">✗</span></td>
+                    <td><span class="checkmark">✓</span> 13 exclusive interviews</td>
+                </tr>
+                <tr>
+                    <td>Community Access</td>
+                    <td><span class="checkmark">✓</span></td>
+                    <td><span class="checkmark">✓</span> Lifetime</td>
+                    <td><span class="checkmark">✓</span> Lifetime</td>
+                </tr>
+                <tr>
+                    <td>Direct Instructor Access</td>
+                    <td><span class="xmark">✗</span></td>
+                    <td>Group Q&A only</td>
+                    <td>24-48hr response</td>
+                </tr>
+                <tr>
+                    <td>Recording Critique</td>
+                    <td><span class="xmark">✗</span></td>
+                    <td>In group sessions</td>
+                    <td>Personalized weekly</td>
+                </tr>
+                <tr>
+                    <td>Custom Business Strategy</td>
+                    <td><span class="xmark">✗</span></td>
+                    <td><span class="xmark">✗</span></td>
+                    <td><span class="checkmark">✓</span></td>
+                </tr>
+                <tr class="price-row">
+                    <td>Investment</td>
+                    <td>$1,500</td>
+                    <td>$4,000</td>
+                    <td>$8,000</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- ============================================================================
+     SECTION 3: PRICING CARDS (FIXED)
+     ============================================================================ -->
+<style>
+.pricing-section {
+    background: #060102;
+    color: #FFEFCC;
+    padding: 80px 40px;
+    margin: 0 -40px;
+}
+
+.pricing-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.pricing-header h2 {
+    font-size: 42px;
+    font-weight: 800;
+    color: #FFEFCC;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: stretch;
+}
+
+.pricing-card {
+    background: #FFEFCC;
+    border-radius: 12px;
+    padding: 40px 30px;
+    border: 3px solid rgba(255, 239, 204, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.pricing-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(44, 95, 111, 0.3);
+    border-color: #2C5F6F;
+}
+
+.pricing-card.featured {
+    border-color: #2C5F6F;
+    border-width: 4px;
+}
+
+/* Badge area - consistent height for all cards */
+.pricing-card .badge-area {
+    height: 36px;
+    margin-bottom: 15px;
+}
+
+.badge-popular {
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: #ED1D24;
+    color: #FFEFCC;
+}
+
+.pricing-card h3 {
+    font-size: 28px;
+    color: #060102;
+    margin: 0 0 10px 0;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.pricing-card .tagline {
+    font-size: 16px;
+    color: rgba(6, 1, 2, 0.7);
+    margin: 0 0 20px 0;
+    line-height: 1.4;
+}
+
+.pricing-card .price {
+    font-size: 48px;
+    font-weight: 800;
+    color: #2C5F6F;
+    margin: 0 0 8px 0;
+    line-height: 1;
+}
+
+.pricing-card .duration {
+    font-size: 14px;
+    color: rgba(6, 1, 2, 0.6);
+    margin: 0 0 25px 0;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.pricing-card ul {
+    list-style: none;
+    margin: 0 0 30px 0;
+    padding: 0;
+    flex-grow: 1;
+}
+
+.pricing-card li {
+    padding: 10px 0;
+    padding-left: 28px;
+    position: relative;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #060102;
+}
+
+.pricing-card li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #2C5F6F;
+    font-weight: 800;
+    font-size: 16px;
+}
+
+.btn-primary {
+    background: #FF8C42;
+    color: #060102;
+    padding: 18px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    display: block;
+    width: 100%;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    margin-top: auto;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 140, 66, 0.4);
+    background: #ff9d5c;
+}
+
+/* Tablet - 2 column layout */
+@media (max-width: 1100px) {
+    .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 800px;
+    }
+
+    /* Make featured card span or stand out */
+    .pricing-card.featured {
+        order: -1;
+    }
+}
+
+/* Mobile - single column */
+@media (max-width: 768px) {
+    .pricing-section {
+        padding: 50px 20px;
+        margin: 0 -20px;
+    }
+
+    .pricing-header {
+        margin-bottom: 40px;
+    }
+
+    .pricing-header h2 {
+        font-size: 32px;
+    }
+
+    .pricing-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        max-width: 450px;
+    }
+
+    .pricing-card {
+        padding: 30px 25px;
+    }
+
+    .pricing-card .badge-area {
+        height: 32px;
+        margin-bottom: 12px;
+    }
+
+    .badge-popular {
+        padding: 6px 16px;
+        font-size: 11px;
+    }
+
+    .pricing-card h3 {
+        font-size: 24px;
+    }
+
+    .pricing-card .tagline {
+        font-size: 15px;
+    }
+
+    .pricing-card .price {
+        font-size: 40px;
+    }
+
+    .pricing-card .duration {
+        font-size: 13px;
+    }
+
+    .pricing-card li {
+        font-size: 14px;
+        padding: 8px 0 8px 26px;
+    }
+
+    .btn-primary {
+        padding: 16px 25px;
+        font-size: 15px;
+    }
+}
+
+/* Small mobile */
+@media (max-width: 400px) {
+    .pricing-section {
+        padding: 40px 15px;
+        margin: 0 -15px;
+    }
+
+    .pricing-card {
+        padding: 25px 20px;
+    }
+
+    .pricing-card .price {
+        font-size: 36px;
+    }
+}
+</style>
+
+<div class="pricing-section">
+    <div class="pricing-header">
+        <h2>Compare Programs</h2>
+    </div>
+
+    <div class="pricing-grid">
+
+        <!-- Self Paced Card -->
+        <div class="pricing-card">
+            <div class="badge-area"></div>
+            <h3>Self Paced</h3>
+            <p class="tagline">Master the essentials at your own pace</p>
+            <div class="price">$1,500</div>
+            <p class="duration">80 modules • Self-guided learning</p>
+            <ul>
+                <li>Complete studio drumming curriculum</li>
+                <li>Source sounds mastery</li>
+                <li>Microphone techniques & setups</li>
+                <li>EQ & compression fundamentals</li>
+                <li>Client basics & professional delivery</li>
+                <li>Community access</li>
+                <li>Lifetime course access</li>
+            </ul>
+            <a href="https://www.therecordingdrummer.com/selfpaced" class="btn-primary">Self Paced Details →</a>
+        </div>
+
+        <!-- Group Coaching Card -->
+        <div class="pricing-card featured">
+            <div class="badge-area">
+                <span class="badge-popular">Most Popular</span>
+            </div>
+            <h3>Group Coaching</h3>
+            <p class="tagline">Learn alongside peers with live support</p>
+            <div class="price">$4,000</div>
+            <p class="duration">145 modules • 16 weeks of group Q&A</p>
+            <ul>
+                <li>Everything in Self Paced PLUS:</li>
+                <li>16 weekly live group Q&A sessions</li>
+                <li>Advanced mixing & effects</li>
+                <li>Complete business systems</li>
+                <li>Client management strategies</li>
+                <li>Lifetime community access</li>
+                <li>Accountability and peer support</li>
+            </ul>
+            <a href="/group-coaching" class="btn-primary">Group Coaching Details →</a>
+        </div>
+
+        <!-- Premium Personal Card -->
+        <div class="pricing-card">
+            <div class="badge-area"></div>
+            <h3>Premium Personal Coaching</h3>
+            <p class="tagline">Direct mentorship with personalized strategy</p>
+            <div class="price">$8,000</div>
+            <p class="duration">160 modules • 20 weeks group Q&A • 12 weeks 1-on-1</p>
+            <ul>
+                <li>Everything in Group Coaching PLUS:</li>
+                <li>12 weekly 1-on-1 coaching sessions</li>
+                <li>20 weeks of group Q&A sessions</li>
+                <li>Immediate access to all content</li>
+                <li>Career Pathways Book</li>
+                <li>Direct access to instructor</li>
+                <li>Custom recording critiques</li>
+                <li>Personalized business strategy</li>
+            </ul>
+            <a href="/personal-coaching" class="btn-primary">Personal Coaching Details →</a>
+        </div>
+
+    </div>
+</div>
+
+<!-- ============================================================================
+     SECTION 4: DECISION GUIDE
+     ============================================================================ -->
+<style>
+.decision-section {
+    background: #FFEFCC;
+    padding: 80px 40px;
+    margin: 0 -40px;
+}
+
+.decision-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.decision-header h2 {
+    font-size: 42px;
+    font-weight: 800;
+    color: #060102;
+}
+
+.decision-header .accent {
+    color: #2C5F6F;
+}
+
+.decision-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: stretch;
+}
+
+.decision-card {
+    background: white;
+    border-radius: 12px;
+    padding: 35px;
+    border-left: 5px solid #2C5F6F;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.decision-card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 8px 25px rgba(44, 95, 111, 0.2);
+}
+
+.decision-card h3 {
+    font-size: 24px;
+    color: #060102;
+    margin: 0 0 15px 0;
+    font-weight: 800;
+}
+
+.decision-card .best-for {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #2C5F6F;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin: 0 0 20px 0;
+}
+
+.decision-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.decision-card li {
+    padding: 10px 0;
+    padding-left: 30px;
+    position: relative;
+    font-size: 15px;
+    color: rgba(6, 1, 2, 0.8);
+    line-height: 1.5;
+}
+
+.decision-card li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #FF8C42;
+    font-weight: 700;
+}
+
+/* Tablet */
+@media (max-width: 1100px) {
+    .decision-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 800px;
+    }
+
+    .decision-card:last-child {
+        grid-column: span 2;
+        max-width: 400px;
+        justify-self: center;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .decision-section {
+        padding: 50px 20px;
+        margin: 0 -20px;
+    }
+
+    .decision-header {
+        margin-bottom: 40px;
+    }
+
+    .decision-header h2 {
+        font-size: 32px;
+    }
+
+    .decision-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        max-width: 450px;
+    }
+
+    .decision-card {
+        padding: 25px;
+    }
+
+    .decision-card:last-child {
+        grid-column: auto;
+        max-width: none;
+    }
+
+    .decision-card h3 {
+        font-size: 22px;
+    }
+
+    .decision-card li {
+        font-size: 14px;
+        padding: 8px 0 8px 26px;
+    }
+}
+
+/* Small mobile */
+@media (max-width: 400px) {
+    .decision-section {
+        padding: 40px 15px;
+        margin: 0 -15px;
+    }
+
+    .decision-card {
+        padding: 20px;
+    }
+}
+</style>
+
+<div class="decision-section">
+    <div class="decision-header">
+        <h2>Which Program Is <span class="accent">Right For You?</span></h2>
+    </div>
+
+    <div class="decision-grid">
+
+        <!-- Self Paced Decision Card -->
+        <div class="decision-card">
+            <h3>Self Paced</h3>
+            <p class="best-for">Best for:</p>
+            <ul>
+                <li>Drummers new to recording</li>
+                <li>Budget-conscious learners</li>
+                <li>Those wanting to learn at their own pace</li>
+                <li>Players seeking foundational skills</li>
+                <li>Building recording fundamentals</li>
+            </ul>
+        </div>
+
+        <!-- Group Coaching Decision Card -->
+        <div class="decision-card">
+            <h3>Group Coaching</h3>
+            <p class="best-for">Best for:</p>
+            <ul>
+                <li>Drummers wanting live feedback</li>
+                <li>Those who value peer learning</li>
+                <li>Players ready for advanced techniques</li>
+                <li>Need accountability and community</li>
+                <li>Complete business and client systems</li>
+            </ul>
+        </div>
+
+        <!-- Premium Personal Decision Card -->
+        <div class="decision-card">
+            <h3>Premium Personal Coaching</h3>
+            <p class="best-for">Best for:</p>
+            <ul>
+                <li>Established drummers pivoting to recording</li>
+                <li>Those seeking premium positioning</li>
+                <li>Players needing personalized strategy</li>
+                <li>Direct mentorship from 30+ years experience</li>
+                <li>Career pathway insights from top professionals</li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+<!-- ============================================================================
+     SECTION 5: FINAL CTA
+     ============================================================================ -->
+<style>
+.final-cta-section {
+    background: #060102;
+    color: #FFEFCC;
+    padding: 80px 40px;
+    text-align: center;
+    margin: 0 -40px;
+}
+
+.final-cta-section h2 {
+    font-size: 42px;
+    margin: 0 0 20px 0;
+    font-weight: 800;
+}
+
+.final-cta-section p {
+    font-size: 20px;
+    color: rgba(255, 239, 204, 0.8);
+    margin: 0 auto 40px auto;
+    max-width: 700px;
+    line-height: 1.6;
+}
+
+.final-cta-section .btn-primary {
+    width: auto;
+    display: inline-block;
+    padding: 20px 50px;
+    font-size: 20px;
+}
+
+@media (max-width: 768px) {
+    .final-cta-section {
+        padding: 50px 20px;
+        margin: 0 -20px;
+    }
+
+    .final-cta-section h2 {
+        font-size: 32px;
+    }
+
+    .final-cta-section p {
+        font-size: 17px;
+    }
+
+    .final-cta-section .btn-primary {
+        padding: 18px 40px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 400px) {
+    .final-cta-section {
+        padding: 40px 15px;
+        margin: 0 -15px;
+    }
+
+    .final-cta-section .btn-primary {
+        padding: 16px 30px;
+        font-size: 16px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+</style>
+
+<div class="final-cta-section">
+    <h2>Ready to Transform Your Recording Career?</h2>
+    <p>Book a free strategy call to find out which program is the right fit for your goals.</p>
+    <a href="/strategy-call" class="btn-primary">Book Your Strategy Call →</a>
+</div>
+
+<!-- ============================================================================
+     INSTALLATION INSTRUCTIONS:
+
+     1. In Kajabi, create a new page or edit existing "Programs" page
+     2. Add 5 separate "Custom HTML" blocks for each section above
+     3. Copy each section (including its <style> tag) into its own block
+     4. Update all href links to match your Kajabi page URLs:
+        - /self-paced → Your Self-Paced page URL
+        - /group-coaching → Your Group Coaching page URL
+        - /personal-coaching → Your Personal Coaching page URL
+        - /strategy-call → Your Calendly or booking link
+
+     SECTIONS ORDER:
+     1. Hero (black background)
+     2. Comparison Table (cream background)
+     3. Pricing Cards (black background)
+     4. Decision Guide (cream background)
+     5. Final CTA (black background)
+
+     KEY FIXES APPLIED:
+     - Pricing cards now use flexbox for equal heights
+     - Buttons are bottom-aligned across all cards
+     - Badge area is consistent (empty placeholder on non-featured cards)
+     - Improved mobile breakpoints at 1100px, 768px, and 400px
+     - Better touch scrolling on comparison table
+     - Consistent spacing and typography at all screen sizes
+
+     ============================================================================ -->
