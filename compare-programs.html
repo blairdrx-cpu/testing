@@ -1,0 +1,519 @@
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  .trd-wrap *, .trd-wrap *::before, .trd-wrap *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .trd-wrap {
+    font-family: 'Poppins', sans-serif;
+    background: #060102;
+    color: #FFEFCC;
+    padding: 2rem 1rem 4rem;
+    -webkit-font-smoothing: antialiased;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  /* ---- SECTION TITLES ---- */
+  .trd-wrap h2.section-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: #FF8C42;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  /* ---- CARD GRID ---- */
+  .trd-wrap .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 1.5rem;
+  }
+
+  .trd-wrap .card {
+    background: #111010;
+    border: 0.5px solid rgba(255, 239, 204, 0.15);
+    border-radius: 12px;
+    padding: 16px 14px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .trd-wrap .card.featured {
+    border: 2px solid #2C5F6F;
+  }
+
+  /* ---- BADGES ---- */
+  .trd-wrap .badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 9px;
+    border-radius: 6px;
+    margin-bottom: 9px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    width: fit-content;
+  }
+  .trd-wrap .badge.popular  { background: #FF8C42; color: #412402; }
+  .trd-wrap .badge.entry    { background: #5DCAA5; color: #04342C; }
+  .trd-wrap .badge.premium  { background: #7F77DD; color: #26215C; }
+  .trd-wrap .badge.self     { background: #444441; color: #D3D1C7; }
+
+  .trd-wrap .card-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: #FFEFCC;
+    margin-bottom: 3px;
+  }
+
+  .trd-wrap .card-sub {
+    font-size: 11px;
+    color: #FF8C42;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    font-weight: 500;
+  }
+
+  .trd-wrap .card-price {
+    font-size: 24px;
+    font-weight: 600;
+    color: #FFEFCC;
+    margin-bottom: 2px;
+  }
+
+  .trd-wrap .card-meta {
+    font-size: 11px;
+    color: rgba(255,239,204,0.5);
+    margin-bottom: 14px;
+  }
+
+  .trd-wrap .rows { flex: 1; }
+
+  .trd-wrap .row {
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+    margin-bottom: 6px;
+  }
+
+  .trd-wrap .check { font-size: 12px; margin-top: 1px; flex-shrink: 0; }
+  .trd-wrap .check.yes { color: #5DCAA5; }
+  .trd-wrap .check.no  { color: #E24B4A; }
+
+  .trd-wrap .row-text {
+    font-size: 12px;
+    color: rgba(255,239,204,0.7);
+    line-height: 1.4;
+  }
+
+  /* ---- CTAs ---- */
+  .trd-wrap .cta-btn {
+    display: block;
+    margin-top: 16px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.01em;
+  }
+
+  .trd-wrap .cta-amber { background: #FF8C42; color: #412402; }
+  .trd-wrap .cta-amber:hover { background: #e87d36; }
+  .trd-wrap .cta-teal  { background: #2C5F6F; color: #FFEFCC; }
+  .trd-wrap .cta-teal:hover  { background: #245261; }
+
+  /* ---- DIVIDER ---- */
+  .trd-wrap .divider {
+    border: none;
+    border-top: 0.5px solid rgba(255,239,204,0.12);
+    margin: 2rem 0;
+  }
+
+  /* ---- WHICH PROGRAM GRID ---- */
+  .trd-wrap .which-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .trd-wrap .which-card {
+    background: #111010;
+    border: 0.5px solid rgba(255,239,204,0.15);
+    border-radius: 12px;
+    padding: 14px 12px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .trd-wrap .which-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #FFEFCC;
+    margin-bottom: 2px;
+  }
+
+  .trd-wrap .which-price {
+    font-size: 11px;
+    font-weight: 600;
+    color: #FF8C42;
+    margin-bottom: 10px;
+  }
+
+  .trd-wrap .best-label {
+    font-size: 10px;
+    font-weight: 500;
+    color: rgba(255,239,204,0.45);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 5px;
+  }
+
+  .trd-wrap .which-list { list-style: none; flex: 1; }
+
+  .trd-wrap .which-list li {
+    font-size: 11px;
+    color: rgba(255,239,204,0.65);
+    padding: 2px 0 2px 14px;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .trd-wrap .which-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: #FF8C42;
+    font-size: 10px;
+  }
+
+  .trd-wrap .which-cta {
+    display: block;
+    margin-top: 12px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  /* ---- SCHOOL COMPARISON TABLE ---- */
+  .trd-wrap .table-section-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+  .trd-wrap .scroll-hint {
+    font-size: 10px;
+    color: rgba(255,239,204,0.35);
+    text-align: center;
+    margin-bottom: 6px;
+  }
+
+  .trd-wrap .table-wrap {
+    border-radius: 12px;
+    border: 0.5px solid rgba(255,239,204,0.15);
+    overflow: hidden;
+    min-width: 480px;
+  }
+
+  .trd-wrap table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+
+  .trd-wrap th, .trd-wrap td {
+    padding: 10px 9px;
+    font-size: 11px;
+    text-align: center;
+    border-bottom: 0.5px solid rgba(255,239,204,0.08);
+    vertical-align: middle;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .trd-wrap th:first-child, .trd-wrap td:first-child {
+    text-align: left;
+    font-weight: 500;
+    color: rgba(255,239,204,0.55);
+    background: #0d0c0c;
+    width: 34%;
+  }
+
+  .trd-wrap th {
+    font-size: 10px;
+    font-weight: 600;
+    background: #0d0c0c;
+    color: rgba(255,239,204,0.45);
+    border-bottom: 1px solid rgba(255,239,204,0.15);
+    letter-spacing: 0.02em;
+  }
+
+  .trd-wrap th.hl  { background: rgba(29,158,117,0.1); color: #5DCAA5; }
+  .trd-wrap th.hl2 { background: rgba(255,140,66,0.1); color: #FF8C42; }
+
+  .trd-wrap td.price     { font-weight: 600; font-size: 12px; color: #FFEFCC; }
+  .trd-wrap td.red-price { font-weight: 600; font-size: 12px; color: #E24B4A; }
+  .trd-wrap td.yes  { color: #5DCAA5; font-size: 14px; }
+  .trd-wrap td.no   { color: #E24B4A; font-size: 14px; }
+  .trd-wrap td.dim  { color: rgba(255,239,204,0.45); font-size: 10px; line-height: 1.4; }
+
+  .trd-wrap tr:last-child td { border-bottom: none; }
+
+  .trd-wrap .note {
+    font-size: 10px;
+    color: rgba(255,239,204,0.3);
+    text-align: center;
+    margin-top: 1rem;
+    line-height: 1.6;
+  }
+
+  /* ---- RESPONSIVE ---- */
+  @media (max-width: 480px) {
+    .trd-wrap { padding: 1.5rem 0.75rem 3rem; }
+    .trd-wrap h2.section-title { font-size: 18px; }
+    .trd-wrap .cards { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .trd-wrap .which-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .trd-wrap .card { padding: 12px 10px; }
+    .trd-wrap .card-price { font-size: 20px; }
+    .trd-wrap .card-name { font-size: 13px; }
+    .trd-wrap .which-card { padding: 10px; }
+  }
+
+  @media (max-width: 360px) {
+    .trd-wrap .cards { grid-template-columns: 1fr; }
+    .trd-wrap .which-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<div class="trd-wrap">
+
+  <!-- ===== COMPARE PROGRAMS ===== -->
+  <h2 class="section-title">Compare programs</h2>
+
+  <div class="cards">
+
+    <!-- Room & Kit -->
+    <div class="card">
+      <div class="badge entry">Entry</div>
+      <div class="card-name">Room &amp; Kit</div>
+      <div class="card-sub">Drum recording basics. No business, just better sound.</div>
+      <div class="card-price">$750</div>
+      <div class="card-meta">21 modules · lifetime access</div>
+      <div class="rows">
+        <div class="row"><span class="check yes">✓</span><span class="row-text">Tuning, room acoustics, mic placement</span></div>
+        <div class="row"><span class="check yes">✓</span><span class="row-text">Basic EQ &amp; compression</span></div>
+        <div class="row"><span class="check yes">✓</span><span class="row-text">Community board access</span></div>
+        <div class="row"><span class="check no">✗</span><span class="row-text">No business content</span></div>
+        <div class="row"><span class="check no">✗</span><span class="row-text">No live coaching</span></div>
+      </div>
+      <a class="cta-btn cta-amber" href="https://www.therecordingdrummer.com/room-kit" target="_blank">Get Room &amp; Kit →</a>
+    </div>
+
+    <!-- Self-Paced -->
+    <div class="card">
+      <div class="badge self">Self-paced</div>
+      <div class="card-name">Self-Paced</div>
+      <div class="card-sub">Complete foundation for recording drums professionally.</div>
+      <div class="card-price">$1,500</div>
+      <div class="card-meta">80+ modules · lifetime access</div>
+      <div class="rows">
+        <div class="row"><span class="check yes">✓</span><span class="row-text">Full recording curriculum</span></div>
+        <div class="row"><span class="check yes">✓</span><span class="row-text">Business basics included</span></div>
+        <div class="row"><span class="check yes">✓</span><span class="row-text">Discord community</span></div>
+        <div class="row"><span class="check no">✗</span><span class="row-text">No live coaching</span></div>
+        <div class="row"><span class="check no">✗</span><span class="row-text">No track feedback</span></div>
+      </div>
+      <a class="cta-btn cta-amber" href="https://www.therecordingdrummer.com/selfpaced" target="_blank">Get Self-Paced →</a>
+    </div>
+
+    <!-- Group Coaching -->
+    <div class="card featured">
+      <div class="badge popular">Most popular</div>
+      <div class="card-name">Group Coaching</div>
+      <div class="card-sub">Live coaching, track reviews, complete curriculum.</div>
+      <div class="card-price">$4,000</div>
+      <div class="card-meta">145 modules · 16 weeks coaching</div>
+      <div class="rows">
+        <div class="row"><span class="check yes">✓</span><span class="row-text">16 weekly live calls with Blair</span></div>
+        <div class="row"><span class="check yes">✓</span><span class="row-text">Track reviews &amp; feedback</span></div>
+        <div class="row"><span class="check yes">✓</span><span class="row-text">Complete business systems</span></div>
+        <div class="row"><span class="check yes">✓</span><span class="row-text">Discord community</span></div>
+        <div class="row"><span class="check no">✗</span><span class="row-text">No 1-on-1 sessions</span></div>
+      </div>
+      <a class="cta-btn cta-teal" href="https://calendly.com/blairdrx/explore" target="_blank">Book a free call →</a>
+    </div>
+
+    <!-- Personal Coaching -->
+    <div class="card">
+      <div class="badge premium">Premium</div>
+      <div class="card-name">Personal Coaching</div>
+      <div class="card-sub">Private mentorship for established pros.</div>
+      <div class="card-price">$8,000</div>
+      <div class="card-meta">160 modules · 20 weeks · 1-on-1</div>
+      <div class="rows">
+        <div class="row"><span class="check yes">✓</span><span class="row-text">12 private 1-on-1 sessions</span></div>
+        <div class="row"><span class="check yes">✓</span><span class="row-text">20 weekly group calls</span></div>
+        <div class="row"><span class="check yes">✓</span><span class="row-text">Advanced positioning strategy</span></div>
+        <div class="row"><span class="check yes">✓</span><span class="row-text">Career Pathways Book</span></div>
+        <div class="row"><span class="check yes">✓</span><span class="row-text">Discord community</span></div>
+      </div>
+      <a class="cta-btn cta-teal" href="https://calendly.com/blairdrx/explore" target="_blank">Book a free call →</a>
+    </div>
+
+  </div>
+
+  <hr class="divider" />
+
+  <!-- ===== WHICH PROGRAM ===== -->
+  <h2 class="section-title">Which program is right for you?</h2>
+
+  <div class="which-grid">
+
+    <div class="which-card">
+      <div class="which-title">Room &amp; Kit</div>
+      <div class="which-price">$750</div>
+      <div class="best-label">Best for</div>
+      <ul class="which-list">
+        <li>YouTube &amp; band drummers</li>
+        <li>Want better sound, not a career</li>
+        <li>No business content needed</li>
+        <li>Budget-conscious start</li>
+      </ul>
+      <a class="which-cta cta-amber" href="https://www.therecordingdrummer.com/room-kit" target="_blank">Get Room &amp; Kit →</a>
+    </div>
+
+    <div class="which-card">
+      <div class="which-title">Self-Paced</div>
+      <div class="which-price">$1,500</div>
+      <div class="best-label">Best for</div>
+      <ul class="which-list">
+        <li>Self-motivated learners</li>
+        <li>Budget-conscious but serious</li>
+        <li>Flexible schedule needed</li>
+        <li>Building toward pro work</li>
+      </ul>
+      <a class="which-cta cta-amber" href="https://www.therecordingdrummer.com/selfpaced" target="_blank">Get Self-Paced →</a>
+    </div>
+
+    <div class="which-card" style="border: 2px solid #2C5F6F;">
+      <div class="which-title">Group Coaching</div>
+      <div class="which-price">$4,000</div>
+      <div class="best-label">Best for</div>
+      <ul class="which-list">
+        <li>Need accountability</li>
+        <li>Want live track feedback</li>
+        <li>Serious about building income</li>
+        <li>Courses failed without structure</li>
+      </ul>
+      <a class="which-cta cta-teal" href="https://calendly.com/blairdrx/explore" target="_blank">Book a free call →</a>
+    </div>
+
+    <div class="which-card">
+      <div class="which-title">Personal Coaching</div>
+      <div class="which-price">$8,000</div>
+      <div class="best-label">Best for</div>
+      <ul class="which-list">
+        <li>Established pros pivoting</li>
+        <li>Premium market positioning</li>
+        <li>Personalized 1-on-1 strategy</li>
+        <li>Advanced rate &amp; niche work</li>
+      </ul>
+      <a class="which-cta cta-teal" href="https://calendly.com/blairdrx/explore" target="_blank">Book a free call →</a>
+    </div>
+
+  </div>
+
+  <hr class="divider" />
+
+  <!-- ===== SCHOOL COMPARISON ===== -->
+  <h2 class="section-title">How it compares to music school</h2>
+  <p class="scroll-hint">← scroll to see all →</p>
+
+  <div class="table-section-wrap">
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th class="hl">Self-Paced</th>
+            <th class="hl2">Group Coaching</th>
+            <th>Berklee<br><span style="font-weight:400;opacity:.7">1 semester</span></th>
+            <th>Full Sail<br><span style="font-weight:400;opacity:.7">1 semester</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Total cost</td>
+            <td class="price">$1,500</td>
+            <td class="price">$4,000</td>
+            <td class="red-price">~$37,750</td>
+            <td class="red-price">~$27,750</td>
+          </tr>
+          <tr>
+            <td>Duration</td>
+            <td class="dim">6 weeks</td>
+            <td class="dim">16 weeks</td>
+            <td class="dim">16 weeks</td>
+            <td class="dim">16 weeks</td>
+          </tr>
+          <tr>
+            <td>Drum recording focused</td>
+            <td class="yes">✓</td>
+            <td class="yes">✓</td>
+            <td class="dim">Broad degree</td>
+            <td class="dim">Broad degree</td>
+          </tr>
+          <tr>
+            <td>Taught by active session pro</td>
+            <td class="dim">30+ yrs</td>
+            <td class="dim">30+ yrs</td>
+            <td class="dim">Varies</td>
+            <td class="dim">Varies</td>
+          </tr>
+          <tr>
+            <td>Earning from sessions after</td>
+            <td class="dim">Week 6+</td>
+            <td class="dim">Week 10+</td>
+            <td class="dim">Years away</td>
+            <td class="dim">Years away</td>
+          </tr>
+          <tr>
+            <td>Client &amp; business systems</td>
+            <td class="dim">Basics</td>
+            <td class="dim">Complete</td>
+            <td class="no">✗</td>
+            <td class="no">✗</td>
+          </tr>
+          <tr>
+            <td>Degree / certificate</td>
+            <td class="dim">No — clients pay for results</td>
+            <td class="dim">No — clients pay for results</td>
+            <td class="yes">✓</td>
+            <td class="yes">✓</td>
+          </tr>
+          <tr>
+            <td>Leaves you in debt</td>
+            <td class="yes">✓ No</td>
+            <td class="yes">✓ No</td>
+            <td class="dim">Avg. $25k+ loans</td>
+            <td class="dim">Avg. $25k+ loans</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <p class="note">
+    College costs based on 2024–25 published total cost of attendance ÷ 2 semesters.<br>
+    Sources: Berklee.edu, FullSail.edu, NCES.
+  </p>
+
+</div>
