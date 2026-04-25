@@ -1,0 +1,50 @@
+<!-- ============================================================================
+     DIAGNOSTIC PAGE HERO — OVERFLOW FIX
+     Paste this into the FIRST Custom Code block on the diagnostic page.
+
+     Problem: The large italic "different" heading overflows horizontally,
+     clipping on the right side (desktop) and left side (mobile).
+
+     Fix: overflow: hidden on the section + clamp() font-size so the text
+     scales with the viewport instead of blowing past it.
+     ============================================================================ -->
+
+<style>
+/* ── 1. Prevent any horizontal scroll on the whole page ── */
+html,
+body {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+}
+
+/* ── 2. Keep every Kajabi section within bounds ── */
+.site-section,
+section[class*="section"],
+[class*="hbs-"] {
+    overflow-x: hidden !important;
+}
+
+/* ── 3. Make the large hero word scale to the viewport ──
+   clamp(min, preferred, max)
+   — never smaller than 48px, never larger than 160px,
+     tracks at 18vw so it stays inside the container.       */
+.diagnostic-big-word,
+h1[class*="hero"],
+section h1,
+section h2 {
+    font-size: clamp(48px, 18vw, 160px) !important;
+    line-height: 1 !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+    max-width: 100% !important;
+}
+
+/* ── 4. Mobile tweaks ── */
+@media (max-width: 768px) {
+    /* Tighten padding so text has more room */
+    section {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+}
+</style>
