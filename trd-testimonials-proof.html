@@ -1,0 +1,169 @@
+<!-- ============================================================================
+     TRD TESTIMONIALS — PROOF SECTION
+     Kajabi Custom HTML block — all colors use !important to override
+     Kajabi inline style injections. No CSS variables used.
+     Brand palette: Black #060102 · Amber #FF8C42 · Teal #2C5F6F · Cream #FFEFCC
+     ============================================================================ -->
+
+<style>
+/* ─── TESTIMONIALS ─── */
+
+.trd-proof {
+  background: #FFEFCC !important;
+  padding: 72px 24px !important;
+}
+
+/* Force background on any wrapper Kajabi wraps around the block */
+.trd-proof *,
+.trd-proof *::before,
+.trd-proof *::after {
+  box-sizing: border-box !important;
+}
+
+.trd-proof .trd-label {
+  color: #2C5F6F !important;
+}
+
+.trd-proof .trd-h2 {
+  color: #060102 !important;
+}
+
+.trd-proof-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 20px !important;
+  max-width: 960px !important;
+  margin: 0 auto !important;
+}
+
+.trd-quote {
+  background: #ffffff !important;
+  border-radius: 10px !important;
+  padding: 2rem 1.75rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px !important;
+  border: 1px solid rgba(0, 0, 0, 0.07) !important;
+}
+
+.trd-quote-mark {
+  font-size: 36px !important;
+  color: #FF8C42 !important;
+  font-family: Georgia, serif !important;
+  line-height: 1 !important;
+}
+
+.trd-quote-text {
+  font-size: 15px !important;
+  color: #2a2017 !important;
+  line-height: 1.75 !important;
+  font-style: italic !important;
+  flex: 1 !important;
+}
+
+.trd-quote-author {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+  padding-top: 14px !important;
+}
+
+.trd-quote-author img {
+  width: 42px !important;
+  height: 42px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  flex-shrink: 0 !important;
+}
+
+.trd-quote-author-name {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: #2C5F6F !important;
+}
+
+/* ─── MOBILE ─── */
+@media (max-width: 768px) {
+  .trd-proof {
+    background: #FFEFCC !important;
+    padding: 48px 16px !important;
+  }
+
+  .trd-proof-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .trd-quote {
+    background: #ffffff !important;
+    padding: 1.5rem 1.25rem !important;
+  }
+
+  .trd-quote-mark {
+    color: #FF8C42 !important;
+  }
+
+  .trd-quote-text {
+    color: #2a2017 !important;
+    font-size: 14px !important;
+  }
+
+  .trd-quote-author-name {
+    color: #2C5F6F !important;
+  }
+
+  .trd-proof .trd-label {
+    color: #2C5F6F !important;
+  }
+
+  .trd-proof .trd-h2 {
+    color: #060102 !important;
+  }
+}
+</style>
+
+<!-- Paste your existing HTML here — no changes needed to the markup -->
+<!-- Example structure for reference:
+
+<div class="trd-proof">
+  <p class="trd-label">WHAT STUDENTS SAY</p>
+  <h2 class="trd-h2">THIS IS WHAT UNDERSTANDING ACTUALLY LOOKS LIKE.</h2>
+  <div class="trd-proof-grid">
+    <div class="trd-quote">
+      <div class="trd-quote-mark">"</div>
+      <p class="trd-quote-text">Quote text here.</p>
+      <div class="trd-quote-author">
+        <img src="avatar.jpg" alt="Name">
+        <span class="trd-quote-author-name">Author Name</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+-->
+
+<!-- ============================================================================
+     INSTALLATION:
+     1. In Kajabi page editor, add a "Custom HTML" block
+     2. Copy this entire file
+     3. Paste your existing HTML block below the closing </style> tag
+     4. Delete the example comment above
+     5. Save
+
+     COLOR REFERENCE (no CSS variables — hardcoded to survive Kajabi overrides):
+       Background section : #FFEFCC  (brand cream)
+       Section background mobile : #FFEFCC  (same — explicitly repeated for mobile)
+       Quote cards        : #ffffff
+       Quote mark         : #FF8C42  (amber)
+       Quote text         : #2a2017  (near-black warm)
+       Author name        : #2C5F6F  (teal)
+       Heading label      : #2C5F6F  (teal)
+       Main heading h2    : #060102  (brand black)
+
+     NOTE ON HEADER TEXT COLOR:
+       If your h2 is appearing WHITE instead of readable, Kajabi is injecting
+       a theme-level color override. The !important on color:#060102 above
+       will defeat it. If you need the h2 to be cream (#FFEFCC) it means the
+       section background should be dark (#060102) — let me know and I'll
+       swap the palette to a dark variant.
+     ============================================================================ -->
