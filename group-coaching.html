@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Group Coaching — The Recording Drummer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#060102;
+  --cream:#FFEFCC;
+  --amber:#FF8C42;
+  --teal:#2C5F6F;
+  --teal-light:#5db8cc;
+  --gray:#1a1618;
+  --muted:#8a7e72;
+  --border:rgba(255,239,204,0.12);
+}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--cream);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.6;overflow-x:hidden}
+
+/* ── HERO ── */
+.hero{
+  min-height:88vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:4rem 2rem 4rem;
+  position:relative;
+  overflow:hidden;
+}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 80% 30%,rgba(44,95,111,.22) 0%,transparent 70%),radial-gradient(ellipse 40% 60% at 10% 80%,rgba(255,140,66,.07) 0%,transparent 60%),var(--black)}
+.hero-eyebrow{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--teal-light);margin-bottom:1.2rem;font-weight:400}
+.hero-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(3.2rem,7vw,6.5rem);
+  line-height:.92;
+  color:var(--cream);
+  max-width:820px;
+  position:relative;
+  z-index:1;
+}
+.hero-title .t{color:var(--teal-light)}
+.hero-title em{color:var(--amber);font-style:normal}
+.hero-sub{
+  font-family:'DM Serif Display',serif;
+  font-style:italic;
+  font-size:clamp(1rem,2vw,1.35rem);
+  color:rgba(255,239,204,.7);
+  margin-top:1.4rem;
+  max-width:560px;
+  line-height:1.5;
+  position:relative;
+  z-index:1;
+}
+.hero-sub b{color:var(--amber);font-weight:400;font-style:normal}
+.hero-actions{margin-top:2rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;position:relative;z-index:1}
+.btn-primary{background:var(--amber);color:var(--black);font-family:'DM Sans',sans-serif;font-weight:500;font-size:1rem;padding:.9rem 2.4rem;border:none;cursor:pointer;text-decoration:none;letter-spacing:.04em;transition:all .2s;display:inline-block}
+.btn-primary:hover{opacity:.88;transform:translateY(-1px)}
+.hero-proof{font-size:.8rem;color:var(--muted);letter-spacing:.05em}
+.hero-proof strong{color:rgba(255,239,204,.6);font-weight:400}
+.hero-stats{display:flex;gap:2.5rem;margin-top:3rem;padding-top:1.8rem;border-top:1px solid var(--border);position:relative;z-index:1}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:2.4rem;color:var(--amber);line-height:1}
+.stat-label{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.2rem}
+
+/* ── SECTIONS ── */
+section{padding:5rem 2rem}
+.container{max-width:1040px;margin:0 auto}
+.section-label{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--teal-light);margin-bottom:1rem;font-weight:400}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.6rem,5.5vw,4.8rem);line-height:.95;color:var(--cream);margin-bottom:1.5rem}
+.section-body{font-size:1.05rem;color:rgba(255,239,204,.65);max-width:560px;line-height:1.75}
+.problem{background:var(--gray)}
+.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:3rem}
+.problem-item{background:var(--black);padding:2rem 1.8rem;border-left:3px solid transparent;transition:border-color .3s}
+.problem-item:hover{border-color:var(--amber)}
+.problem-item h3{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--cream);margin-bottom:.6rem;letter-spacing:.03em}
+.problem-item p{font-size:.9rem;color:var(--muted);line-height:1.6}
+.what-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-top:3rem}
+.big-check-list{list-style:none;display:flex;flex-direction:column;gap:1.2rem;margin-top:1.5rem}
+.big-check-list li{display:flex;gap:1rem;align-items:flex-start;font-size:1rem;color:rgba(255,239,204,.8);line-height:1.5}
+.big-check-list li::before{content:'✓';color:var(--amber);font-weight:500;font-size:1rem;margin-top:.05rem;flex-shrink:0}
+.big-check-list li strong{color:var(--cream);font-weight:500}
+.phase-box{background:var(--gray);border:1px solid var(--border);padding:2rem}
+.phase-box h3{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--amber);margin-bottom:1.2rem;letter-spacing:.04em}
+.phase-item{padding:1rem 0;border-bottom:1px solid var(--border);display:flex;gap:1rem}
+.phase-item:last-child{border-bottom:none}
+.phase-num{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:rgba(255,140,66,.18);line-height:1;width:2.5rem;flex-shrink:0}
+.phase-text h4{font-size:.85rem;font-weight:500;color:var(--cream);letter-spacing:.04em;text-transform:uppercase;margin-bottom:.25rem}
+.phase-text p{font-size:.82rem;color:var(--muted);line-height:1.5}
+.coaching-bg{background:var(--teal);position:relative;overflow:hidden}
+.coaching-bg::before{content:'';position:absolute;top:-30%;right:-10%;width:60%;height:160%;background:rgba(0,0,0,.25);transform:skewX(-8deg)}
+.coaching-inner{position:relative;z-index:1}
+.coaching-cols{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:3rem}
+.coaching-card{background:rgba(0,0,0,.25);padding:2rem;border:1px solid rgba(255,239,204,.15)}
+.coaching-card h3{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--cream);margin-bottom:1.2rem;letter-spacing:.04em}
+.coaching-list{list-style:none;display:flex;flex-direction:column;gap:.8rem}
+.coaching-list li{font-size:.9rem;color:rgba(255,239,204,.8);padding-left:1.2rem;position:relative;line-height:1.5}
+.coaching-list li::before{content:'→';position:absolute;left:0;color:var(--amber);font-size:.8rem}
+.testimonials{background:var(--gray)}
+.testi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:3rem}
+.testi-card{background:var(--black);border:1px solid var(--border);overflow:hidden;transition:border-color .3s}
+.testi-card:hover{border-color:var(--amber)}
+.testi-video{position:relative;aspect-ratio:16/9;background:#0d0d0d;overflow:hidden}
+.testi-video video{width:100%;height:100%;object-fit:cover;display:block}
+.testi-placeholder{position:absolute;inset:0;background:#111;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.7rem;pointer-events:none}
+.testi-placeholder-ring{width:52px;height:52px;border-radius:50%;border:1px dashed rgba(255,239,204,.2);display:flex;align-items:center;justify-content:center}
+.testi-placeholder p{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,239,204,.2);text-align:center;max-width:130px;line-height:1.5}
+.testi-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.45);transition:background .25s;cursor:pointer}
+.testi-card:hover .testi-overlay{background:rgba(0,0,0,.25)}
+.play-btn{width:60px;height:60px;border-radius:50%;background:var(--amber);display:flex;align-items:center;justify-content:center;transition:transform .2s;position:relative}
+.testi-card:hover .play-btn{transform:scale(1.06)}
+.picon{width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent;border-left:20px solid var(--black);margin-left:4px;display:block}
+.pauseicon{display:none;gap:4px;align-items:center}
+.pauseicon span{display:block;width:5px;height:20px;background:var(--black);border-radius:2px}
+.testi-controls{position:absolute;bottom:0;left:0;right:0;padding:.5rem .8rem;background:linear-gradient(transparent,rgba(0,0,0,.75));display:flex;align-items:center;gap:.7rem;opacity:0;transition:opacity .25s}
+.testi-video:hover .testi-controls,.testi-video.playing .testi-controls{opacity:1}
+.ctrl-btn{width:28px;height:28px;border-radius:50%;background:var(--amber);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ctrl-picon{width:0;height:0;border-top:6px solid transparent;border-bottom:6px solid transparent;border-left:10px solid var(--black);margin-left:2px;display:block}
+.ctrl-pauseicon{display:none;gap:3px;align-items:center}
+.ctrl-pauseicon span{display:block;width:3px;height:11px;background:var(--black);border-radius:1px}
+.testi-progress{flex:1;height:3px;background:rgba(255,255,255,.2);border-radius:2px;cursor:pointer}
+.testi-progress-fill{height:100%;background:var(--amber);border-radius:2px;width:0}
+.testi-time{font-size:.68rem;color:rgba(255,239,204,.65);white-space:nowrap;font-variant-numeric:tabular-nums}
+.testi-meta{padding:1.2rem 1.5rem}
+.testi-name{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--cream);letter-spacing:.04em}
+.testi-theme{font-size:.78rem;color:var(--teal-light);margin-top:.15rem}
+.testi-stars{color:var(--amber);font-size:.75rem;margin-top:.1rem;letter-spacing:.1em}
+.who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.who-card{background:var(--gray);padding:2rem 1.5rem;border-top:3px solid var(--border)}
+.who-card.best{border-top-color:var(--amber)}
+.who-card h3{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--cream);margin-bottom:.8rem;letter-spacing:.04em}
+.who-card p{font-size:.88rem;color:var(--muted);line-height:1.65}
+.who-badge{display:inline-block;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;padding:.3rem .8rem;background:var(--amber);color:var(--black);margin-bottom:.8rem;font-weight:500}
+.compare-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:2.5rem}
+.compare-table{width:100%;min-width:580px;border-collapse:collapse;font-size:.9rem}
+.compare-table th{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:.06em;padding:1rem 1.5rem;text-align:left;border-bottom:2px solid var(--border);color:var(--cream)}
+.compare-table th.hi{color:var(--amber);border-bottom-color:var(--amber)}
+.compare-table td{padding:.9rem 1.5rem;border-bottom:1px solid var(--border);color:rgba(255,239,204,.65);vertical-align:middle}
+.compare-table td.hi{color:var(--cream)}
+.compare-table tr:hover td{background:rgba(255,239,204,.02)}
+.ck{color:var(--amber)}
+.da{color:var(--muted)}
+.pricing{background:var(--gray)}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.price-card{background:var(--black);border:1px solid var(--border);padding:2rem 1.8rem;position:relative}
+.price-card.featured{border-color:var(--amber)}
+.price-badge{position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--amber);color:var(--black);font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;padding:.3rem 1rem;font-weight:500;white-space:nowrap}
+.price-label{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem}
+.price-amount{font-family:'Bebas Neue',sans-serif;font-size:3.5rem;color:var(--cream);line-height:1}
+.price-amount sup{font-family:'DM Sans',sans-serif;font-size:1.2rem;vertical-align:super;line-height:0;color:var(--amber)}
+.price-note{font-size:.82rem;color:var(--muted);margin-top:.4rem;line-height:1.4}
+.price-divider{margin:1.5rem 0;border:none;border-top:1px solid var(--border)}
+.price-features{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+.price-features li{font-size:.85rem;color:rgba(255,239,204,.7);display:flex;gap:.7rem;align-items:flex-start;line-height:1.4}
+.price-features li::before{content:'✓';color:var(--amber);flex-shrink:0}
+.credit-box{background:rgba(44,95,111,.1);border:1px solid rgba(93,184,204,.2);padding:2rem 2.2rem;margin-top:2rem}
+.credit-box h3{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--teal-light);margin-bottom:.8rem;letter-spacing:.04em}
+.credit-box p{font-size:.92rem;color:rgba(255,239,204,.7);line-height:1.7}
+.credit-box p strong{color:var(--cream);font-weight:500}
+.credit-pills{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.2rem}
+.credit-pill{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;padding:.3rem .9rem;border:1px solid rgba(93,184,204,.3);color:var(--teal-light)}
+.cta-section{text-align:center;padding:7rem 2rem;position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(44,95,111,.2) 0%,transparent 70%)}
+.cta-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.8rem,6.5vw,5.5rem);color:var(--cream);line-height:.95;position:relative;z-index:1}
+.cta-title em{color:var(--amber);font-style:normal}
+.cta-body{font-size:1.05rem;color:rgba(255,239,204,.6);margin:1.5rem auto;max-width:480px;line-height:1.7;position:relative;z-index:1}
+.cta-actions{margin-top:2.5rem;position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:.8rem}
+.cta-sub{font-size:.8rem;color:var(--muted);letter-spacing:.06em}
+footer{background:var(--gray);padding:2.5rem 2rem;border-top:1px solid var(--border);text-align:center}
+footer p{font-size:.78rem;color:var(--muted);letter-spacing:.06em}
+footer a{color:var(--amber);text-decoration:none}
+
+/* ── MOBILE ── */
+@media(max-width:768px){
+  /* Hero */
+  .hero{
+    min-height:auto;
+    padding:5rem 1.5rem 3.5rem;
+    justify-content:flex-start;
+  }
+  .hero-title{font-size:clamp(2.8rem,13vw,4.8rem)}
+  .hero-sub{font-size:1rem;margin-top:1.2rem}
+  .hero-actions{flex-direction:column;align-items:stretch;gap:.9rem;margin-top:1.6rem}
+  .btn-primary{text-align:center;padding:.95rem 1.5rem}
+  .hero-proof{text-align:center;font-size:.75rem}
+  .hero-stats{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1.2rem 1rem;
+    margin-top:2.5rem;
+    padding-top:1.5rem;
+  }
+  .stat-num{font-size:2rem}
+  .stat-label{font-size:.65rem}
+
+  /* Sections */
+  section{padding:3.5rem 1.5rem}
+  .section-title{margin-bottom:1rem}
+
+  /* Grids → single column */
+  .problem-grid,
+  .what-grid,
+  .coaching-cols,
+  .who-grid,
+  .pricing-grid,
+  .testi-grid{grid-template-columns:1fr}
+
+  /* Problem items */
+  .problem-item{padding:1.5rem 1.2rem}
+
+  /* What grid */
+  .what-grid{gap:2.5rem}
+
+  /* Phase box */
+  .phase-box{padding:1.5rem 1.2rem}
+
+  /* Testimonials */
+  .testi-meta{padding:1rem 1.2rem}
+
+  /* Compare table — scrollable */
+  .compare-wrap{margin-top:1.5rem}
+  .compare-table{font-size:.78rem}
+  .compare-table th,.compare-table td{padding:.7rem .9rem}
+
+  /* Pricing */
+  .pricing-grid{gap:1rem}
+  .price-card{padding:1.8rem 1.5rem}
+  .price-card.featured{margin-top:.5rem}
+
+  /* Credit box */
+  .credit-box{padding:1.5rem 1.2rem}
+
+  /* CTA */
+  .cta-section{padding:4.5rem 1.5rem}
+  .cta-actions .btn-primary{width:100%;max-width:360px}
+}
+
+@media(max-width:480px){
+  .hero-title{font-size:clamp(2.6rem,14vw,4rem)}
+  .hero-eyebrow{font-size:.68rem}
+  .hero-stats{gap:1rem .5rem}
+  .stat-num{font-size:1.8rem}
+  .section-title{font-size:clamp(2.2rem,10vw,3.5rem)}
+  .problem-item h3{font-size:1.4rem}
+  .coaching-card{padding:1.5rem 1.2rem}
+  .who-card{padding:1.5rem 1.2rem}
+  .pricing-grid{gap:.8rem}
+  .price-amount{font-size:3rem}
+  .cta-title{font-size:clamp(2.4rem,11vw,4rem)}
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="container">
+    <img src="data:image/png;base64,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" alt="The Recording Drummer" style="width:80px;height:80px;object-fit:contain;margin-bottom:1.2rem;position:relative;z-index:1;display:block">
+    <p class="hero-eyebrow">The Recording Drummer — Group Coaching</p>
+    <h1 class="hero-title"><span class="t">Live Coaching</span><br>+ a Community<br>of <em>Working</em><br>Drummers.</h1>
+    <p class="hero-sub">145 modules. <b>16 weeks of live coaching.</b> Track reviews on your actual mixes. The full picture, at the depth working drummers actually need.</p>
+    <div class="hero-actions">
+      <a href="https://calendly.com/blairdrx/explore" target="_blank" class="btn-primary">Book Free Exploratory Call</a>
+      <span class="hero-proof">No pressure. <strong>30 minutes with Blair.</strong> Find out if it's the right fit.</span>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num">145+</div><div class="stat-label">Video Modules</div></div>
+      <div><div class="stat-num">16</div><div class="stat-label">Live Coaching Weeks</div></div>
+      <div><div class="stat-num">3</div><div class="stat-label">Business Phases</div></div>
+      <div><div class="stat-num">∞</div><div class="stat-label">Lifetime Access</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="problem">
+  <div class="container">
+    <p class="section-label">Why Most Drummers Stay Stuck</p>
+    <h2 class="section-title">You've Been Here Before.</h2>
+    <p class="section-body">You're still guessing whether your compression sounds right. You've watched the tutorials. You know you need more than information — you need someone to tell you if <em>your</em> mix is good.</p>
+    <div class="problem-grid">
+      <div class="problem-item">
+        <h3>Turning Knobs by Feel</h3>
+        <p>Inconsistent results. Sometimes good, sometimes not. You don't know why, so you can't repeat the wins or fix the losses.</p>
+      </div>
+      <div class="problem-item">
+        <h3>The YouTube Trap</h3>
+        <p>Scattered tutorials that work in their room, with their gear. You have different mics, different acoustics, different problems. YouTube can't answer "what should I do in my specific situation?"</p>
+      </div>
+      <div class="problem-item">
+        <h3>No One to Ask</h3>
+        <p>You're working alone. No one in your life understands phase relationships, source sounds, or why your room sounds the way it does. You need people who get it — and someone who's been there.</p>
+      </div>
+      <div class="problem-item">
+        <h3>Undercharging From Uncertainty</h3>
+        <p>You're charging $75–150/track because you don't trust your mixes enough to ask for $200. That's not a pricing problem. It's a knowledge problem.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:5rem 2rem;background:var(--black)">
+  <div class="container">
+    <div class="what-grid">
+      <div>
+        <p class="section-label">What Group Coaching Is</p>
+        <h2 class="section-title">The Map.<br>Plus a Guide.<br>Plus a Group.</h2>
+        <p class="section-body">The curriculum teaches you the <em>why</em> behind every recording decision. The live calls let you apply it to your room, your mics, your sessions — with Blair answering your specific questions every week for 16 weeks.</p>
+        <ul class="big-check-list" style="margin-top:2rem">
+          <li><span><strong>Full 145-module curriculum</strong> — systematic, not scattered. Lifetime access.</span></li>
+          <li><span><strong>16 weekly live Q&A calls</strong> — bring your room, your setup, your sessions. Get answers specific to your situation.</span></li>
+          <li><span><strong>Track reviews</strong> — Blair listens to your actual mixes and tells you what's working and what isn't.</span></li>
+          <li><span><strong>Guided assignments</strong> — weekly structure so you actually move through the material.</span></li>
+          <li><span><strong>Discord community</strong> — serious drummers building real businesses. Past cohorts have generated referrals, collaborations, and friendships that outlast the 16 weeks.</span></li>
+          <li><span><strong>All calls recorded</strong> — can't make it live? Watch with timestamps within 24 hours. Submit questions beforehand and Blair addresses them in the call.</span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="phase-box">
+          <h3>3-Phase Curriculum</h3>
+          <div class="phase-item">
+            <div class="phase-num">01</div>
+            <div class="phase-text">
+              <h4>Source Sounds &amp; Recording</h4>
+              <p>Weeks 1–6. Tuning, mic technique, phase relationships, playing for the mics. 80% of your sound happens before you press record.</p>
+            </div>
+          </div>
+          <div class="phase-item">
+            <div class="phase-num">02</div>
+            <div class="phase-text">
+              <h4>Mixing &amp; Refinement</h4>
+              <p>Weeks 7–9. EQ, compression, effects, drum bus, editing, professional file delivery. Stop guessing what compression is doing.</p>
+            </div>
+          </div>
+          <div class="phase-item">
+            <div class="phase-num">03</div>
+            <div class="phase-text">
+              <h4>Business &amp; Client Systems</h4>
+              <p>Weeks 10–12. Rate calculation, client communication, getting work, building momentum. Technical skills get you the first gig. Systems get you rehired.</p>
+            </div>
+          </div>
+          <div class="phase-item">
+            <div class="phase-num">+</div>
+            <div class="phase-text">
+              <h4>Bonus: Emulations + Interviews</h4>
+              <p>Recreate iconic drum sounds. Career interviews with Fred Eltringham, Joey Waronker, Shawn Pelton, Rich Redmond, and more.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="coaching-bg" style="padding:5rem 2rem">
+  <div class="container coaching-inner">
+    <p class="section-label" style="color:rgba(255,239,204,.4)">How the Live Coaching Works</p>
+    <h2 class="section-title">16 Weeks.<br>No Hiding.</h2>
+    <div class="coaching-cols">
+      <div class="coaching-card">
+        <h3>Weekly Group Calls</h3>
+        <ul class="coaching-list">
+          <li>90-minute live sessions via Zoom every week for 16 weeks</li>
+          <li>Q&A on curriculum material, technical problems, business questions</li>
+          <li>Track reviews — submit your mixes, get feedback in front of the group</li>
+          <li>Real problems: "My snare sounds boxy — here's the clip"</li>
+          <li>Business questions: "Should I raise my rates now or wait?"</li>
+          <li>All calls recorded and posted with timestamps within 24 hours</li>
+          <li>Submit questions beforehand if you can't attend live — they get answered</li>
+        </ul>
+      </div>
+      <div class="coaching-card">
+        <h3>Track Review Process</h3>
+        <ul class="coaching-list">
+          <li>Submit tracks through the community platform</li>
+          <li>Blair reviews during the group call — everyone learns from it</li>
+          <li>Feedback on EQ choices, compression, effects, overall decisions</li>
+          <li>What's working, what needs adjustment — direct and specific</li>
+          <li>Follow-up submissions encouraged: "Here's my revision — better?"</li>
+          <li>Real mixes, real problems, real solutions — not theoretical examples</li>
+          <li>You often learn as much from other people's tracks as your own</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="container">
+    <p class="section-label">Student Results</p>
+    <h2 class="section-title">They Were Where You Are.</h2>
+    <p class="section-body">Drummers who went through the program. Real people, real results.</p>
+    <div class="testi-grid">
+
+      <!--=== VIDEO SLOT 1 — Nick Lang ===
+          To update: replace the src URL on the <video> tag with your new video URL.
+          To add a thumbnail: add  poster="YOUR_IMAGE_URL"  attribute to the <video> tag.
+          To update name/theme: edit .testi-name and .testi-theme text below.
+      ===-->
+      <div class="testi-card">
+        <div class="testi-video" id="wrap1">
+          <video id="v1" src="https://kajabi-storefronts-production.s3.amazonaws.com/file-uploads/sites/162992/video/f561020-1bdc-b242-f312-622075526c73_Nick_Lang_2_Mic_Sucess.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAI4TIKYMSB4PQMFBA%2F20260518%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260518T195822Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=1c1f3a59521cb4fa02e580377e074f63c310163e7c5f114f1302b7dd78d9c993" preload="none" playsinline></video>
+          <div class="testi-placeholder" id="ph1"><div class="testi-placeholder-ring"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,239,204,.25)" stroke-width="1.5"><polygon points="5,3 19,12 5,21"/></svg></div><p>Thumbnail goes here</p></div>
+          <div class="testi-overlay" id="ov1" onclick="toggleV('v1')"><div class="play-btn"><div class="picon" id="pi1"></div><div class="pauseicon" id="pau1"><span></span><span></span></div></div></div>
+          <div class="testi-controls"><button class="ctrl-btn" onclick="toggleV('v1')"><div class="ctrl-picon" id="cpi1"></div><div class="ctrl-pauseicon" id="cpau1"><span></span><span></span></div></button><div class="testi-progress" onclick="seekV('v1',event)"><div class="testi-progress-fill" id="pf1"></div></div><span class="testi-time" id="tm1">0:00</span></div>
+        </div>
+        <div class="testi-meta"><div class="testi-name">Nick Lang</div><div class="testi-theme">Workflow Success</div><div class="testi-stars">★★★★★</div></div>
+      </div>
+
+      <!--=== VIDEO SLOT 2 — Charles Wiley ===-->
+      <div class="testi-card">
+        <div class="testi-video" id="wrap2">
+          <video id="v2" src="https://kajabi-storefronts-production.s3.amazonaws.com/file-uploads/sites/162992/video/41f2072-32f-b517-4da6-47060add766e_Charles_Improvement_W_His_Own_Gear_1_.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAI4TIKYMSB4PQMFBA%2F20260518%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260518T195910Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=78814c05fa85df17b0d8b124be8246aa50380b389454e5dc9dab53f298033d29" preload="none" playsinline></video>
+          <div class="testi-placeholder" id="ph2"><div class="testi-placeholder-ring"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,239,204,.25)" stroke-width="1.5"><polygon points="5,3 19,12 5,21"/></svg></div><p>Thumbnail goes here</p></div>
+          <div class="testi-overlay" id="ov2" onclick="toggleV('v2')"><div class="play-btn"><div class="picon" id="pi2"></div><div class="pauseicon" id="pau2"><span></span><span></span></div></div></div>
+          <div class="testi-controls"><button class="ctrl-btn" onclick="toggleV('v2')"><div class="ctrl-picon" id="cpi2"></div><div class="ctrl-pauseicon" id="cpau2"><span></span><span></span></div></button><div class="testi-progress" onclick="seekV('v2',event)"><div class="testi-progress-fill" id="pf2"></div></div><span class="testi-time" id="tm2">0:00</span></div>
+        </div>
+        <div class="testi-meta"><div class="testi-name">Charles Wiley</div><div class="testi-theme">Gear Revelations</div><div class="testi-stars">★★★★★</div></div>
+      </div>
+
+      <!--=== VIDEO SLOT 3 — Danny Piccurio ===-->
+      <div class="testi-card">
+        <div class="testi-video" id="wrap3">
+          <video id="v3" src="https://kajabi-storefronts-production.s3.amazonaws.com/file-uploads/sites/162992/video/3701b7e-56-a83a-a6b-f14ca0176a5_Unlock_Amazing_Drum_Tones_Experiment_with_Your_Sound_.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAI4TIKYMSB4PQMFBA%2F20260518%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260518T195946Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=c44d096023471db35586c500bf555d0dbb3043ff193fa2dc697c393b519ad469" preload="none" playsinline></video>
+          <div class="testi-placeholder" id="ph3"><div class="testi-placeholder-ring"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,239,204,.25)" stroke-width="1.5"><polygon points="5,3 19,12 5,21"/></svg></div><p>Thumbnail goes here</p></div>
+          <div class="testi-overlay" id="ov3" onclick="toggleV('v3')"><div class="play-btn"><div class="picon" id="pi3"></div><div class="pauseicon" id="pau3"><span></span><span></span></div></div></div>
+          <div class="testi-controls"><button class="ctrl-btn" onclick="toggleV('v3')"><div class="ctrl-picon" id="cpi3"></div><div class="ctrl-pauseicon" id="cpau3"><span></span><span></span></div></button><div class="testi-progress" onclick="seekV('v3',event)"><div class="testi-progress-fill" id="pf3"></div></div><span class="testi-time" id="tm3">0:00</span></div>
+        </div>
+        <div class="testi-meta"><div class="testi-name">Danny Piccurio</div><div class="testi-theme">Unlocking Tones</div><div class="testi-stars">★★★★★</div></div>
+      </div>
+
+      <!--=== VIDEO SLOT 4 — Keith Larsen ===-->
+      <div class="testi-card">
+        <div class="testi-video" id="wrap4">
+          <video id="v4" src="https://kajabi-storefronts-production.s3.amazonaws.com/file-uploads/sites/162992/video/1e80d81-8ae6-df33-d662-73d814fccb35_Secret_Mic_Trick_For_Amazing_Drum_Sound_1_.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAI4TIKYMSB4PQMFBA%2F20260518%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260518T200006Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=0319faf920af20725fb283e4918cd6c44894cc1220f06543c095e5c4fc5b4d0c" preload="none" playsinline></video>
+          <div class="testi-placeholder" id="ph4"><div class="testi-placeholder-ring"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,239,204,.25)" stroke-width="1.5"><polygon points="5,3 19,12 5,21"/></svg></div><p>Thumbnail goes here</p></div>
+          <div class="testi-overlay" id="ov4" onclick="toggleV('v4')"><div class="play-btn"><div class="picon" id="pi4"></div><div class="pauseicon" id="pau4"><span></span><span></span></div></div></div>
+          <div class="testi-controls"><button class="ctrl-btn" onclick="toggleV('v4')"><div class="ctrl-picon" id="cpi4"></div><div class="ctrl-pauseicon" id="cpau4"><span></span><span></span></div></button><div class="testi-progress" onclick="seekV('v4',event)"><div class="testi-progress-fill" id="pf4"></div></div><span class="testi-time" id="tm4">0:00</span></div>
+        </div>
+        <div class="testi-meta"><div class="testi-name">Keith Larsen</div><div class="testi-theme">Room Discoveries</div><div class="testi-stars">★★★★★</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section style="padding:5rem 2rem;background:var(--black)">
+  <div class="container">
+    <p class="section-label">Who This Is For</p>
+    <h2 class="section-title">Three Types of<br>Drummer. One<br>Right Answer.</h2>
+    <div class="who-grid">
+      <div class="who-card best">
+        <div class="who-badge">Best Fit</div>
+        <h3>The Established Pro</h3>
+        <p>Already earning. Plateaued. Needs refinement, not fundamentals. Live coaching accelerates from "good" to "elite" fast — because you already have workflow. You just need someone to tell you what's actually happening in your mixes.</p>
+      </div>
+      <div class="who-card best">
+        <div class="who-badge">Strong Fit</div>
+        <h3>The Young Hustler</h3>
+        <p>Inconsistent income, decent gear, hungry and coachable. Wants structure and someone to answer questions week to week. The community creates peer accountability. You implement fast when guided.</p>
+      </div>
+      <div class="who-card">
+        <h3>The Burned-Out Veteran</h3>
+        <p>Decades of teaching and gigging. Needs modern systems and a second chapter. The calls provide the technical updating alongside the community. You'll find peers in the same transition who understand what you're navigating.</p>
+      </div>
+    </div>
+    <p style="font-size:.85rem;color:var(--muted);margin-top:2rem;padding:1.2rem 1.5rem;border-left:3px solid rgba(44,95,111,.4);line-height:1.6">Not the right fit right now: Pure career explorers who aren't sure they want to do this — start with the <a href="https://therecordingdrummer.com/free-assessment" style="color:var(--teal-light);text-decoration:none">Free Assessment</a> or the <a href="https://therecordingdrummer.com/blueprint" style="color:var(--teal-light);text-decoration:none">Blueprint</a> first. Genre specialists who need niche-specific positioning — that's Personal Coaching territory.</p>
+  </div>
+</section>
+
+<section style="padding:5rem 2rem;background:var(--gray)">
+  <div class="container">
+    <p class="section-label">How It Compares</p>
+    <h2 class="section-title">Know What<br>You're Buying.</h2>
+    <div class="compare-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Self-Paced<br><span style="font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:300;color:var(--muted)">$1,500</span></th>
+            <th class="hi">Group Coaching<br><span style="font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:300;color:var(--amber)">$3,997</span></th>
+            <th>Personal<br><span style="font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:300;color:var(--muted)">$8,000</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Video curriculum</td><td>80 modules</td><td class="hi">145+ modules</td><td>160+ modules</td></tr>
+          <tr><td>Lifetime access</td><td><span class="ck">✓</span></td><td class="hi"><span class="ck">✓</span></td><td><span class="ck">✓</span></td></tr>
+          <tr><td>Discord community</td><td><span class="ck">✓</span></td><td class="hi"><span class="ck">✓</span></td><td><span class="ck">✓</span></td></tr>
+          <tr><td>Live group calls</td><td><span class="da">—</span></td><td class="hi" style="color:var(--teal-light)">✓ 16 weeks</td><td style="color:var(--teal-light)">✓ 20 weeks</td></tr>
+          <tr><td>Track reviews</td><td><span class="da">Community only</span></td><td class="hi" style="color:var(--teal-light)">✓ Blair reviews your mixes</td><td style="color:var(--teal-light)">✓ Group + private</td></tr>
+          <tr><td>Guided assignments</td><td><span class="da">Self-directed</span></td><td class="hi" style="color:var(--teal-light)">✓ Weekly accountability</td><td style="color:var(--teal-light)">✓</td></tr>
+          <tr><td>1-on-1 coaching</td><td><span class="da">—</span></td><td class="hi"><span class="da">—</span></td><td style="color:var(--teal-light)">✓ Private sessions</td></tr>
+          <tr><td>Best for</td><td>Flexible, self-directed learners</td><td class="hi">Need live feedback + accountability</td><td>Established pros, premium positioning</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="pricing">
+  <div class="container">
+    <p class="section-label">Investment</p>
+    <h2 class="section-title">Choose Your Plan.</h2>
+    <p class="section-body" style="margin-bottom:0">All plans include the same complete program. Payment plans make the investment accessible — the outcome is identical regardless of how you pay.</p>
+    <div class="pricing-grid">
+      <div class="price-card featured">
+        <div class="price-badge">Most Popular</div>
+        <div class="price-label" style="margin-top:.8rem">Pay in Full</div>
+        <div class="price-amount"><sup>$</sup>3,997</div>
+        <div class="price-note">One payment. Instant access.</div>
+        <hr class="price-divider">
+        <ul class="price-features">
+          <li>145+ video modules (lifetime)</li>
+          <li>16 weekly live coaching calls</li>
+          <li>Track reviews with Blair</li>
+          <li>Discord + community board</li>
+          <li>Guided assignments</li>
+          <li>All call recordings archived</li>
+        </ul>
+      </div>
+      <div class="price-card">
+        <div class="price-label">4-Month Plan</div>
+        <div class="price-amount"><sup>$</sup>999<span style="font-family:'DM Sans',sans-serif;font-size:1.2rem;font-weight:300;color:var(--muted)">/mo</span></div>
+        <div class="price-note">4 payments of $999.<br>Same program, same access.</div>
+        <hr class="price-divider">
+        <ul class="price-features">
+          <li>Everything in Pay in Full</li>
+          <li>Spread across 4 months</li>
+          <li>Access begins immediately</li>
+        </ul>
+      </div>
+      <div class="price-card">
+        <div class="price-label">6-Month Plan</div>
+        <div class="price-amount"><sup>$</sup>666<span style="font-family:'DM Sans',sans-serif;font-size:1.2rem;font-weight:300;color:var(--muted)">/mo</span></div>
+        <div class="price-note">6 payments of $666.<br>Same program, same access.</div>
+        <hr class="price-divider">
+        <ul class="price-features">
+          <li>Everything in Pay in Full</li>
+          <li>Spread across 6 months</li>
+          <li>Access begins immediately</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="credit-box">
+      <h3>Already Purchased a Recording Drummer Product?</h3>
+      <p>If you've already invested in any of the courses below, that investment applies as a <strong>credit toward Group Coaching</strong>. You don't start over — you pick up where you are and add the live coaching layer on top. Reach out before booking your exploratory call to discuss how your credit applies.</p>
+      <div class="credit-pills">
+        <div class="credit-pill">Snare Sound System</div>
+        <div class="credit-pill">Room &amp; Kit</div>
+        <div class="credit-pill">Self-Paced Course</div>
+      </div>
+    </div>
+
+    <div style="margin-top:1.5rem;padding:1.5rem 2rem;background:rgba(255,140,66,.04);border:1px solid rgba(255,140,66,.14)">
+      <p style="font-size:.9rem;color:rgba(255,239,204,.65);line-height:1.65"><strong style="color:var(--cream);font-weight:500">The ROI math:</strong> If you're currently charging $100/track and this program helps you raise to $250/track, you break even in 27 tracks. At 5 tracks per month, that's roughly 5 months — then every track after that is profit on skills you'll use for the rest of your career.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <h2 class="cta-title">Ready to Stop<br>Guessing<br>and <em>Build This?</em></h2>
+    <p class="cta-body">Book a free 30-minute exploratory call with Blair. No pitch, no pressure. Find out if Group Coaching is the right fit for where you are and where you want to be.</p>
+    <div class="cta-actions">
+      <a href="https://calendly.com/blairdrx/explore" target="_blank" class="btn-primary" style="font-size:1.1rem;padding:1.1rem 3rem">Book Free Exploratory Call</a>
+      <span class="cta-sub">therecordingdrummer.com · Blair Sinta · LA Session Drummer, 25+ Years</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© The Recording Drummer · <a href="https://therecordingdrummer.com">therecordingdrummer.com</a> · Blair Sinta</p>
+</footer>
+
+<script>
+const vids=['v1','v2','v3','v4'];
+function fmt(s){const m=Math.floor(s/60),x=Math.floor(s%60);return m+':'+(x<10?'0':'')+x;}
+function setState(n,playing){
+  document.getElementById('pi'+n).style.display=playing?'none':'block';
+  document.getElementById('pau'+n).style.display=playing?'flex':'none';
+  document.getElementById('cpi'+n).style.display=playing?'none':'block';
+  document.getElementById('cpau'+n).style.display=playing?'flex':'none';
+  const ov=document.getElementById('ov'+n);
+  ov.style.background=playing?'transparent':'rgba(0,0,0,.45)';
+  ov.style.pointerEvents=playing?'none':'auto';
+  const wrap=document.getElementById('wrap'+n);
+  if(playing)wrap.classList.add('playing'); else wrap.classList.remove('playing');
+  if(playing){const ph=document.getElementById('ph'+n);if(ph)ph.style.display='none';}
+}
+function toggleV(id){
+  const n=id.replace('v','');
+  const v=document.getElementById(id);
+  if(v.paused){
+    vids.forEach(i=>{if(i!==id){const x=document.getElementById(i);x.pause();}});
+    v.play();
+  } else {
+    v.pause();
+  }
+}
+function seekV(id,e){
+  const v=document.getElementById(id);
+  if(!v.duration)return;
+  v.currentTime=(e.offsetX/e.currentTarget.offsetWidth)*v.duration;
+}
+vids.forEach(id=>{
+  const n=id.replace('v','');
+  const v=document.getElementById(id);
+  v.addEventListener('play',()=>setState(n,true));
+  v.addEventListener('pause',()=>setState(n,false));
+  v.addEventListener('ended',()=>setState(n,false));
+  v.addEventListener('timeupdate',()=>{
+    if(!v.duration)return;
+    document.getElementById('pf'+n).style.width=((v.currentTime/v.duration)*100)+'%';
+    document.getElementById('tm'+n).textContent=fmt(v.currentTime);
+  });
+});
+</script>
+</body>
+</html>
