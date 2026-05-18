@@ -153,11 +153,15 @@
 
   @media (max-width:768px) {
     nav { padding:0 20px; }
+    .nav-links li:not(:last-child) { display:none; }
+    .nav-links { gap:0; }
     section { padding:60px 20px; }
     .archetypes-grid,.phases-grid,.not-grid,.students-grid { grid-template-columns:1fr; }
-    .blair-inner { grid-template-columns:1fr; }
+    .blair-inner { grid-template-columns:1fr; gap:32px; }
+    .blair-video { aspect-ratio:16/9; }
     .small-cards-row { grid-template-columns:1fr 1fr; }
     .large-cards-row { grid-template-columns:1fr; }
+    .prod-img-wrap, .prod-img-wrap-lg { width:80px; height:80px; }
   }
 </style>
 </head>
