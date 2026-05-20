@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Darrell Thorp — The Recording Drummer Podcast</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .trd-wrap {
+    background: #060102 !important;
+    font-family: 'Poppins', sans-serif !important;
+    color: #FFEFCC !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .trd-page {
+    max-width: 760px !important;
+    margin: 0 auto !important;
+    padding: 48px 32px 64px !important;
+    background: #060102 !important;
+  }
+
+  @media (max-width: 520px) {
+    .trd-page {
+      padding: 36px 20px 52px !important;
+    }
+  }
+
+  /* HEADER */
+  .trd-header {
+    text-align: center !important;
+    padding-bottom: 40px !important;
+    border-bottom: 1px solid #2C5F6F !important;
+    margin-bottom: 40px !important;
+  }
+
+  .trd-logo {
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.18em !important;
+    text-transform: uppercase !important;
+    color: #2C5F6F !important;
+    margin-bottom: 16px !important;
+  }
+
+  .trd-episode-label {
+    display: inline-block !important;
+    background: #2C5F6F !important;
+    color: #FFEFCC !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase !important;
+    padding: 5px 14px !important;
+    border-radius: 2px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .trd-title {
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    color: #FFEFCC !important;
+    line-height: 1.25 !important;
+    margin-bottom: 10px !important;
+  }
+
+  .trd-subtitle {
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    color: #FFEFCC !important;
+    opacity: 0.6 !important;
+    line-height: 1.6 !important;
+  }
+
+  /* GUEST BIO */
+  .trd-bio {
+    background: #0e0a0b !important;
+    border-left: 4px solid #2C5F6F !important;
+    padding: 24px 28px !important;
+    margin-bottom: 40px !important;
+    border-radius: 2px !important;
+  }
+
+  .trd-bio-label {
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.16em !important;
+    text-transform: uppercase !important;
+    color: #2C5F6F !important;
+    margin-bottom: 10px !important;
+  }
+
+  .trd-bio p {
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    color: #FFEFCC !important;
+    line-height: 1.75 !important;
+    opacity: 0.85 !important;
+  }
+
+  .trd-bio p strong {
+    font-weight: 700 !important;
+    opacity: 1 !important;
+  }
+
+  /* SECTION HEADERS */
+  .trd-section-label {
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.18em !important;
+    text-transform: uppercase !important;
+    color: #2C5F6F !important;
+    margin-bottom: 20px !important;
+    padding-bottom: 8px !important;
+    border-bottom: 1px solid #1a1a1a !important;
+  }
+
+  /* KEY TAKEAWAYS */
+  .trd-takeaways {
+    margin-bottom: 44px !important;
+  }
+
+  .trd-takeaway {
+    display: flex !important;
+    gap: 16px !important;
+    margin-bottom: 28px !important;
+    padding-bottom: 28px !important;
+    border-bottom: 1px solid #1a1a1a !important;
+  }
+
+  .trd-takeaway:last-child {
+    border-bottom: none !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .trd-takeaway-num {
+    flex-shrink: 0 !important;
+    width: 28px !important;
+    height: 28px !important;
+    background: #FF8C42 !important;
+    color: #060102 !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 2px !important;
+    margin-top: 2px !important;
+  }
+
+  .trd-takeaway-head {
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    color: #FFEFCC !important;
+    margin-bottom: 7px !important;
+    line-height: 1.3 !important;
+  }
+
+  .trd-takeaway-text {
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    color: #FFEFCC !important;
+    opacity: 0.78 !important;
+    line-height: 1.75 !important;
+  }
+
+  /* PULL QUOTE */
+  .trd-quote {
+    background: #0e0a0b !important;
+    border-left: 4px solid #FF8C42 !important;
+    padding: 24px 28px !important;
+    margin-bottom: 44px !important;
+    border-radius: 2px !important;
+  }
+
+  .trd-quote-mark {
+    font-size: 36px !important;
+    line-height: 1 !important;
+    color: #FF8C42 !important;
+    font-weight: 700 !important;
+    margin-bottom: 8px !important;
+    display: block !important;
+  }
+
+  .trd-quote-text {
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    color: #FFEFCC !important;
+    line-height: 1.65 !important;
+    font-style: italic !important;
+    margin-bottom: 12px !important;
+  }
+
+  .trd-quote-attr {
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.1em !important;
+    text-transform: uppercase !important;
+    color: #FF8C42 !important;
+  }
+
+  /* INSIGHTS */
+  .trd-insights {
+    margin-bottom: 44px !important;
+  }
+
+  .trd-insight {
+    display: flex !important;
+    gap: 14px !important;
+    margin-bottom: 20px !important;
+    align-items: flex-start !important;
+  }
+
+  .trd-insight-dot {
+    flex-shrink: 0 !important;
+    width: 8px !important;
+    height: 8px !important;
+    background: #2C5F6F !important;
+    border-radius: 50% !important;
+    margin-top: 6px !important;
+  }
+
+  .trd-insight-text {
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    color: #FFEFCC !important;
+    opacity: 0.82 !important;
+    line-height: 1.75 !important;
+  }
+
+  .trd-insight-text strong {
+    color: #FFEFCC !important;
+    font-weight: 700 !important;
+    opacity: 1 !important;
+  }
+
+  /* REFLECTION QUESTIONS */
+  .trd-questions {
+    margin-bottom: 44px !important;
+  }
+
+  .trd-q-intro {
+    font-size: 13px !important;
+    color: #FFEFCC !important;
+    opacity: 0.65 !important;
+    line-height: 1.7 !important;
+    margin-bottom: 20px !important;
+  }
+
+  .trd-q-item {
+    display: flex !important;
+    gap: 14px !important;
+    margin-bottom: 16px !important;
+    align-items: flex-start !important;
+  }
+
+  .trd-q-mark {
+    color: #FF8C42 !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    flex-shrink: 0 !important;
+    margin-top: 1px !important;
+  }
+
+  .trd-q-text {
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    color: #FFEFCC !important;
+    opacity: 0.82 !important;
+    line-height: 1.7 !important;
+  }
+
+  /* CTA */
+  .trd-cta {
+    background: #0e0a0b !important;
+    border: 1px solid #2C5F6F !important;
+    border-radius: 4px !important;
+    padding: 36px 32px !important;
+    text-align: center !important;
+    margin-bottom: 40px !important;
+  }
+
+  @media (max-width: 520px) {
+    .trd-cta {
+      padding: 28px 20px !important;
+    }
+  }
+
+  .trd-cta-eye {
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.18em !important;
+    text-transform: uppercase !important;
+    color: #2C5F6F !important;
+    margin-bottom: 12px !important;
+  }
+
+  .trd-cta-head {
+    font-size: 22px !important;
+    font-weight: 700 !important;
+    color: #FFEFCC !important;
+    line-height: 1.3 !important;
+    margin-bottom: 14px !important;
+  }
+
+  @media (max-width: 520px) {
+    .trd-cta-head {
+      font-size: 18px !important;
+    }
+  }
+
+  .trd-cta-body {
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    color: #FFEFCC !important;
+    opacity: 0.72 !important;
+    line-height: 1.75 !important;
+    max-width: 520px !important;
+    margin: 0 auto 24px !important;
+  }
+
+  .trd-cta-btn {
+    display: inline-block !important;
+    background: #FF8C42 !important;
+    color: #060102 !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.06em !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    padding: 14px 32px !important;
+    border-radius: 2px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .trd-cta-url {
+    font-size: 11px !important;
+    color: #2C5F6F !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.05em !important;
+    text-decoration: none !important;
+    display: block !important;
+  }
+
+  /* FOOTER */
+  .trd-footer {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding-top: 24px !important;
+    border-top: 1px solid #1a1a1a !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+
+  .trd-footer-l,
+  .trd-footer-r {
+    font-size: 11px !important;
+    color: #FFEFCC !important;
+    opacity: 0.35 !important;
+    font-weight: 400 !important;
+  }
+
+  .trd-footer-r a {
+    color: inherit !important;
+    text-decoration: none !important;
+    opacity: 1 !important;
+  }
+</style>
+</head>
+<body>
+
+<div class="trd-wrap" style="background:#060102;">
+<div class="trd-page">
+
+  <!-- HEADER -->
+  <div class="trd-header">
+    <div class="trd-logo">The Recording Drummer · therecordingdrummer.com</div>
+    <div class="trd-episode-label">Season 3 · Show Notes</div>
+    <div class="trd-title">Darrell Thorp</div>
+    <div class="trd-subtitle">10x Grammy-Winning Engineer · Foo Fighters, Beck, Radiohead<br>On phase, Auto-Align, proximity effect, and what he hears when home recordings land in his inbox</div>
+  </div>
+
+  <!-- GUEST BIO -->
+  <div class="trd-bio">
+    <div class="trd-bio-label">About Darrell Thorp</div>
+    <p>Darrell Thorp has 10 Grammys and a discography that includes <strong>Foo Fighters, Beck, and Radiohead's <em>Hail to the Thief</em></strong>. He has mixed more great drum sounds than most engineers will ever track. This conversation goes deep on phase, Auto-Align, proximity effect, and what he actually hears when home studio recordings land in his inbox — the good, the bad, and the gap most drummers don't know exists.</p>
+  </div>
+
+  <!-- KEY TAKEAWAYS -->
+  <div class="trd-takeaways">
+    <div class="trd-section-label">Key Takeaways</div>
+
+    <div class="trd-takeaway">
+      <div class="trd-takeaway-num">1</div>
+      <div class="trd-takeaway-body">
+        <div class="trd-takeaway-head">The biggest problem with home recordings isn't the gear — it's the listening environment</div>
+        <div class="trd-takeaway-text">Darrell's first diagnosis when a home recording isn't working: the person recording it couldn't actually hear what they were capturing. The room they're listening in is coloring everything. In a proper studio, what you record and what you monitor are completely isolated. At home, they bleed together constantly. You're making mix decisions based on a lie. Treating your listening environment — even minimally — is not optional. It's the foundation everything else sits on.</div>
+      </div>
+    </div>
+
+    <div class="trd-takeaway">
+      <div class="trd-takeaway-num">2</div>
+      <div class="trd-takeaway-body">
+        <div class="trd-takeaway-head">Phase is always a fight — Auto-Align helps, but it's not always the answer</div>
+        <div class="trd-takeaway-text">Every mic you add creates a new phase relationship. Kick in and kick out can't be in phase — there's a head in the way. Snare top and bottom are pointing at each other 6–8 inches apart. Overheads are feet away from everything. Auto-Align analyzes each hit and lines waveforms up in time and polarity, which typically produces more tone and a bigger starting point before you've touched an EQ. But Darrell is clear: sometimes — like with Dave Grohl on Play — the pre-aligned sound was exactly right and fixing the phase actually cost the track its character. It's a tool, not a rule.</div>
+      </div>
+    </div>
+
+    <div class="trd-takeaway">
+      <div class="trd-takeaway-num">3</div>
+      <div class="trd-takeaway-body">
+        <div class="trd-takeaway-head">What you hear in the room is almost never what the mic hears</div>
+        <div class="trd-takeaway-text">You whack the snare, it sounds enormous. You put a mic on it and it sounds dull and lifeless. That gap isn't the mic failing — it's your ear hearing the room, not the drum. The fix is to get your ear close to the drum head and tap it lightly. That's what the mic hears. Once you understand that, tuning decisions become much clearer. You stop chasing a room sound and start building the tone the mic will actually capture.</div>
+      </div>
+    </div>
+
+    <div class="trd-takeaway">
+      <div class="trd-takeaway-num">4</div>
+      <div class="trd-takeaway-body">
+        <div class="trd-takeaway-head">Proximity effect is a tool — getting mics close to the source is how you get big sounds</div>
+        <div class="trd-takeaway-text">Darrell is direct about this: the closer the mic to the source, the bigger and fatter it sounds. He uses proximity effect deliberately and aggressively. The limiting factor isn't acoustics — it's the drummer's comfort level. With players who play tight and controlled, he'll get mics close to their head. With Taylor Hawkins, he had to back off because a drummer who's worried about hitting a mic isn't playing freely anymore. The mic placement decision starts with understanding who's sitting at the kit.</div>
+      </div>
+    </div>
+
+    <div class="trd-takeaway">
+      <div class="trd-takeaway-num">5</div>
+      <div class="trd-takeaway-body">
+        <div class="trd-takeaway-head">Hitting harder doesn't produce bigger tone — it often produces less</div>
+        <div class="trd-takeaway-text">Darrell's advice to less experienced drummers in the studio: dial back 20%. Forcing the drums chokes them. The tone doesn't get to ring and expand because you're digging in too hard. This isn't about playing softly — it's about understanding that the drums need room to speak. Victor Wooten's trick of running a slightly distorted poke mic in the headphone mix to monitor dynamic level is a masterclass in this: instant feedback on whether you're over- or under-hitting, without thinking about it consciously.</div>
+      </div>
+    </div>
+
+    <div class="trd-takeaway">
+      <div class="trd-takeaway-num">6</div>
+      <div class="trd-takeaway-body">
+        <div class="trd-takeaway-head">Minimal micing done with intention beats maximal micing done out of habit</div>
+        <div class="trd-takeaway-text">On Hail to the Thief with Nigel Godrich, the drum sound was kick, snare top, mono overhead, toms. That's it. The decisions about what the drums would do in the mix were made at tracking — not in post. Darrell does put up extra mics when his mixing role is uncertain, just to have options. But his instinct, when he owns the project start to finish, is always toward less. Fewer mics means fewer phase relationships to fight and a cleaner starting point for everything that follows.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PULL QUOTE -->
+  <div class="trd-quote">
+    <span class="trd-quote-mark">"</span>
+    <div class="trd-quote-text">You whack a snare drum and you're like, "This sounds freaking great." And then you put a mic on it and you whack it and it has no life. It doesn't crack. And then you realize — you were hearing the room. You weren't hearing the drum.</div>
+    <div class="trd-quote-attr">— Darrell Thorp</div>
+  </div>
+
+  <!-- INSIGHTS -->
+  <div class="trd-insights">
+    <div class="trd-section-label">What This Means For Your Home Studio</div>
+
+    <div class="trd-insight">
+      <div class="trd-insight-dot"></div>
+      <div class="trd-insight-text"><strong>Your listening environment is part of your signal chain.</strong> If the room you're monitoring in is untreated, every recording decision you make is based on inaccurate information. This isn't a gear problem. It's a knowledge problem — and it's fixable without knocking down walls.</div>
+    </div>
+
+    <div class="trd-insight">
+      <div class="trd-insight-dot"></div>
+      <div class="trd-insight-text"><strong>Phase isn't a mixing problem — it starts at placement.</strong> Every mic you add introduces a new phase relationship. Understanding why those relationships exist — not just that they do — is what lets you make intentional decisions instead of guessing which polarity flip sounds less wrong.</div>
+    </div>
+
+    <div class="trd-insight">
+      <div class="trd-insight-dot"></div>
+      <div class="trd-insight-text"><strong>Learn to hear the drum, not the room.</strong> Put your ear close to the head and tap it lightly. That's your starting point for tuning decisions. The big sound you hear standing in the room is the room talking, not the drum. The mic doesn't lie the way your ears do at distance.</div>
+    </div>
+
+    <div class="trd-insight">
+      <div class="trd-insight-dot"></div>
+      <div class="trd-insight-text"><strong>Dynamic control is a recording skill, not just a playing skill.</strong> The studio rewards controlled playing differently than a live room does. Overplaying chokes drums and kills tone. Knowing how hard to hit for a given kit, tuning, and context is something you develop — it doesn't just happen.</div>
+    </div>
+
+    <div class="trd-insight">
+      <div class="trd-insight-dot"></div>
+      <div class="trd-insight-text"><strong>Auto-Align is a tool with a taste component.</strong> It usually helps — especially with mediocre tones where more phase coherence means a better starting point before EQ or compression. But sometimes the "wrong" phase relationship is what makes the sound right for the track. Know what it does so you can decide when to use it.</div>
+    </div>
+
+    <div class="trd-insight">
+      <div class="trd-insight-dot"></div>
+      <div class="trd-insight-text"><strong>Weird rooms are an opportunity, not just a problem.</strong> The Shame staircase story is a reminder: a two-story Spanish house with plaster walls gave Darrell a room sound he couldn't have built in a studio. Your space has character. The question is whether you know enough to use it intentionally.</div>
+    </div>
+
+  </div>
+
+  <!-- REFLECTION QUESTIONS -->
+  <div class="trd-questions">
+    <div class="trd-section-label">Questions Worth Sitting With</div>
+    <div class="trd-q-intro">These are the questions a mixer like Darrell is silently asking when your files land in his inbox.</div>
+
+    <div class="trd-q-item">
+      <span class="trd-q-mark">→</span>
+      <span class="trd-q-text">When you listen back to your recordings, are you hearing what the mics captured — or are you hearing your room coloring the playback?</span>
+    </div>
+
+    <div class="trd-q-item">
+      <span class="trd-q-mark">→</span>
+      <span class="trd-q-text">Do you understand the phase relationships between your mics — not just that phase matters, but why each mic placement creates the relationship it does?</span>
+    </div>
+
+    <div class="trd-q-item">
+      <span class="trd-q-mark">→</span>
+      <span class="trd-q-text">When you tune your kit, are you tuning for what sounds good in the room or what the mic will actually capture? Do you know the difference?</span>
+    </div>
+
+    <div class="trd-q-item">
+      <span class="trd-q-mark">→</span>
+      <span class="trd-q-text">Have you ever deliberately dialed back your dynamic level in a session to let the drums breathe — or do you default to playing at the same intensity regardless of context?</span>
+    </div>
+
+    <div class="trd-q-item">
+      <span class="trd-q-mark">→</span>
+      <span class="trd-q-text">If a Grammy-winning mixer opened your session files right now, what would he hear in the first 30 seconds that would tell him how you work?</span>
+    </div>
+
+  </div>
+
+  <!-- CTA -->
+  <div class="trd-cta">
+    <div class="trd-cta-eye">Free · 5 Minutes · No Fluff</div>
+    <div class="trd-cta-head">Find Out Exactly What's Holding<br>Your Recordings Back</div>
+    <div class="trd-cta-body">Darrell hears the gap between what drummers think they're capturing and what's actually on tape within the first few seconds of a session. The free Recording Drummer Assessment helps you find that gap yourself — before someone else does.</div>
+    <a class="trd-cta-btn" href="https://www.therecordingdrummer.com/free-assessment">Take the Free Assessment →</a>
+    <a class="trd-cta-url" href="https://www.therecordingdrummer.com/free-assessment">www.therecordingdrummer.com/free-assessment</a>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="trd-footer">
+    <span class="trd-footer-l">© 2025 Blair Sinta · The Recording Drummer · All rights reserved</span>
+    <span class="trd-footer-r"><a href="https://www.therecordingdrummer.com">www.therecordingdrummer.com</a></span>
+  </div>
+
+</div>
+</div>
+
+</body>
+</html>
