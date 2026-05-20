@@ -3,594 +3,515 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Recording Drummer — Show Notes</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>Joey Waronker — The Recording Drummer Podcast</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --black:      #060102;
-    --amber:      #FF8C42;
-    --amber-dim:  rgba(255,140,66,0.08);
-    --teal:       #2C5F6F;
-    --teal-mid:   rgba(44,95,111,0.35);
-    --teal-dim:   rgba(44,95,111,0.16);
-    --cream:      #FFEFCC;
-    --cream-70:   rgba(255,239,204,0.70);
-    --cream-45:   rgba(255,239,204,0.45);
-    --cream-20:   rgba(255,239,204,0.12);
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .trd-wrap {
+    background: #060102 !important;
+    font-family: 'Poppins', sans-serif !important;
+    color: #FFEFCC !important;
+    padding: 0 !important;
+    margin: 0 !important;
   }
 
-  #trd-wrap * {
-    margin: 0; padding: 0; box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+  .trd-page {
+    max-width: 760px !important;
+    margin: 0 auto !important;
+    padding: 48px 32px 64px !important;
+    background: #060102 !important;
   }
 
-  #trd-wrap {
-    background: var(--black);
-    color: var(--cream);
-    font-size: 15px;
-    line-height: 1.75;
-    width: 100%;
-    padding: 56px 24px 72px;
+  @media (max-width: 520px) {
+    .trd-page {
+      padding: 36px 20px 52px !important;
+    }
   }
 
-  #trd-inner {
-    max-width: 780px;
-    margin: 0 auto;
-  }
-
-  /* ── HEADER ─────────────────────────────────────── */
+  /* HEADER */
   .trd-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 28px;
-    padding-bottom: 32px;
-    margin-bottom: 44px;
-    border-bottom: 1px solid var(--teal-mid);
-    position: relative;
-  }
-  .trd-header::after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    width: 64px;
-    height: 2px;
-    background: var(--amber);
+    text-align: center !important;
+    padding-bottom: 40px !important;
+    border-bottom: 1px solid #2C5F6F !important;
+    margin-bottom: 40px !important;
   }
 
-  .trd-logo-wordmark {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--teal);
-    margin-bottom: 8px;
-  }
-  .trd-logo-title {
-    font-size: 30px;
-    font-weight: 800;
-    color: var(--cream);
-    letter-spacing: -0.025em;
-    line-height: 1.08;
-  }
-  .trd-logo-sub {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    color: var(--amber);
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    margin-top: 10px;
+  .trd-logo {
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.18em !important;
+    text-transform: uppercase !important;
+    color: #2C5F6F !important;
+    margin-bottom: 16px !important;
   }
 
-  .trd-ep-badge {
-    text-align: right;
-    flex-shrink: 0;
-    padding-top: 2px;
-  }
-  .trd-ep-season {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    color: var(--teal);
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    margin-bottom: 6px;
-  }
-  .trd-ep-guest {
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--cream);
-    line-height: 1.15;
-  }
-  .trd-ep-creds {
-    font-size: 12px;
-    color: var(--cream-45);
-    margin-top: 6px;
-    font-weight: 400;
-    line-height: 1.6;
+  .trd-episode-label {
+    display: inline-block !important;
+    background: #2C5F6F !important;
+    color: #FFEFCC !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase !important;
+    padding: 5px 14px !important;
+    border-radius: 2px !important;
+    margin-bottom: 20px !important;
   }
 
-  /* Stack header on small screens */
-  @media (max-width: 520px) {
-    .trd-header {
-      flex-direction: column;
-      gap: 20px;
-    }
-    .trd-ep-badge {
-      text-align: left;
-    }
-    .trd-logo-title {
-      font-size: 26px;
-    }
+  .trd-title {
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    color: #FFEFCC !important;
+    line-height: 1.25 !important;
+    margin-bottom: 10px !important;
   }
 
-  /* ── INTRO ───────────────────────────────────────── */
-  .trd-intro {
-    border-left: 3px solid var(--teal);
-    background: var(--teal-dim);
-    padding: 24px 28px;
-    border-radius: 0 8px 8px 0;
-    margin-bottom: 52px;
-  }
-  .trd-intro p {
-    font-size: 14.5px;
-    color: var(--cream-70);
-    line-height: 1.85;
-  }
-  .trd-intro p strong {
-    color: var(--cream);
-    font-weight: 600;
-  }
-  .trd-intro p em {
-    color: var(--cream);
+  .trd-subtitle {
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    color: #FFEFCC !important;
+    opacity: 0.6 !important;
+    line-height: 1.6 !important;
   }
 
-  /* ── SECTION LABELS ──────────────────────────────── */
-  .trd-label {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--teal);
-    margin-bottom: 12px;
-  }
-  .trd-label::before {
-    content: '';
-    display: block;
-    width: 18px;
-    height: 2px;
-    background: var(--amber);
-    flex-shrink: 0;
+  /* GUEST BIO */
+  .trd-bio {
+    background: #0e0a0b !important;
+    border-left: 4px solid #2C5F6F !important;
+    padding: 24px 28px !important;
+    margin-bottom: 40px !important;
+    border-radius: 2px !important;
   }
 
-  .trd-section-title {
-    font-size: 19px;
-    font-weight: 700;
-    color: var(--cream);
-    letter-spacing: -0.015em;
-    margin-bottom: 28px;
-    line-height: 1.3;
+  .trd-bio-label {
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.16em !important;
+    text-transform: uppercase !important;
+    color: #2C5F6F !important;
+    margin-bottom: 10px !important;
   }
 
-  /* ── TAKEAWAYS ───────────────────────────────────── */
-  .trd-takeaway-list {
-    display: flex;
-    flex-direction: column;
-    gap: 28px;
-    margin-bottom: 52px;
+  .trd-bio p {
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    color: #FFEFCC !important;
+    line-height: 1.75 !important;
+    opacity: 0.85 !important;
   }
+
+  .trd-bio p strong {
+    font-weight: 700 !important;
+    opacity: 1 !important;
+  }
+
+  /* SECTION HEADERS */
+  .trd-section-label {
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.18em !important;
+    text-transform: uppercase !important;
+    color: #2C5F6F !important;
+    margin-bottom: 20px !important;
+    padding-bottom: 8px !important;
+    border-bottom: 1px solid #1a1a1a !important;
+  }
+
+  /* KEY TAKEAWAYS */
+  .trd-takeaways {
+    margin-bottom: 44px !important;
+  }
+
   .trd-takeaway {
-    display: grid;
-    grid-template-columns: 42px 1fr;
-    gap: 18px;
-    align-items: flex-start;
-  }
-  .trd-num {
-    width: 42px;
-    height: 42px;
-    background: var(--amber);
-    color: var(--black);
-    font-size: 14px;
-    font-weight: 800;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 6px;
-    flex-shrink: 0;
-    margin-top: 2px;
-    letter-spacing: -0.02em;
-  }
-  .trd-tk-head {
-    font-size: 14.5px;
-    font-weight: 700;
-    color: var(--cream);
-    margin-bottom: 8px;
-    line-height: 1.4;
-  }
-  .trd-tk-text {
-    font-size: 13.5px;
-    color: var(--cream-70);
-    line-height: 1.8;
+    display: flex !important;
+    gap: 16px !important;
+    margin-bottom: 28px !important;
+    padding-bottom: 28px !important;
+    border-bottom: 1px solid #1a1a1a !important;
   }
 
-  /* ── DIVIDER ─────────────────────────────────────── */
-  .trd-divider {
-    border: none;
-    border-top: 1px solid var(--teal-mid);
-    margin: 48px 0;
+  .trd-takeaway:last-child {
+    border-bottom: none !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
   }
 
-  /* ── PULL QUOTE ──────────────────────────────────── */
-  .trd-quote-wrap {
-    margin: 0 0 52px;
-    position: relative;
+  .trd-takeaway-num {
+    flex-shrink: 0 !important;
+    width: 28px !important;
+    height: 28px !important;
+    background: #FF8C42 !important;
+    color: #060102 !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 2px !important;
+    margin-top: 2px !important;
   }
+
+  .trd-takeaway-head {
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    color: #FFEFCC !important;
+    margin-bottom: 7px !important;
+    line-height: 1.3 !important;
+  }
+
+  .trd-takeaway-text {
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    color: #FFEFCC !important;
+    opacity: 0.78 !important;
+    line-height: 1.75 !important;
+  }
+
+  /* PULL QUOTE */
   .trd-quote {
-    border-left: 4px solid var(--amber);
-    background: var(--amber-dim);
-    padding: 28px 32px 24px;
-    border-radius: 0 8px 8px 0;
+    background: #0e0a0b !important;
+    border-left: 4px solid #FF8C42 !important;
+    padding: 24px 28px !important;
+    margin-bottom: 44px !important;
+    border-radius: 2px !important;
   }
+
   .trd-quote-mark {
-    font-size: 56px;
-    line-height: 0.6;
-    color: var(--amber);
-    opacity: 0.35;
-    font-family: Georgia, serif;
-    display: block;
-    margin-bottom: 14px;
-    margin-left: -4px;
-  }
-  .trd-quote p {
-    font-size: 16px;
-    font-style: italic;
-    color: var(--cream);
-    line-height: 1.75;
-    font-weight: 400;
-  }
-  .trd-attr {
-    margin-top: 16px;
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--amber);
-    letter-spacing: 0.1em;
-    font-style: normal;
-    text-transform: uppercase;
+    font-size: 36px !important;
+    line-height: 1 !important;
+    color: #FF8C42 !important;
+    font-weight: 700 !important;
+    margin-bottom: 8px !important;
+    display: block !important;
   }
 
-  /* ── INSIGHTS GRID ───────────────────────────────── */
-  .trd-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-bottom: 52px;
-  }
-  @media (max-width: 600px) {
-    .trd-grid {
-      grid-template-columns: 1fr;
-      gap: 14px;
-    }
+  .trd-quote-text {
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    color: #FFEFCC !important;
+    line-height: 1.65 !important;
+    font-style: italic !important;
+    margin-bottom: 12px !important;
   }
 
-  .trd-card {
-    background: var(--cream-20);
-    border: 1px solid var(--teal-mid);
-    border-top: 2px solid var(--teal);
-    border-radius: 6px;
-    padding: 22px 20px 20px;
-  }
-  .trd-card-title {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--amber);
-    margin-bottom: 10px;
-    line-height: 1.4;
-  }
-  .trd-card-text {
-    font-size: 13px;
-    color: var(--cream-70);
-    line-height: 1.75;
+  .trd-quote-attr {
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.1em !important;
+    text-transform: uppercase !important;
+    color: #FF8C42 !important;
   }
 
-  /* ── QUESTIONS ───────────────────────────────────── */
+  /* INSIGHTS */
+  .trd-insights {
+    margin-bottom: 44px !important;
+  }
+
+  .trd-insight {
+    display: flex !important;
+    gap: 14px !important;
+    margin-bottom: 20px !important;
+    align-items: flex-start !important;
+  }
+
+  .trd-insight-dot {
+    flex-shrink: 0 !important;
+    width: 8px !important;
+    height: 8px !important;
+    background: #2C5F6F !important;
+    border-radius: 50% !important;
+    margin-top: 6px !important;
+  }
+
+  .trd-insight-text {
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    color: #FFEFCC !important;
+    opacity: 0.82 !important;
+    line-height: 1.75 !important;
+  }
+
+  .trd-insight-text strong {
+    color: #FFEFCC !important;
+    font-weight: 700 !important;
+    opacity: 1 !important;
+  }
+
+  /* REFLECTION QUESTIONS */
   .trd-questions {
-    background: var(--teal-dim);
-    border: 1px solid var(--teal-mid);
-    border-radius: 10px;
-    padding: 32px 32px 28px;
-    margin-bottom: 52px;
+    margin-bottom: 44px !important;
   }
-  @media (max-width: 520px) {
-    .trd-questions {
-      padding: 24px 20px 22px;
-    }
-  }
-  .trd-q-intro {
-    font-size: 13px;
-    color: var(--cream-45);
-    margin-bottom: 22px;
-    font-style: italic;
-    line-height: 1.7;
-  }
-  .trd-q-item {
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-    padding: 14px 0;
-    border-bottom: 1px solid rgba(44,95,111,0.25);
-  }
-  .trd-q-item:first-of-type { padding-top: 0; }
-  .trd-q-item:last-child { border-bottom: none; padding-bottom: 0; }
-  .trd-q-mark {
-    font-family: 'DM Mono', monospace;
-    color: var(--amber);
-    font-weight: 500;
-    font-size: 14px;
-    flex-shrink: 0;
-    margin-top: 2px;
-    opacity: 0.8;
-  }
-  .trd-q-text {
-    font-size: 14px;
-    color: var(--cream);
-    line-height: 1.7;
-    font-weight: 500;
-  }
-  .trd-q-text em { color: var(--cream); font-style: italic; }
 
-  /* ── CTA ─────────────────────────────────────────── */
-  .trd-cta {
-    background: linear-gradient(140deg, #1e4a58 0%, #2C5F6F 55%, #234f5e 100%);
-    border-radius: 12px;
-    padding: 44px 40px;
-    text-align: center;
-    border: 1px solid rgba(44,95,111,0.6);
-    position: relative;
-    overflow: hidden;
+  .trd-q-intro {
+    font-size: 13px !important;
+    color: #FFEFCC !important;
+    opacity: 0.65 !important;
+    line-height: 1.7 !important;
+    margin-bottom: 20px !important;
   }
+
+  .trd-q-item {
+    display: flex !important;
+    gap: 14px !important;
+    margin-bottom: 16px !important;
+    align-items: flex-start !important;
+  }
+
+  .trd-q-mark {
+    color: #FF8C42 !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    flex-shrink: 0 !important;
+    margin-top: 1px !important;
+  }
+
+  .trd-q-text {
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    color: #FFEFCC !important;
+    opacity: 0.82 !important;
+    line-height: 1.7 !important;
+  }
+
+  /* CTA */
+  .trd-cta {
+    background: #0e0a0b !important;
+    border: 1px solid #2C5F6F !important;
+    border-radius: 4px !important;
+    padding: 36px 32px !important;
+    text-align: center !important;
+    margin-bottom: 40px !important;
+  }
+
   @media (max-width: 520px) {
     .trd-cta {
-      padding: 36px 24px;
+      padding: 28px 20px !important;
     }
   }
-  .trd-cta::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--amber), #ffb347);
-  }
+
   .trd-cta-eye {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: rgba(255,239,204,0.55);
-    margin-bottom: 14px;
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.18em !important;
+    text-transform: uppercase !important;
+    color: #2C5F6F !important;
+    margin-bottom: 12px !important;
   }
+
   .trd-cta-head {
-    font-size: 22px;
-    font-weight: 800;
-    color: var(--cream);
-    line-height: 1.25;
-    margin-bottom: 16px;
-    letter-spacing: -0.02em;
+    font-size: 22px !important;
+    font-weight: 700 !important;
+    color: #FFEFCC !important;
+    line-height: 1.3 !important;
+    margin-bottom: 14px !important;
   }
+
   @media (max-width: 520px) {
     .trd-cta-head {
-      font-size: 19px;
+      font-size: 18px !important;
     }
   }
+
   .trd-cta-body {
-    font-size: 13.5px;
-    color: var(--cream-70);
-    max-width: 460px;
-    margin: 0 auto 28px;
-    line-height: 1.8;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    color: #FFEFCC !important;
+    opacity: 0.72 !important;
+    line-height: 1.75 !important;
+    max-width: 520px !important;
+    margin: 0 auto 24px !important;
   }
+
   .trd-cta-btn {
-    display: inline-block;
-    background: var(--amber);
-    color: var(--black);
-    font-weight: 700;
-    font-size: 14px;
-    padding: 14px 36px;
-    border-radius: 6px;
-    text-decoration: none;
-    letter-spacing: 0.02em;
-    margin-bottom: 16px;
-    cursor: pointer;
-    font-family: 'Poppins', sans-serif;
-    transition: opacity 0.15s;
+    display: inline-block !important;
+    background: #FF8C42 !important;
+    color: #060102 !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.06em !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    padding: 14px 32px !important;
+    border-radius: 2px !important;
+    margin-bottom: 14px !important;
   }
-  .trd-cta-btn:hover { opacity: 0.88; }
+
   .trd-cta-url {
-    font-family: 'DM Mono', monospace;
-    font-size: 10.5px;
-    color: rgba(255,239,204,0.4);
-    letter-spacing: 0.06em;
-    display: block;
-    text-decoration: none;
+    font-size: 11px !important;
+    color: #2C5F6F !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.05em !important;
+    text-decoration: none !important;
+    display: block !important;
   }
 
-  /* ── FOOTER ──────────────────────────────────────── */
+  /* FOOTER */
   .trd-footer {
-    margin-top: 44px;
-    padding-top: 22px;
-    border-top: 1px solid rgba(44,95,111,0.28);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  .trd-footer-l {
-    font-size: 11px;
-    color: rgba(255,239,204,0.28);
-    line-height: 1.5;
-  }
-  .trd-footer-r {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    color: var(--teal);
-    letter-spacing: 0.12em;
-  }
-  .trd-footer-r a {
-    color: inherit;
-    text-decoration: none;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding-top: 24px !important;
+    border-top: 1px solid #1a1a1a !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
   }
 
-  /* ── MOBILE GLOBAL PADDING ───────────────────────── */
-  @media (max-width: 520px) {
-    #trd-wrap {
-      padding: 36px 18px 56px;
-    }
-    .trd-intro {
-      padding: 20px 20px;
-    }
-    .trd-quote {
-      padding: 22px 22px 20px;
-    }
+  .trd-footer-l,
+  .trd-footer-r {
+    font-size: 11px !important;
+    color: #FFEFCC !important;
+    opacity: 0.35 !important;
+    font-weight: 400 !important;
+    text-decoration: none !important;
+  }
+
+  .trd-footer-r a {
+    color: inherit !important;
+    text-decoration: none !important;
+    opacity: 1 !important;
   }
 </style>
 </head>
 <body>
 
-<div id="trd-wrap">
-<div id="trd-inner">
+<div class="trd-wrap" style="background:#060102;">
+<div class="trd-page">
 
   <!-- HEADER -->
   <div class="trd-header">
-    <div>
-      <div class="trd-logo-wordmark">therecordingdrummer.com</div>
-      <div class="trd-logo-title">The Recording<br>Drummer</div>
-      <div class="trd-logo-sub">Podcast — Show Notes</div>
-    </div>
-    <div class="trd-ep-badge">
-      <div class="trd-ep-season">Season 3 · Final Episode</div>
-      <div class="trd-ep-guest">Joey Waronker</div>
-      <div class="trd-ep-creds">Session Drummer · Beck, R.E.M.,<br>Thom Yorke, Elliott Smith</div>
-    </div>
+    <div class="trd-logo">The Recording Drummer · therecordingdrummer.com</div>
+    <div class="trd-episode-label">Season 3 · Final Episode · Show Notes</div>
+    <div class="trd-title">Joey Waronker</div>
+    <div class="trd-subtitle">Session Drummer · Beck, R.E.M., Thom Yorke, Elliott Smith<br>On growing up inside sessions, unlearning bad habits, and what the pandemic exposed</div>
   </div>
 
-  <!-- INTRO -->
-  <div class="trd-intro">
-    <p>Joey Waronker grew up sitting in the drum booth with <strong>Steve Gadd and Jeff Porcaro</strong> — literally inside the sessions his father was producing. Today he runs a full recording setup out of a converted two-car garage and handles remote sessions entirely on his own. This conversation covers how those early experiences shaped his sound, what he had to <em>unlearn</em> along the way, and how the pandemic finally forced him — like a lot of us — to close the gap between doing it and actually understanding it.</p>
+  <!-- GUEST BIO -->
+  <div class="trd-bio">
+    <div class="trd-bio-label">About Joey Waronker</div>
+    <p>Joey Waronker grew up sitting in the drum booth with <strong>Steve Gadd and Jeff Porcaro</strong> — literally inside the sessions his father was producing. Today he runs a full recording setup out of a converted two-car garage and handles remote sessions entirely on his own. This conversation covers how those early experiences shaped his sound, what he had to unlearn along the way, and how the pandemic finally forced him — like a lot of us — to close the gap between doing it and actually understanding it.</p>
   </div>
 
-  <!-- TAKEAWAYS -->
-  <div class="trd-label">Key Takeaways</div>
-  <div class="trd-section-title">What's Worth Remembering From This Conversation</div>
+  <!-- KEY TAKEAWAYS -->
+  <div class="trd-takeaways">
+    <div class="trd-section-label">Key Takeaways</div>
 
-  <div class="trd-takeaway-list">
     <div class="trd-takeaway">
-      <div class="trd-num">1</div>
-      <div>
-        <div class="trd-tk-head">Sensory reference precedes understanding — and that's useful, not a shortcut</div>
-        <div class="trd-tk-text">At 9 years old, Joey absorbed how sessions <em>felt</em> — the microphone positions, the snare tuning by ear, the dampening — before he understood any of it technically. Years later, that stored reference gave him something to aim for, even when he didn't have the vocabulary yet. The lesson: listening carefully and often builds the internal standard you'll eventually train your technical skills to reach.</div>
+      <div class="trd-takeaway-num">1</div>
+      <div class="trd-takeaway-body">
+        <div class="trd-takeaway-head">Sensory reference precedes understanding — and that's useful, not a shortcut</div>
+        <div class="trd-takeaway-text">At 9 years old, Joey absorbed how sessions felt — the microphone positions, the snare tuning by ear, the dampening — before he understood any of it technically. Years later, that stored reference gave him something to aim for, even when he didn't have the vocabulary yet. The lesson: listening carefully and often builds the internal standard you'll eventually train your technical skills to reach.</div>
       </div>
     </div>
+
     <div class="trd-takeaway">
-      <div class="trd-num">2</div>
-      <div>
-        <div class="trd-tk-head">Good instincts without technical knowledge leaves you stuck at the same wall</div>
-        <div class="trd-tk-text">Joey could <em>hear</em> when something was off in a session. But without knowing why, he couldn't communicate with engineers, couldn't fix it himself, and couldn't get out of his own way. He had musical intelligence. What was missing was the technical framework to act on it. Instinct without knowledge produces frustration, not consistent results.</div>
+      <div class="trd-takeaway-num">2</div>
+      <div class="trd-takeaway-body">
+        <div class="trd-takeaway-head">Good instincts without technical knowledge leaves you stuck at the same wall</div>
+        <div class="trd-takeaway-text">Joey could hear when something was off in a session. But without knowing why, he couldn't communicate with engineers, couldn't fix it himself, and couldn't get out of his own way. He had musical intelligence. What was missing was the technical framework to act on it. Instinct without knowledge produces frustration, not consistent results.</div>
       </div>
     </div>
+
     <div class="trd-takeaway">
-      <div class="trd-num">3</div>
-      <div>
-        <div class="trd-tk-head">The pandemic exposed what years of working hadn't fixed</div>
-        <div class="trd-tk-text">Joey had been recording at home for years — and genuinely thought he was doing fine. The pandemic gave him time to actually dig in, and he discovered he didn't understand phase. He describes spending 20 hours on something he can now do in 2. Time alone doesn't teach you. Focused study does. The gap between doing it and understanding it only closes one way.</div>
+      <div class="trd-takeaway-num">3</div>
+      <div class="trd-takeaway-body">
+        <div class="trd-takeaway-head">The pandemic exposed what years of working hadn't fixed</div>
+        <div class="trd-takeaway-text">Joey had been recording at home for years — and genuinely thought he was doing fine. The pandemic gave him time to actually dig in, and he discovered he didn't understand phase. He describes spending 20 hours on something he can now do in 2. Time alone doesn't teach you. Focused study does. The gap between doing it and understanding it only closes one way.</div>
       </div>
     </div>
+
     <div class="trd-takeaway">
-      <div class="trd-num">4</div>
-      <div>
-        <div class="trd-tk-head">Copying someone's approach gets you started. Understanding why it works makes it yours</div>
-        <div class="trd-tk-text">Brendan O'Brien showed Joey his go-to 414 compressor setting — "set it like this and it always works." Joey still references it. But O'Brien's own caveat: you'll always have to find your version. Different room, different preamps, different variables. Recipes get you started. Understanding gets you consistent results regardless of what session you're walking into.</div>
+      <div class="trd-takeaway-num">4</div>
+      <div class="trd-takeaway-body">
+        <div class="trd-takeaway-head">Copying someone's approach gets you started. Understanding why it works makes it yours</div>
+        <div class="trd-takeaway-text">Brendan O'Brien showed Joey his go-to 414 compressor setting — "set it like this and it always works." Joey still references it. But O'Brien's own caveat: you'll always have to find your version. Different room, different preamps, different variables. Recipes get you started. Understanding gets you consistent results regardless of what session you're walking into.</div>
       </div>
     </div>
+
     <div class="trd-takeaway">
-      <div class="trd-num">5</div>
-      <div>
-        <div class="trd-tk-head">The people who share freely understand that knowledge isn't a competitive threat</div>
-        <div class="trd-tk-text">Gadd, Kelner, Gadson — that whole generation gave information away openly. Joey does the same: "I don't really feel like I have secrets in here." What works in his studio won't work exactly the same way in yours anyway. The framework transfers. The specific settings don't. That's why sharing the how — not just the what — is what actually moves the craft forward.</div>
+      <div class="trd-takeaway-num">5</div>
+      <div class="trd-takeaway-body">
+        <div class="trd-takeaway-head">The people who share freely understand that knowledge isn't a competitive threat</div>
+        <div class="trd-takeaway-text">Gadd, Kelner, Gadson — that whole generation gave information away openly. Joey does the same: "I don't really feel like I have secrets in here." What works in his studio won't work exactly the same way in yours anyway. The framework transfers. The specific settings don't. That's why sharing the how — not just the what — is what actually moves the craft forward.</div>
       </div>
     </div>
+
   </div>
 
   <!-- PULL QUOTE -->
-  <div class="trd-quote-wrap">
-    <div class="trd-quote">
-      <span class="trd-quote-mark">"</span>
-      <p>I thought I knew what I was doing — but I learned over the pandemic that I had no idea about phase. If I got an okay bass drum sound, that would just be the bass drum sound. Whereas now I'm like — that's not right. That has to be better.</p>
-      <div class="trd-attr">— Joey Waronker</div>
-    </div>
+  <div class="trd-quote">
+    <span class="trd-quote-mark">"</span>
+    <div class="trd-quote-text">I thought I knew what I was doing — but I learned over the pandemic that I had no idea about phase. If I got an okay bass drum sound, that would just be the bass drum sound. Whereas now I'm like — that's not right. That has to be better.</div>
+    <div class="trd-quote-attr">— Joey Waronker</div>
   </div>
-
-  <hr class="trd-divider">
 
   <!-- INSIGHTS -->
-  <div class="trd-label">For Home Studio Recording Drummers</div>
-  <div class="trd-section-title">Where This Connects to Your Work</div>
+  <div class="trd-insights">
+    <div class="trd-section-label">What This Means For Your Home Studio</div>
 
-  <div class="trd-grid">
-    <div class="trd-card">
-      <div class="trd-card-title">Phase isn't optional — it's the foundation</div>
-      <div class="trd-card-text">Joey spent years recording without understanding phase. He got passable results by feel. Once he understood it, the whole picture changed. If your recordings are inconsistent and you can't explain why, phase is almost always where the answer lives.</div>
+    <div class="trd-insight">
+      <div class="trd-insight-dot"></div>
+      <div class="trd-insight-text"><strong>Phase isn't optional — it's the foundation.</strong> Joey spent years recording without understanding phase. He got passable results by feel. Once he understood it, the whole picture changed. If your recordings are inconsistent and you can't explain why, phase is almost always where the answer lives.</div>
     </div>
-    <div class="trd-card">
-      <div class="trd-card-title">Dynamics are a recording tool, not just a playing choice</div>
-      <div class="trd-card-text">The Tonic record sounds massive — not because of brute force, but because Joey played at the right level for that room and those mics. Dynamic control for recording is a learnable skill that directly affects how your tracks translate.</div>
+
+    <div class="trd-insight">
+      <div class="trd-insight-dot"></div>
+      <div class="trd-insight-text"><strong>Dynamics are a recording tool, not just a playing choice.</strong> The Tonic record sounds massive — not because of brute force, but because Joey played at the right level for that room and those mics. Dynamic control for recording is a learnable skill that directly affects how your tracks translate.</div>
     </div>
-    <div class="trd-card">
-      <div class="trd-card-title">Your limitations don't have to limit the result</div>
-      <div class="trd-card-text">Joey built a dead zone, a live area, and a mid-range space in a two-car garage. The room you have can work if you know how to work with it. The knowledge gap matters more than the square footage.</div>
+
+    <div class="trd-insight">
+      <div class="trd-insight-dot"></div>
+      <div class="trd-insight-text"><strong>Your limitations don't have to limit the result.</strong> Joey built a dead zone, a live area, and a mid-range space in a two-car garage. The room you have can work if you know how to work with it. The knowledge gap matters more than the square footage.</div>
     </div>
-    <div class="trd-card">
-      <div class="trd-card-title">Better gear only helps once you know what to do with it</div>
-      <div class="trd-card-text">Joey resisted upgrading mics for years. When he finally did, things improved — but only because he'd developed enough understanding to use them properly. The U47 didn't fix his recordings. His knowledge did.</div>
+
+    <div class="trd-insight">
+      <div class="trd-insight-dot"></div>
+      <div class="trd-insight-text"><strong>Better gear only helps once you know what to do with it.</strong> Joey resisted upgrading mics for years. When he finally did, things improved — but only because he'd developed enough understanding to use them properly. The U47 didn't fix his recordings. His knowledge did.</div>
     </div>
-    <div class="trd-card">
-      <div class="trd-card-title">Technical vocabulary is how you influence a session</div>
-      <div class="trd-card-text">Joey describes early sessions where he knew something was wrong but couldn't communicate it without the engineer dismissing him. Knowing the language isn't about sounding smart — it's how you shape the outcome of a session instead of just executing someone else's decisions.</div>
+
+    <div class="trd-insight">
+      <div class="trd-insight-dot"></div>
+      <div class="trd-insight-text"><strong>Technical vocabulary is how you influence a session.</strong> Joey describes early sessions where he knew something was wrong but couldn't communicate it without the engineer dismissing him. Knowing the language isn't about sounding smart — it's how you shape the outcome of a session instead of just executing someone else's decisions.</div>
     </div>
-    <div class="trd-card">
-      <div class="trd-card-title">Focused study beats scattered effort — always</div>
-      <div class="trd-card-text">20 hours to get 75% of the way there. Now he gets further in 2. Joey's pandemic experience is a case study in what happens when you stop copying by feel and start building real understanding. The ROI of genuine study is enormous.</div>
+
+    <div class="trd-insight">
+      <div class="trd-insight-dot"></div>
+      <div class="trd-insight-text"><strong>Focused study beats scattered effort — always.</strong> 20 hours to get 75% of the way there. Now he gets further in 2. Joey's pandemic experience is a case study in what happens when you stop copying by feel and start building real understanding. The ROI of genuine study is enormous.</div>
     </div>
+
   </div>
 
-  <!-- QUESTIONS -->
-  <div class="trd-label">Reflection Questions</div>
+  <!-- REFLECTION QUESTIONS -->
   <div class="trd-questions">
-    <p class="trd-q-intro">These aren't quiz questions. They're worth sitting with honestly — especially if you've been recording for a while and still feel like you're guessing.</p>
+    <div class="trd-section-label">Questions Worth Sitting With</div>
+    <div class="trd-q-intro">These aren't quiz questions. They're worth sitting with honestly — especially if you've been recording for a while and still feel like you're guessing.</div>
+
     <div class="trd-q-item">
       <span class="trd-q-mark">→</span>
-      <span class="trd-q-text">Can you explain <em>why</em> your overhead placement sounds the way it does — or are you placing them where you always have?</span>
+      <span class="trd-q-text">Can you explain why your overhead placement sounds the way it does — or are you placing them where you always have?</span>
     </div>
+
     <div class="trd-q-item">
       <span class="trd-q-mark">→</span>
       <span class="trd-q-text">When something sounds off in your recording, what's your actual troubleshooting process? Do you have one — or do you move knobs until it improves?</span>
     </div>
+
     <div class="trd-q-item">
       <span class="trd-q-mark">→</span>
       <span class="trd-q-text">How much time have you spent on a single track trying to get a sound that still didn't fully satisfy you? What was actually missing?</span>
     </div>
+
     <div class="trd-q-item">
       <span class="trd-q-mark">→</span>
       <span class="trd-q-text">Do you understand how phase relationships between your microphones affect your drum sound — and can you hear it when something's wrong?</span>
     </div>
+
     <div class="trd-q-item">
       <span class="trd-q-mark">→</span>
       <span class="trd-q-text">If a producer asked you to dial in a specific sound on the spot — something you'd heard before but hadn't recorded — could you get there? What would stop you?</span>
     </div>
+
   </div>
 
   <!-- CTA -->
