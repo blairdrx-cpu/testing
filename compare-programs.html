@@ -80,35 +80,33 @@
     gap: 20px;
     margin-bottom: 48px;
     align-items: start;
-    padding-top: 16px;
   }
 
   .trd-root .card {
     background: #0f0e0f !important;
     border: 1px solid #1e1c1e !important;
     border-radius: 12px;
-    padding: 28px;
-    position: relative;
+    padding: 20px 28px 28px;
     transition: border-color 0.2s;
     display: flex;
     flex-direction: column;
-    margin-top: 14px;
   }
   .trd-root .card:hover { border-color: var(--teal) !important; }
   .trd-root .card.featured { border-color: var(--amber) !important; box-shadow: 0 0 0 1px rgba(255,140,66,0.15); }
   .trd-root .card.full-width { grid-column: 1 / -1; }
   .trd-root .card-features { flex: 1; }
 
+  /* Badge flows inside the card — no negative positioning that Kajabi clips */
   .trd-root .badge {
-    position: absolute;
-    top: -13px;
-    left: 20px;
+    display: inline-block;
+    align-self: flex-start;
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     padding: 3px 12px;
     border-radius: 20px;
+    margin-bottom: 14px;
     text-decoration: none !important;
   }
   .trd-root .badge.most-popular { background: var(--amber) !important; color: #060102 !important; }
