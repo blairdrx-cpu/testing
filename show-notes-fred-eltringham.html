@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fred Eltringham — The Recording Drummer Podcast</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .trd-wrap {
+    background: #060102 !important;
+    font-family: 'Poppins', sans-serif !important;
+    color: #FFEFCC !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .trd-page {
+    max-width: 760px !important;
+    margin: 0 auto !important;
+    padding: 48px 32px 64px !important;
+    background: #060102 !important;
+  }
+
+  @media (max-width: 520px) {
+    .trd-page {
+      padding: 36px 20px 52px !important;
+    }
+  }
+
+  /* HEADER */
+  .trd-header {
+    text-align: center !important;
+    padding-bottom: 40px !important;
+    border-bottom: 1px solid #2C5F6F !important;
+    margin-bottom: 40px !important;
+  }
+
+  .trd-logo {
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.18em !important;
+    text-transform: uppercase !important;
+    color: #2C5F6F !important;
+    margin-bottom: 16px !important;
+  }
+
+  .trd-episode-label {
+    display: inline-block !important;
+    background: #2C5F6F !important;
+    color: #FFEFCC !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase !important;
+    padding: 5px 14px !important;
+    border-radius: 2px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .trd-title {
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    color: #FFEFCC !important;
+    line-height: 1.25 !important;
+    margin-bottom: 10px !important;
+  }
+
+  .trd-subtitle {
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    color: #FFEFCC !important;
+    opacity: 0.6 !important;
+    line-height: 1.6 !important;
+  }
+
+  /* GUEST BIO */
+  .trd-bio {
+    background: #0e0a0b !important;
+    border-left: 4px solid #2C5F6F !important;
+    padding: 24px 28px !important;
+    margin-bottom: 40px !important;
+    border-radius: 2px !important;
+  }
+
+  .trd-bio-label {
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.16em !important;
+    text-transform: uppercase !important;
+    color: #2C5F6F !important;
+    margin-bottom: 10px !important;
+  }
+
+  .trd-bio p {
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    color: #FFEFCC !important;
+    line-height: 1.75 !important;
+    opacity: 0.85 !important;
+  }
+
+  .trd-bio p strong {
+    font-weight: 700 !important;
+    opacity: 1 !important;
+  }
+
+  /* SECTION HEADERS */
+  .trd-section-label {
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.18em !important;
+    text-transform: uppercase !important;
+    color: #2C5F6F !important;
+    margin-bottom: 20px !important;
+    padding-bottom: 8px !important;
+    border-bottom: 1px solid #1a1a1a !important;
+  }
+
+  /* KEY TAKEAWAYS */
+  .trd-takeaways {
+    margin-bottom: 44px !important;
+  }
+
+  .trd-takeaway {
+    display: flex !important;
+    gap: 16px !important;
+    margin-bottom: 28px !important;
+    padding-bottom: 28px !important;
+    border-bottom: 1px solid #1a1a1a !important;
+  }
+
+  .trd-takeaway:last-child {
+    border-bottom: none !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .trd-takeaway-num {
+    flex-shrink: 0 !important;
+    width: 28px !important;
+    height: 28px !important;
+    background: #FF8C42 !important;
+    color: #060102 !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 2px !important;
+    margin-top: 2px !important;
+  }
+
+  .trd-takeaway-head {
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    color: #FFEFCC !important;
+    margin-bottom: 7px !important;
+    line-height: 1.3 !important;
+  }
+
+  .trd-takeaway-text {
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    color: #FFEFCC !important;
+    opacity: 0.78 !important;
+    line-height: 1.75 !important;
+  }
+
+  /* PULL QUOTE */
+  .trd-quote {
+    background: #0e0a0b !important;
+    border-left: 4px solid #FF8C42 !important;
+    padding: 24px 28px !important;
+    margin-bottom: 44px !important;
+    border-radius: 2px !important;
+  }
+
+  .trd-quote-mark {
+    font-size: 36px !important;
+    line-height: 1 !important;
+    color: #FF8C42 !important;
+    font-weight: 700 !important;
+    margin-bottom: 8px !important;
+    display: block !important;
+  }
+
+  .trd-quote-text {
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    color: #FFEFCC !important;
+    line-height: 1.65 !important;
+    font-style: italic !important;
+    margin-bottom: 12px !important;
+  }
+
+  .trd-quote-attr {
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.1em !important;
+    text-transform: uppercase !important;
+    color: #FF8C42 !important;
+  }
+
+  /* INSIGHTS */
+  .trd-insights {
+    margin-bottom: 44px !important;
+  }
+
+  .trd-insight {
+    display: flex !important;
+    gap: 14px !important;
+    margin-bottom: 20px !important;
+    align-items: flex-start !important;
+  }
+
+  .trd-insight-dot {
+    flex-shrink: 0 !important;
+    width: 8px !important;
+    height: 8px !important;
+    background: #2C5F6F !important;
+    border-radius: 50% !important;
+    margin-top: 6px !important;
+  }
+
+  .trd-insight-text {
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    color: #FFEFCC !important;
+    opacity: 0.82 !important;
+    line-height: 1.75 !important;
+  }
+
+  .trd-insight-text strong {
+    color: #FFEFCC !important;
+    font-weight: 700 !important;
+    opacity: 1 !important;
+  }
+
+  /* REFLECTION QUESTIONS */
+  .trd-questions {
+    margin-bottom: 44px !important;
+  }
+
+  .trd-q-intro {
+    font-size: 13px !important;
+    color: #FFEFCC !important;
+    opacity: 0.65 !important;
+    line-height: 1.7 !important;
+    margin-bottom: 20px !important;
+  }
+
+  .trd-q-item {
+    display: flex !important;
+    gap: 14px !important;
+    margin-bottom: 16px !important;
+    align-items: flex-start !important;
+  }
+
+  .trd-q-mark {
+    color: #FF8C42 !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    flex-shrink: 0 !important;
+    margin-top: 1px !important;
+  }
+
+  .trd-q-text {
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    color: #FFEFCC !important;
+    opacity: 0.82 !important;
+    line-height: 1.7 !important;
+  }
+
+  /* CTA */
+  .trd-cta {
+    background: #0e0a0b !important;
+    border: 1px solid #2C5F6F !important;
+    border-radius: 4px !important;
+    padding: 36px 32px !important;
+    text-align: center !important;
+    margin-bottom: 40px !important;
+  }
+
+  @media (max-width: 520px) {
+    .trd-cta {
+      padding: 28px 20px !important;
+    }
+  }
+
+  .trd-cta-eye {
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.18em !important;
+    text-transform: uppercase !important;
+    color: #2C5F6F !important;
+    margin-bottom: 12px !important;
+  }
+
+  .trd-cta-head {
+    font-size: 22px !important;
+    font-weight: 700 !important;
+    color: #FFEFCC !important;
+    line-height: 1.3 !important;
+    margin-bottom: 14px !important;
+  }
+
+  @media (max-width: 520px) {
+    .trd-cta-head {
+      font-size: 18px !important;
+    }
+  }
+
+  .trd-cta-body {
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    color: #FFEFCC !important;
+    opacity: 0.72 !important;
+    line-height: 1.75 !important;
+    max-width: 520px !important;
+    margin: 0 auto 24px !important;
+  }
+
+  .trd-cta-btn {
+    display: inline-block !important;
+    background: #FF8C42 !important;
+    color: #060102 !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.06em !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    padding: 14px 32px !important;
+    border-radius: 2px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .trd-cta-url {
+    font-size: 11px !important;
+    color: #2C5F6F !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.05em !important;
+    text-decoration: none !important;
+    display: block !important;
+  }
+
+  /* FOOTER */
+  .trd-footer {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding-top: 24px !important;
+    border-top: 1px solid #1a1a1a !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+
+  .trd-footer-l,
+  .trd-footer-r {
+    font-size: 11px !important;
+    color: #FFEFCC !important;
+    opacity: 0.35 !important;
+    font-weight: 400 !important;
+  }
+
+  .trd-footer-r a {
+    color: inherit !important;
+    text-decoration: none !important;
+    opacity: 1 !important;
+  }
+</style>
+</head>
+<body>
+
+<div class="trd-wrap" style="background:#060102;">
+<div class="trd-page">
+
+  <!-- HEADER -->
+  <div class="trd-header">
+    <div class="trd-logo">The Recording Drummer · therecordingdrummer.com</div>
+    <div class="trd-episode-label">Season 3 · Show Notes</div>
+    <div class="trd-title">Fred Eltringham</div>
+    <div class="trd-subtitle">Session & Touring Drummer · Sheryl Crow, Dixie Chicks, Sturgill Simpson, k.d. lang<br>On showing up, building a home setup, and letting the work speak for itself</div>
+  </div>
+
+  <!-- GUEST BIO -->
+  <div class="trd-bio">
+    <div class="trd-bio-label">About Fred Eltringham</div>
+    <p>One of Nashville's most in-demand recording drummers — <strong>13 years with Sheryl Crow</strong>, full-band sessions as the norm, home studio work built gradually and practically. Fred didn't set out to be a session guy. He just kept showing up, kept listening, and let the work speak. This conversation is about what that actually looks like over a career.</p>
+  </div>
+
+  <!-- KEY TAKEAWAYS -->
+  <div class="trd-takeaways">
+    <div class="trd-section-label">Key Takeaways</div>
+
+    <div class="trd-takeaway">
+      <div class="trd-takeaway-num">1</div>
+      <div class="trd-takeaway-body">
+        <div class="trd-takeaway-head">You learn more from hearing someone better than you than from any tutorial</div>
+        <div class="trd-takeaway-text">Blair opens this episode by telling Fred something he'd never said to his face: hearing Fred's tracks on the same record — the tones, the fills, the feel — taught him more than he expected. Fred's response is telling: he still struggles to listen back to his own playing without being overly critical. The lesson cuts both ways. The guys who are further along are studying too. And the gap between where you are and where you want to be closes faster through exposure than through practice in isolation.</div>
+      </div>
+    </div>
+
+    <div class="trd-takeaway">
+      <div class="trd-takeaway-num">2</div>
+      <div class="trd-takeaway-body">
+        <div class="trd-takeaway-head">A career in recording doesn't require pursuing it — it requires being ready when it finds you</div>
+        <div class="trd-takeaway-text">Fred never set out to be a session drummer. The work came through relationships — a keyboard player introduced him to a producer, demos turned into record dates, one gig led to another. What made that possible wasn't a strategy. It was that when the calls came, he could deliver. Being ready — technically and professionally — is the whole game. The opportunity is rarely the problem.</div>
+      </div>
+    </div>
+
+    <div class="trd-takeaway">
+      <div class="trd-takeaway-num">3</div>
+      <div class="trd-takeaway-body">
+        <div class="trd-takeaway-head">Home recording got serious when the pandemic removed every excuse not to figure it out</div>
+        <div class="trd-takeaway-text">Fred had a setup for years before COVID. The pandemic — combined with consistent remote work coming in — forced him to actually develop his engineering skills instead of just getting by. He's direct about the earlier resistance: doing everything yourself as a drummer is a lot of work, and without a clear reason to invest in it, most people don't. The reason showed up in 2020. For a lot of home studio drummers, that reason is already here — the question is whether you're treating it like one.</div>
+      </div>
+    </div>
+
+    <div class="trd-takeaway">
+      <div class="trd-takeaway-num">4</div>
+      <div class="trd-takeaway-body">
+        <div class="trd-takeaway-head">Simple and consistent beats experimental and complicated — especially for remote work</div>
+        <div class="trd-takeaway-text">Fred's home setup is 10 channels. Apollo interface, a few quality mics including a ribbon positioned over the kick toward the snare, Rupert Neve overheads, and a bottom snare mic. He doesn't move things around. He doesn't experiment mid-session. He sends stems flat — minimal compression, no plugins. His clients keep coming back. The reason: they know what they're going to get, and what they get is good. Consistency is a professional quality just as much as sound quality is.</div>
+      </div>
+    </div>
+
+    <div class="trd-takeaway">
+      <div class="trd-takeaway-num">5</div>
+      <div class="trd-takeaway-body">
+        <div class="trd-takeaway-head">Playing without a click, without headphones, and without hearing the vocal is a skill — and it starts with listening</div>
+        <div class="trd-takeaway-text">The Sturgill Simpson session: no click, no headphones on some tracks, lyrics being written on the spot. Fred's approach was to picture the velocity in his head, play, listen back, and adjust. Not guess randomly — picture it, commit, evaluate. That ability to make an internal decision and trust it is what separates drummers who can work in any session context from those who need everything spelled out first. It's built through years of being in rooms and paying attention.</div>
+      </div>
+    </div>
+
+    <div class="trd-takeaway">
+      <div class="trd-takeaway-num">6</div>
+      <div class="trd-takeaway-body">
+        <div class="trd-takeaway-head">The Oceanway overhead trick: room sound doesn't have to come from your room</div>
+        <div class="trd-takeaway-text">Fred's drum room is small. His room sound is consistently praised. His method: he copies his overheads and uses the Oceanway room IR to create the illusion of a bigger space. Clients regularly compliment his "room." He's upfront that it's not a real room — it's a known, trusted tool applied consistently. Knowing which tools solve which problems, and using them reliably, is part of what makes a home studio player professional.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PULL QUOTE -->
+  <div class="trd-quote">
+    <span class="trd-quote-mark">"</span>
+    <div class="trd-quote-text">You just have to picture it in your mind and do it — I think this is the velocity I need to be playing. And then listen back and go, okay, I need to hit a little harder or lighter. You just have to trust it.</div>
+    <div class="trd-quote-attr">— Fred Eltringham</div>
+  </div>
+
+  <!-- INSIGHTS -->
+  <div class="trd-insights">
+    <div class="trd-section-label">What This Means For Your Home Studio</div>
+
+    <div class="trd-insight">
+      <div class="trd-insight-dot"></div>
+      <div class="trd-insight-text"><strong>Simple setups work when they're built with intention.</strong> Fred's 10-channel rig isn't limited — it's deliberate. He knows what each mic does and where it lives. That consistency is what produces reliable results. More channels won't help if you don't understand what you already have.</div>
+    </div>
+
+    <div class="trd-insight">
+      <div class="trd-insight-dot"></div>
+      <div class="trd-insight-text"><strong>Sending stems flat is a professional choice, not a limitation.</strong> Fred sends minimal processing because producers and mixers want to make their own decisions. Heavy-handed processing at the stem stage can close doors you didn't mean to close. Knowing what to leave alone is part of the job.</div>
+    </div>
+
+    <div class="trd-insight">
+      <div class="trd-insight-dot"></div>
+      <div class="trd-insight-text"><strong>Your room sound can come from somewhere else.</strong> The Oceanway IR trick Fred uses is a direct answer to the small-room problem. Acoustic treatment matters — but so does knowing which tools can extend what your room can't naturally provide. Both are part of the same knowledge base.</div>
+    </div>
+
+    <div class="trd-insight">
+      <div class="trd-insight-dot"></div>
+      <div class="trd-insight-text"><strong>Making decisions without a full band is its own skill.</strong> Remote sessions give you an acoustic guitar and a vocal and ask you to hear the finished record. Fred describes just going with it, trusting his ears, and sending it. That confidence comes from thousands of hours of full-band tracking — knowing what the song needs before the production gets there.</div>
+    </div>
+
+    <div class="trd-insight">
+      <div class="trd-insight-dot"></div>
+      <div class="trd-insight-text"><strong>One conversation with the right engineer changes your setup.</strong> Fred got Ryan Huitt in, who set up his Apollo presets, gave him baffles, and pointed out one ceiling treatment issue. That was it. One session with someone who knew what they were hearing. You don't need ongoing hand-holding — you need the right knowledge at the right moment.</div>
+    </div>
+
+    <div class="trd-insight">
+      <div class="trd-insight-dot"></div>
+      <div class="trd-insight-text"><strong>Changing your physical setup changes how you play.</strong> Fred talks about adding a rack tom live and immediately playing differently — new fills, different choices. The same principle applies in the studio. How your kit is configured affects what you reach for. Knowing that is knowing something useful about how to approach a session.</div>
+    </div>
+
+  </div>
+
+  <!-- REFLECTION QUESTIONS -->
+  <div class="trd-questions">
+    <div class="trd-section-label">Questions Worth Sitting With</div>
+    <div class="trd-q-intro">Fred built his home setup gradually, practically, and with help from one trusted person. These questions are worth sitting with if you're still figuring out your own version of that.</div>
+
+    <div class="trd-q-item">
+      <span class="trd-q-mark">→</span>
+      <span class="trd-q-text">Do you have a consistent home setup you could describe in under 60 seconds — one that produces reliable results every session? If not, what's actually stopping you from building one?</span>
+    </div>
+
+    <div class="trd-q-item">
+      <span class="trd-q-mark">→</span>
+      <span class="trd-q-text">When you get a remote session with just an acoustic and a vocal, can you hear the finished record clearly enough to make confident decisions — or do you hedge and hope?</span>
+    </div>
+
+    <div class="trd-q-item">
+      <span class="trd-q-mark">→</span>
+      <span class="trd-q-text">Are you sending stems with too much processing because you're not confident in your raw tones? What would it take to trust the dry sound enough to let someone else handle the rest?</span>
+    </div>
+
+    <div class="trd-q-item">
+      <span class="trd-q-mark">→</span>
+      <span class="trd-q-text">Is there one engineer or producer in your circle whose ears you trust enough to spend two hours getting a real assessment of your setup? Have you asked?</span>
+    </div>
+
+    <div class="trd-q-item">
+      <span class="trd-q-mark">→</span>
+      <span class="trd-q-text">Fred says he never set out to be a session drummer — the work found him because he was ready. What does "ready" mean for you right now, and what's the honest gap between where you are and that?</span>
+    </div>
+
+  </div>
+
+  <!-- CTA -->
+  <div class="trd-cta">
+    <div class="trd-cta-eye">Free · 5 Minutes · No Fluff</div>
+    <div class="trd-cta-head">Find Out Exactly What's Holding<br>Your Recordings Back</div>
+    <div class="trd-cta-body">Fred got one conversation with the right engineer and it changed his setup. The free Recording Drummer Assessment does the same thing — it pinpoints exactly where your understanding breaks down so you know what to fix first.</div>
+    <a class="trd-cta-btn" href="https://www.therecordingdrummer.com/free-assessment">Take the Free Assessment →</a>
+    <a class="trd-cta-url" href="https://www.therecordingdrummer.com/free-assessment">www.therecordingdrummer.com/free-assessment</a>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="trd-footer">
+    <span class="trd-footer-l">© 2025 Blair Sinta · The Recording Drummer · All rights reserved</span>
+    <span class="trd-footer-r"><a href="https://www.therecordingdrummer.com">www.therecordingdrummer.com</a></span>
+  </div>
+
+</div>
+</div>
+
+</body>
+</html>
