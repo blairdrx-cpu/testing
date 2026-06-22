@@ -1,0 +1,134 @@
+<!-- ============================================================================
+     EMAIL CAPTURE LANDING PAGE — The Recording Drummer
+     Simple hero + signup, no episode grid. Paste into a Kajabi Custom HTML block.
+     Drop the contents of ac-embed-show-notes.html into the <!-- ACTIVECAMPAIGN EMBED -->
+     slot below (only ONE embed per page — don't duplicate the form on the same page,
+     duplicate ids break ActiveCampaign's validation script).
+     ============================================================================ -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+#trd-landing, #trd-landing * {
+  box-sizing: border-box !important;
+}
+#trd-landing {
+  background: #060102 !important;
+  color: #FFEFCC !important;
+  font-family: 'Poppins', sans-serif !important;
+  margin: -40px -40px 0 -40px !important;
+  padding: 0 !important;
+  width: calc(100% + 80px) !important;
+}
+
+.trd-topbar {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 20px 40px !important;
+  border-bottom: 1px solid rgba(44,95,111,0.3) !important;
+  background: #060102 !important;
+}
+.trd-topbar-logo {
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  color: #2C5F6F !important;
+  font-family: 'Poppins', sans-serif !important;
+}
+
+.trd-hero {
+  max-width: 700px !important;
+  margin: 0 auto !important;
+  padding: 100px 40px 100px !important;
+  text-align: center !important;
+  background: #060102 !important;
+}
+.trd-hero-label {
+  display: inline-block !important;
+  background: #2C5F6F !important;
+  color: #FFEFCC !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  padding: 5px 14px !important;
+  border-radius: 2px !important;
+  margin-bottom: 28px !important;
+  font-family: 'Poppins', sans-serif !important;
+}
+.trd-hero-title {
+  font-size: 48px !important;
+  font-weight: 700 !important;
+  color: #FFEFCC !important;
+  line-height: 1.15 !important;
+  margin-bottom: 20px !important;
+  font-family: 'Poppins', sans-serif !important;
+}
+.trd-hero-title em {
+  font-style: normal !important;
+  color: #FF8C42 !important;
+}
+.trd-hero-sub {
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  color: rgba(255,239,204,0.65) !important;
+  max-width: 560px !important;
+  margin: 0 auto !important;
+  line-height: 1.75 !important;
+  font-family: 'Poppins', sans-serif !important;
+}
+
+.trd-ac-slot {
+  max-width: 540px !important;
+  margin: 36px auto 0 !important;
+  padding: 0 !important;
+}
+
+.trd-footer {
+  border-top: 1px solid rgba(44,95,111,0.2) !important;
+  padding: 24px 40px !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  max-width: 900px !important;
+  margin: 0 auto !important;
+  background: #060102 !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+}
+.trd-footer span {
+  font-size: 11px !important;
+  color: rgba(255,239,204,0.3) !important;
+  font-family: 'Poppins', sans-serif !important;
+}
+
+@media (max-width: 680px) {
+  .trd-topbar { padding: 16px 20px !important; }
+  .trd-hero { padding: 60px 20px 60px !important; }
+  .trd-hero-title { font-size: 32px !important; }
+  .trd-footer { padding: 20px !important; }
+}
+</style>
+
+<div id="trd-landing">
+
+  <div class="trd-topbar">
+    <span class="trd-topbar-logo">The Recording Drummer &middot; by Blair Sinta</span>
+  </div>
+
+  <div class="trd-hero">
+    <div class="trd-hero-label">Free Episode Show Notes</div>
+    <h1 class="trd-hero-title">Lessons from <em>30 Years</em><br>of Session Work</h1>
+    <p class="trd-hero-sub">Get key takeaways, gear references, and career insights from conversations with working session drummers and engineers &mdash; straight to your inbox.</p>
+
+    <div class="trd-ac-slot">
+      <!-- ACTIVECAMPAIGN EMBED -->
+    </div>
+  </div>
+
+  <div class="trd-footer">
+    <span>&copy; 2026 Blair Sinta &middot; The Recording Drummer</span>
+    <span>www.therecordingdrummer.com</span>
+  </div>
+
+</div>
