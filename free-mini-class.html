@@ -1,0 +1,280 @@
+<!--
+  ============================================================================
+  FREE MINI CLASS — The Recording Drummer
+  Paste this ENTIRE block into a Kajabi Custom Code / HTML section.
+  Self-contained: fonts, styles, gate logic and videos are all inline.
+
+  HOW THE OPT-IN WORKS
+  --------------------
+  Visitors must enter their NAME + EMAIL to unlock the 3 videos.
+  Right now the form reveals the videos on the front end and remembers the
+  visitor on their browser. To ALSO capture the lead in Kajabi, wire the form
+  to your Kajabi opt-in — see the comment marked  >>> KAJABI OPT-IN <<<  below.
+  ============================================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  /* ---- Brand tokens ---- */
+  .trd-mini {
+    --black:  #060102;
+    --amber:  #FF8C42;
+    --teal:   #2C5F6F;
+    --cream:  #ffefcc;
+    --amber-soft: rgba(255,140,66,.14);
+    --line: rgba(255,239,204,.14);
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--cream);
+    background:
+      radial-gradient(1200px 600px at 50% -10%, rgba(44,95,111,.35), transparent 60%),
+      radial-gradient(900px 500px at 90% 110%, rgba(255,140,66,.12), transparent 60%),
+      var(--black);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 0;
+    margin: 0;
+  }
+  .trd-mini *, .trd-mini *::before, .trd-mini *::after { box-sizing: border-box; }
+
+  .trd-wrap { max-width: 940px; margin: 0 auto; padding: 64px 22px 80px; }
+
+  /* ---- Hero ---- */
+  .trd-eyebrow {
+    display: inline-block;
+    font-size: 12.5px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--amber);
+    background: var(--amber-soft);
+    border: 1px solid rgba(255,140,66,.3);
+    padding: 7px 16px; border-radius: 100px; margin-bottom: 22px;
+  }
+  .trd-h1 {
+    font-size: clamp(30px, 6vw, 52px);
+    font-weight: 800; line-height: 1.08; letter-spacing: -.5px;
+    margin: 0 0 16px; color: #fff;
+  }
+  .trd-h1 .amber { color: var(--amber); }
+  .trd-sub {
+    font-size: clamp(15px, 2.4vw, 18px); font-weight: 300;
+    color: rgba(255,239,204,.82); max-width: 620px; margin: 0 auto;
+  }
+  .trd-hero { text-align: center; margin-bottom: 44px; }
+
+  /* ---- Gate / opt-in card ---- */
+  .trd-gate {
+    background: linear-gradient(180deg, rgba(44,95,111,.28), rgba(6,1,2,.4));
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 40px 32px;
+    max-width: 520px; margin: 0 auto;
+    box-shadow: 0 24px 60px rgba(0,0,0,.45);
+    text-align: center;
+  }
+  .trd-gate h2 { font-size: 22px; font-weight: 700; color: #fff; margin: 0 0 6px; }
+  .trd-gate p  { font-size: 14.5px; color: rgba(255,239,204,.7); margin: 0 0 24px; }
+  .trd-field { text-align: left; margin-bottom: 14px; }
+  .trd-field label { display: block; font-size: 12.5px; font-weight: 500; letter-spacing: .3px; margin-bottom: 6px; color: var(--cream); }
+  .trd-field input {
+    width: 100%; padding: 13px 15px; font-size: 15px; font-family: inherit;
+    color: var(--cream); background: rgba(6,1,2,.55);
+    border: 1px solid var(--line); border-radius: 11px; outline: none;
+    transition: border-color .18s, box-shadow .18s;
+  }
+  .trd-field input::placeholder { color: rgba(255,239,204,.35); }
+  .trd-field input:focus { border-color: var(--amber); box-shadow: 0 0 0 3px var(--amber-soft); }
+  .trd-err { color: #ff9a9a; font-size: 13px; min-height: 18px; margin: 2px 0 10px; text-align: left; }
+
+  /* ---- Buttons ---- */
+  .trd-btn {
+    display: inline-block; cursor: pointer; border: 0; font-family: inherit;
+    font-weight: 700; font-size: 16px; letter-spacing: .3px;
+    color: var(--black); background: var(--amber);
+    padding: 15px 30px; border-radius: 100px; width: 100%;
+    transition: transform .15s ease, box-shadow .15s ease, background .15s;
+    box-shadow: 0 10px 26px rgba(255,140,66,.32);
+    text-decoration: none; text-align: center;
+  }
+  .trd-btn:hover { transform: translateY(-2px); box-shadow: 0 14px 34px rgba(255,140,66,.45); background: #ff9a58; }
+  .trd-note { font-size: 12px; color: rgba(255,239,204,.5); margin-top: 14px; }
+
+  /* ---- Videos (hidden until unlocked) ---- */
+  .trd-videos { display: none; }
+  .trd-videos.is-open { display: block; animation: trdFade .5s ease both; }
+  @keyframes trdFade { from { opacity: 0; transform: translateY(14px);} to { opacity: 1; transform: none;} }
+
+  .trd-section-head { text-align: center; margin: 6px auto 40px; max-width: 640px; }
+  .trd-section-head h2 { font-size: clamp(24px, 4vw, 34px); font-weight: 800; color: #fff; margin: 0 0 10px; letter-spacing: -.4px; }
+  .trd-section-head p { color: rgba(255,239,204,.72); font-weight: 300; margin: 0; }
+
+  .trd-card {
+    background: rgba(6,1,2,.45); border: 1px solid var(--line);
+    border-radius: 18px; overflow: hidden; margin-bottom: 34px;
+    box-shadow: 0 14px 40px rgba(0,0,0,.35);
+  }
+  .trd-card-body { padding: 22px 24px 26px; }
+  .trd-num {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--amber); margin-bottom: 8px;
+  }
+  .trd-num .dot { width: 22px; height: 22px; border-radius: 50%; background: var(--amber-soft); border: 1px solid rgba(255,140,66,.4); display:inline-flex; align-items:center; justify-content:center; color: var(--amber); font-weight:700; }
+  .trd-card h3 { font-size: 21px; font-weight: 700; color: #fff; margin: 0 0 6px; }
+  .trd-card p  { font-size: 14.5px; color: rgba(255,239,204,.72); font-weight: 300; margin: 0; }
+
+  .trd-video {
+    position: relative; width: 100%; padding-top: 56.25%;
+    background: #000; border-bottom: 1px solid var(--line);
+  }
+  .trd-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+  /* ---- Final CTA ---- */
+  .trd-final {
+    text-align: center; margin-top: 20px;
+    background: linear-gradient(180deg, rgba(255,140,66,.10), rgba(44,95,111,.14));
+    border: 1px solid var(--line); border-radius: 22px; padding: 48px 28px;
+  }
+  .trd-final h2 { font-size: clamp(24px, 4.5vw, 36px); font-weight: 800; color: #fff; margin: 0 0 12px; letter-spacing: -.4px; }
+  .trd-final p { color: rgba(255,239,204,.8); font-weight: 300; max-width: 540px; margin: 0 auto 26px; }
+  .trd-final .trd-btn { width: auto; padding: 17px 44px; font-size: 17px; }
+
+  .trd-foot { text-align: center; margin-top: 40px; font-size: 12.5px; color: rgba(255,239,204,.45); }
+
+  @media (max-width: 560px) {
+    .trd-wrap { padding: 44px 16px 60px; }
+    .trd-gate { padding: 30px 20px; }
+  }
+</style>
+
+<div class="trd-mini">
+  <div class="trd-wrap">
+
+    <!-- ================= HERO ================= -->
+    <header class="trd-hero">
+      <span class="trd-eyebrow">Free Mini Class</span>
+      <h1 class="trd-h1">Record Drums That<br><span class="amber">Actually Sound Like You</span></h1>
+      <p class="trd-sub">Three short videos that break down the system behind pro-sounding drum recordings — no expensive gear or studio degree required.</p>
+    </header>
+
+    <!-- ================= OPT-IN GATE ================= -->
+    <section class="trd-gate" id="trdGate">
+      <h2>Watch the free mini class</h2>
+      <p>Enter your name and email to unlock all three videos instantly.</p>
+
+      <!--
+        >>> KAJABI OPT-IN <<<
+        To capture leads in Kajabi, replace the JS submit handler below with your
+        Kajabi form. Easiest path: in Kajabi, build a Form, copy its embed, and set
+        the input "name" attributes to match Kajabi's, OR point this form's action
+        to your Kajabi form POST URL. The unlock logic will still run on success.
+      -->
+      <form id="trdForm" novalidate>
+        <div class="trd-field">
+          <label for="trdName">First name</label>
+          <input id="trdName" name="name" type="text" placeholder="Your first name" autocomplete="given-name">
+        </div>
+        <div class="trd-field">
+          <label for="trdEmail">Email address</label>
+          <input id="trdEmail" name="email" type="email" placeholder="you@email.com" autocomplete="email">
+        </div>
+        <div class="trd-err" id="trdErr"></div>
+        <button type="submit" class="trd-btn">Unlock The Videos →</button>
+        <div class="trd-note">No spam. Unsubscribe anytime.</div>
+      </form>
+    </section>
+
+    <!-- ================= VIDEOS (revealed after opt-in) ================= -->
+    <section class="trd-videos" id="trdVideos">
+
+      <div class="trd-section-head">
+        <h2>Your 3-Part Mini Class</h2>
+        <p>Watch in order — each video builds on the last.</p>
+      </div>
+
+      <!-- Video 1 -->
+      <article class="trd-card">
+        <div class="trd-video">
+          <iframe src="https://www.youtube.com/embed/Mz5E9cm3AR0" title="The 3 Layer Framework" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="trd-card-body">
+          <span class="trd-num"><span class="dot">1</span> Video One</span>
+          <h3>The 3 Layer Framework</h3>
+          <p>The simple mental model that separates muddy home recordings from clean, punchy, professional drum tracks.</p>
+        </div>
+      </article>
+
+      <!-- Video 2 -->
+      <article class="trd-card">
+        <div class="trd-video">
+          <iframe src="https://www.youtube.com/embed/FHfEdxOL1yo" title="Understanding The Logic Of Drum Sounds" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="trd-card-body">
+          <span class="trd-num"><span class="dot">2</span> Video Two</span>
+          <h3>Understanding The Logic Of Drum Sounds</h3>
+          <p>Why your drums sound the way they do — and how to hear what to fix before you ever touch a plugin.</p>
+        </div>
+      </article>
+
+      <!-- Video 3 -->
+      <article class="trd-card">
+        <div class="trd-video">
+          <iframe src="https://www.youtube.com/embed/AX27ImxE0Yc" title="Why This System Works" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="trd-card-body">
+          <span class="trd-num"><span class="dot">3</span> Video Three</span>
+          <h3>Why This System Works</h3>
+          <p>How the framework ties together so you can get repeatable, great-sounding results on every song you record.</p>
+        </div>
+      </article>
+
+      <!-- ================= FINAL CTA ================= -->
+      <div class="trd-final">
+        <h2>Ready for the full system?</h2>
+        <p>The complete Recording Drummer program is opening soon. Get on the waitlist to be first in line — and get early-bird access.</p>
+        <a class="trd-btn" href="https://www.therecordingdrummer.com/recording-drummer-waitlist">Sign Up For Waitlist</a>
+      </div>
+
+      <div class="trd-foot">© The Recording Drummer</div>
+    </section>
+
+  </div>
+</div>
+
+<script>
+(function () {
+  var form   = document.getElementById('trdForm');
+  var gate   = document.getElementById('trdGate');
+  var videos = document.getElementById('trdVideos');
+  var errBox = document.getElementById('trdErr');
+  var KEY    = 'trd_mini_unlocked';
+
+  function reveal(scroll) {
+    gate.style.display = 'none';
+    videos.classList.add('is-open');
+    if (scroll) videos.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Returning visitor who already opted in stays unlocked.
+  try { if (localStorage.getItem(KEY) === '1') reveal(false); } catch (e) {}
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    errBox.textContent = '';
+    var name  = document.getElementById('trdName').value.trim();
+    var email = document.getElementById('trdEmail').value.trim();
+    var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+    if (!name)        { errBox.textContent = 'Please enter your first name.'; return; }
+    if (!emailOk)     { errBox.textContent = 'Please enter a valid email address.'; return; }
+
+    /* >>> KAJABI OPT-IN <<<
+       Send { name, email } to Kajabi here (fetch POST to your form endpoint,
+       or submit a hidden Kajabi form). Keep the reveal() call so the videos
+       unlock once the lead is captured. */
+
+    try { localStorage.setItem(KEY, '1'); } catch (e) {}
+    reveal(true);
+  });
+})();
+</script>
