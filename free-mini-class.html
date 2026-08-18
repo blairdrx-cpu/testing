@@ -163,16 +163,14 @@
       <p>Enter your name and email to unlock all three videos instantly.</p>
 
       <!--
-        >>> KAJABI OPT-IN <<<
-        To capture leads in Kajabi, replace the JS submit handler below with your
-        Kajabi form. Easiest path: in Kajabi, build a Form, copy its embed, and set
-        the input "name" attributes to match Kajabi's, OR point this form's action
-        to your Kajabi form POST URL. The unlock logic will still run on success.
+        This form subscribes the visitor to the ActiveCampaign master list
+        (account: blairdrx, form u=18/f=18) and then unlocks the videos.
+        Submission uses AC's own JSONP method so it works from Kajabi's domain.
       -->
       <form id="trdForm" novalidate>
         <div class="trd-field">
-          <label for="trdName">First name</label>
-          <input id="trdName" name="name" type="text" placeholder="Your first name" autocomplete="given-name">
+          <label for="trdName">Your name</label>
+          <input id="trdName" name="fullname" type="text" placeholder="Your name" autocomplete="name">
         </div>
         <div class="trd-field">
           <label for="trdEmail">Email address</label>
@@ -247,7 +245,33 @@
   var gate   = document.getElementById('trdGate');
   var videos = document.getElementById('trdVideos');
   var errBox = document.getElementById('trdErr');
+  var btn    = form.querySelector('.trd-btn');
   var KEY    = 'trd_mini_unlocked';
+
+  /* ---- ActiveCampaign master-list config (from account "blairdrx", form 18) ---- */
+  var AC_URL = 'https://blairdrx.activehosted.com/proc.php';
+  var AC_HIDDEN = { u: '18', f: '18', s: '', c: '0', m: '0', act: 'sub', v: '2',
+                    or: '39f90d2f-508b-462b-960a-7e8615f0a935' };
+
+  // Stub globals so AC's JSONP response never throws on this page.
+  window.cfields = window.cfields || [];
+  window._show_thank_you = window._show_thank_you || function () {};
+  window._show_unsubscribe = window._show_unsubscribe || function () {};
+  window._show_pc_confirmation = window._show_pc_confirmation || function () {};
+  window._show_error = window._show_error || function () {};
+  window._load_script = window._load_script || function (url) {
+    var s = document.createElement('script'); s.src = url; document.head.appendChild(s);
+  };
+
+  function subscribeToAC(name, email) {
+    var params = Object.assign({}, AC_HIDDEN, { fullname: name, email: email });
+    var qs = Object.keys(params).map(function (k) {
+      return encodeURIComponent(k) + '=' + encodeURIComponent(params[k]);
+    }).join('&');
+    var s = document.createElement('script');   // JSONP GET — records the subscriber in AC
+    s.src = AC_URL + '?' + qs + '&jsonp=true';
+    document.body.appendChild(s);
+  }
 
   function reveal(scroll) {
     gate.style.display = 'none';
@@ -265,16 +289,14 @@
     var email = document.getElementById('trdEmail').value.trim();
     var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-    if (!name)        { errBox.textContent = 'Please enter your first name.'; return; }
-    if (!emailOk)     { errBox.textContent = 'Please enter a valid email address.'; return; }
+    if (!name)    { errBox.textContent = 'Please enter your name.'; return; }
+    if (!emailOk) { errBox.textContent = 'Please enter a valid email address.'; return; }
 
-    /* >>> KAJABI OPT-IN <<<
-       Send { name, email } to Kajabi here (fetch POST to your form endpoint,
-       or submit a hidden Kajabi form). Keep the reveal() call so the videos
-       unlock once the lead is captured. */
+    btn.disabled = true; btn.textContent = 'Unlocking…';
 
+    subscribeToAC(name, email);                  // send lead to ActiveCampaign master list
     try { localStorage.setItem(KEY, '1'); } catch (e) {}
-    reveal(true);
+    reveal(true);                                // unlock the videos
   });
 })();
 </script>
