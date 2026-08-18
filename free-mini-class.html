@@ -1,35 +1,23 @@
 <!--
   ============================================================================
   FREE MINI CLASS — The Recording Drummer  (Kajabi copy-paste)
-  ISOLATED IFRAME VERSION: the whole widget renders inside an iframe so the
-  Kajabi theme's CSS / scroll animations can't touch it. It auto-resizes to
-  fit its content (no inner scrollbar).
+  Direct embed. Critical font sizes are set as INLINE styles with !important
+  so the Kajabi theme cannot override them. Scoped under .trd-mini so it
+  won't affect the rest of your page.
 
-  PASTE THIS INTO ITS OWN EMPTY "Custom Code" section in Kajabi.
-  Remove any Image element or background image from that section (the cymbal
-  graphic you saw is a Kajabi element, not part of this code).
+  AFTER PASTING, in this Custom Code block's settings:
+   • Open "Animations" and set it to None  (that's why the heading only
+     appeared after scrolling).
+   • Leave Background empty / transparent.
   ============================================================================
 -->
-<div style="width:100%;max-width:100%;overflow:hidden;">
-  <iframe id="trdFrame" title="Free Mini Class" scrolling="no"
-          style="width:100%;border:0;display:block;height:1200px;overflow:hidden;"></iframe>
-</div>
 
-<script>
-(function () {
-  // ---- The complete, self-contained widget document rendered inside the iframe ----
-  var TRD_HTML = `<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
-  * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; }
-  body {
+  .trd-mini {
     --black:#060102; --amber:#FF8C42; --teal:#2C5F6F; --cream:#ffefcc;
     --amber-soft: rgba(255,140,66,.14); --line: rgba(255,239,204,.14);
     font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -39,216 +27,187 @@
       radial-gradient(900px 500px at 90% 110%, rgba(255,140,66,.12), transparent 60%),
       var(--black);
     line-height: 1.6; -webkit-font-smoothing: antialiased;
+    margin: 0; width: 100%; max-width: 100%; overflow-x: hidden;
   }
-  h1,h2,h3,p { margin: 0; }
+  .trd-mini *, .trd-mini *::before, .trd-mini *::after { box-sizing: border-box; }
+  .trd-mini h1, .trd-mini h2, .trd-mini h3, .trd-mini p, .trd-mini span,
+  .trd-mini a, .trd-mini label, .trd-mini input, .trd-mini button {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+  }
+  .trd-mini h1, .trd-mini h2, .trd-mini h3, .trd-mini p {
+    margin: 0; padding: 0; text-transform: none; overflow-wrap: break-word; word-wrap: break-word;
+  }
 
-  .wrap { max-width: 940px; margin: 0 auto; padding: 56px 22px 72px; }
+  .trd-wrap { max-width: 940px; margin: 0 auto; padding: 60px 22px 76px; }
 
-  .eyebrow { display:inline-block; font-size:12.5px; font-weight:600; letter-spacing:2.5px;
-    text-transform:uppercase; color:var(--amber); background:var(--amber-soft);
+  .trd-eyebrow { display:inline-block; color:var(--amber); background:var(--amber-soft);
     border:1px solid rgba(255,140,66,.3); padding:7px 16px; border-radius:100px; margin-bottom:22px; }
-  .h1 { font-size: clamp(30px,6vw,52px); font-weight:800; line-height:1.08; letter-spacing:-.5px; margin:0 0 16px; color:#fff; }
-  .h1 .amber { color: var(--amber); }
-  .sub { font-size: clamp(15px,2.4vw,18px); font-weight:300; color:rgba(255,239,204,.82); max-width:620px; margin:0 auto; }
-  .hero { text-align:center; margin-bottom:44px; }
+  .trd-h1 .amber { color: var(--amber) !important; }
+  .trd-hero { text-align:center; margin-bottom:44px; }
 
-  .gate { background:linear-gradient(180deg, rgba(44,95,111,.28), rgba(6,1,2,.4));
+  .trd-gate { background:linear-gradient(180deg, rgba(44,95,111,.28), rgba(6,1,2,.4));
     border:1px solid var(--line); border-radius:20px; padding:40px 32px; max-width:520px; margin:0 auto;
     box-shadow:0 24px 60px rgba(0,0,0,.45); text-align:center; }
-  .gate h2 { font-size:22px; font-weight:700; color:#fff; margin:0 0 6px; }
-  .gate p { font-size:14.5px; color:rgba(255,239,204,.7); margin:0 0 24px; }
-  .field { text-align:left; margin-bottom:14px; }
-  .field label { display:block; font-size:12.5px; font-weight:500; letter-spacing:.3px; margin-bottom:6px; color:var(--cream); }
-  .field input { width:100%; padding:13px 15px; font-size:15px; font-family:inherit; color:var(--cream);
-    background:rgba(6,1,2,.55); border:1px solid var(--line); border-radius:11px; outline:none;
-    transition:border-color .18s, box-shadow .18s; }
-  .field input::placeholder { color:rgba(255,239,204,.35); }
-  .field input:focus { border-color:var(--amber); box-shadow:0 0 0 3px var(--amber-soft); }
-  .err { color:#ff9a9a; font-size:13px; min-height:18px; margin:2px 0 10px; text-align:left; }
+  .trd-field { text-align:left; margin-bottom:14px; }
+  .trd-field input { width:100%; padding:13px 15px; color:var(--cream); background:rgba(6,1,2,.55);
+    border:1px solid var(--line); border-radius:11px; outline:none; transition:border-color .18s, box-shadow .18s; }
+  .trd-field input::placeholder { color:rgba(255,239,204,.35); }
+  .trd-field input:focus { border-color:var(--amber); box-shadow:0 0 0 3px var(--amber-soft); }
+  .trd-err { color:#ff9a9a; min-height:18px; margin:2px 0 10px; text-align:left; }
 
-  .btn { display:inline-block; cursor:pointer; border:0; font-family:inherit; font-weight:700; font-size:16px;
-    letter-spacing:.3px; color:var(--black); background:var(--amber); padding:15px 30px; border-radius:100px; width:100%;
-    transition:transform .15s ease, box-shadow .15s ease, background .15s; box-shadow:0 10px 26px rgba(255,140,66,.32);
-    text-decoration:none; text-align:center; }
-  .btn:hover { transform:translateY(-2px); box-shadow:0 14px 34px rgba(255,140,66,.45); background:#ff9a58; }
-  .note { font-size:12px; color:rgba(255,239,204,.5); margin-top:14px; }
+  .trd-btn { display:inline-block; cursor:pointer; border:0; color:var(--black); background:var(--amber);
+    padding:15px 30px; border-radius:100px; width:100%; text-decoration:none; text-align:center;
+    transition:transform .15s ease, box-shadow .15s ease, background .15s; box-shadow:0 10px 26px rgba(255,140,66,.32); }
+  .trd-btn:hover { transform:translateY(-2px); box-shadow:0 14px 34px rgba(255,140,66,.45); background:#ff9a58; }
+  .trd-note { color:rgba(255,239,204,.5); margin-top:14px; }
 
-  .videos { display:none; }
-  .videos.is-open { display:block; animation:fade .5s ease both; }
-  @keyframes fade { from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:none;} }
+  .trd-videos { display:none; }
+  .trd-videos.is-open { display:block; }
 
-  .sec-head { text-align:center; margin:6px auto 40px; max-width:640px; }
-  .sec-head h2 { font-size:clamp(24px,4vw,34px); font-weight:800; color:#fff; margin:0 0 10px; letter-spacing:-.4px; }
-  .sec-head p { color:rgba(255,239,204,.72); font-weight:300; margin:0; }
-
-  .card { background:rgba(6,1,2,.45); border:1px solid var(--line); border-radius:18px; overflow:hidden;
+  .trd-section-head { text-align:center; margin:6px auto 40px; max-width:640px; }
+  .trd-card { background:rgba(6,1,2,.45); border:1px solid var(--line); border-radius:18px; overflow:hidden;
     margin-bottom:34px; box-shadow:0 14px 40px rgba(0,0,0,.35); }
-  .card-body { padding:22px 24px 26px; }
-  .num { display:inline-flex; align-items:center; gap:8px; font-size:12px; font-weight:600; letter-spacing:1.5px;
-    text-transform:uppercase; color:var(--amber); margin-bottom:8px; }
-  .num .dot { width:22px; height:22px; border-radius:50%; background:var(--amber-soft); border:1px solid rgba(255,140,66,.4);
-    display:inline-flex; align-items:center; justify-content:center; color:var(--amber); font-weight:700; }
-  .card h3 { font-size:21px; font-weight:700; color:#fff; margin:0 0 6px; }
-  .card p { font-size:14.5px; color:rgba(255,239,204,.72); font-weight:300; margin:0; }
+  .trd-card-body { padding:22px 24px 26px; }
+  .trd-num { display:inline-flex; align-items:center; gap:8px; color:var(--amber); margin-bottom:8px;
+    letter-spacing:1.5px; text-transform:uppercase; }
+  .trd-num .dot { width:22px; height:22px; border-radius:50%; background:var(--amber-soft);
+    border:1px solid rgba(255,140,66,.4); display:inline-flex; align-items:center; justify-content:center;
+    color:var(--amber); font-weight:700; }
 
-  .video { position:relative; width:100%; padding-top:56.25%; background:#000; border-bottom:1px solid var(--line); }
-  .video iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+  .trd-video { position:relative; width:100%; padding-top:56.25%; background:#000; border-bottom:1px solid var(--line); }
+  .trd-video iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
 
-  .final { text-align:center; margin-top:20px; background:linear-gradient(180deg, rgba(255,140,66,.10), rgba(44,95,111,.14));
-    border:1px solid var(--line); border-radius:22px; padding:48px 28px; }
-  .final h2 { font-size:clamp(24px,4.5vw,36px); font-weight:800; color:#fff; margin:0 0 12px; letter-spacing:-.4px; }
-  .final p { color:rgba(255,239,204,.8); font-weight:300; max-width:540px; margin:0 auto 26px; }
-  .final .btn { width:auto; padding:17px 44px; font-size:17px; }
+  .trd-final { text-align:center; margin-top:20px; border:1px solid var(--line); border-radius:22px; padding:48px 28px;
+    background:linear-gradient(180deg, rgba(255,140,66,.10), rgba(44,95,111,.14)); }
+  .trd-final .trd-btn { width:auto; padding:17px 44px; }
+  .trd-foot { text-align:center; margin-top:40px; color:rgba(255,239,204,.45); }
 
-  .foot { text-align:center; margin-top:40px; font-size:12.5px; color:rgba(255,239,204,.45); }
-
-  @media (max-width:560px){ .wrap{ padding:40px 16px 56px; } .gate{ padding:30px 20px; } }
+  @media (max-width:560px){ .trd-wrap{ padding:44px 16px 60px; } .trd-gate{ padding:30px 20px; } }
 </style>
-</head>
-<body>
-  <div class="wrap">
 
-    <header class="hero">
-      <span class="eyebrow">Free Mini Class</span>
-      <h1 class="h1">Record Drums That<br><span class="amber">Actually Sound Like You</span></h1>
-      <p class="sub">Three short videos that break down the system behind pro-sounding drum recordings &mdash; no expensive gear or studio degree required.</p>
+<div class="trd-mini">
+  <div class="trd-wrap">
+
+    <!-- HERO -->
+    <header class="trd-hero">
+      <span class="trd-eyebrow" style="font-size:12.5px!important;font-weight:600!important;letter-spacing:2.5px!important;line-height:1.4!important;text-transform:uppercase!important;">Free Mini Class</span>
+      <h1 class="trd-h1" style="font-size:clamp(28px,5.2vw,48px)!important;font-weight:800!important;line-height:1.1!important;letter-spacing:-.5px!important;margin:0 0 16px!important;color:#fff!important;max-width:100%!important;">Record Drums That<br><span class="amber" style="color:#FF8C42!important;">Actually Sound Like You</span></h1>
+      <p class="trd-sub" style="font-size:clamp(15px,2.2vw,18px)!important;font-weight:300!important;line-height:1.6!important;color:rgba(255,239,204,.82)!important;max-width:620px!important;margin:0 auto!important;">Three short videos that break down the system behind pro-sounding drum recordings — no expensive gear or studio degree required.</p>
     </header>
 
-    <section class="gate" id="gate">
-      <h2>Watch the free mini class</h2>
-      <p>Enter your name and email to unlock all three videos instantly.</p>
-      <form id="form" novalidate>
-        <div class="field">
-          <label for="nm">Your name</label>
-          <input id="nm" name="fullname" type="text" placeholder="Your name" autocomplete="name">
+    <!-- OPT-IN GATE -->
+    <section class="trd-gate" id="trdGate">
+      <h2 style="font-size:22px!important;font-weight:700!important;line-height:1.3!important;color:#fff!important;margin:0 0 6px!important;">Watch the free mini class</h2>
+      <p style="font-size:14.5px!important;font-weight:400!important;line-height:1.6!important;color:rgba(255,239,204,.7)!important;margin:0 0 24px!important;">Enter your name and email to unlock all three videos instantly.</p>
+      <form id="trdForm" novalidate>
+        <div class="trd-field">
+          <label for="trdName" style="display:block!important;font-size:12.5px!important;font-weight:500!important;line-height:1.4!important;letter-spacing:.3px!important;margin-bottom:6px!important;color:#ffefcc!important;">Your name</label>
+          <input id="trdName" name="fullname" type="text" placeholder="Your name" autocomplete="name" style="font-size:15px!important;line-height:1.4!important;">
         </div>
-        <div class="field">
-          <label for="em">Email address</label>
-          <input id="em" name="email" type="email" placeholder="you@email.com" autocomplete="email">
+        <div class="trd-field">
+          <label for="trdEmail" style="display:block!important;font-size:12.5px!important;font-weight:500!important;line-height:1.4!important;letter-spacing:.3px!important;margin-bottom:6px!important;color:#ffefcc!important;">Email address</label>
+          <input id="trdEmail" name="email" type="email" placeholder="you@email.com" autocomplete="email" style="font-size:15px!important;line-height:1.4!important;">
         </div>
-        <div class="err" id="err"></div>
-        <button type="submit" class="btn" id="btn">Unlock The Videos &rarr;</button>
-        <div class="note">No spam. Unsubscribe anytime.</div>
+        <div class="trd-err" id="trdErr" style="font-size:13px!important;"></div>
+        <button type="submit" class="trd-btn" id="trdBtn" style="font-size:16px!important;font-weight:700!important;line-height:1.4!important;letter-spacing:.3px!important;">Unlock The Videos →</button>
+        <div class="trd-note" style="font-size:12px!important;line-height:1.5!important;">No spam. Unsubscribe anytime.</div>
       </form>
     </section>
 
-    <section class="videos" id="videos">
-      <div class="sec-head">
-        <h2>Your 3-Part Mini Class</h2>
-        <p>Watch in order &mdash; each video builds on the last.</p>
+    <!-- VIDEOS -->
+    <section class="trd-videos" id="trdVideos">
+      <div class="trd-section-head">
+        <h2 style="font-size:clamp(24px,4vw,34px)!important;font-weight:800!important;line-height:1.15!important;letter-spacing:-.4px!important;color:#fff!important;margin:0 0 10px!important;">Your 3-Part Mini Class</h2>
+        <p style="font-size:16px!important;font-weight:300!important;line-height:1.6!important;color:rgba(255,239,204,.72)!important;margin:0!important;">Watch in order — each video builds on the last.</p>
       </div>
 
-      <article class="card">
-        <div class="video"><iframe src="https://www.youtube.com/embed/Mz5E9cm3AR0" title="The 3 Layer Framework" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
-        <div class="card-body">
-          <span class="num"><span class="dot">1</span> Video One</span>
-          <h3>The 3 Layer Framework</h3>
-          <p>The simple mental model that separates muddy home recordings from clean, punchy, professional drum tracks.</p>
+      <article class="trd-card">
+        <div class="trd-video"><iframe src="https://www.youtube.com/embed/Mz5E9cm3AR0" title="The 3 Layer Framework" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
+        <div class="trd-card-body">
+          <span class="trd-num" style="font-size:12px!important;font-weight:600!important;"><span class="dot">1</span> Video One</span>
+          <h3 style="font-size:21px!important;font-weight:700!important;line-height:1.3!important;color:#fff!important;margin:0 0 6px!important;">The 3 Layer Framework</h3>
+          <p style="font-size:14.5px!important;font-weight:300!important;line-height:1.6!important;color:rgba(255,239,204,.72)!important;margin:0!important;">The simple mental model that separates muddy home recordings from clean, punchy, professional drum tracks.</p>
         </div>
       </article>
 
-      <article class="card">
-        <div class="video"><iframe src="https://www.youtube.com/embed/FHfEdxOL1yo" title="Understanding The Logic Of Drum Sounds" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
-        <div class="card-body">
-          <span class="num"><span class="dot">2</span> Video Two</span>
-          <h3>Understanding The Logic Of Drum Sounds</h3>
-          <p>Why your drums sound the way they do &mdash; and how to hear what to fix before you ever touch a plugin.</p>
+      <article class="trd-card">
+        <div class="trd-video"><iframe src="https://www.youtube.com/embed/FHfEdxOL1yo" title="Understanding The Logic Of Drum Sounds" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
+        <div class="trd-card-body">
+          <span class="trd-num" style="font-size:12px!important;font-weight:600!important;"><span class="dot">2</span> Video Two</span>
+          <h3 style="font-size:21px!important;font-weight:700!important;line-height:1.3!important;color:#fff!important;margin:0 0 6px!important;">Understanding The Logic Of Drum Sounds</h3>
+          <p style="font-size:14.5px!important;font-weight:300!important;line-height:1.6!important;color:rgba(255,239,204,.72)!important;margin:0!important;">Why your drums sound the way they do — and how to hear what to fix before you ever touch a plugin.</p>
         </div>
       </article>
 
-      <article class="card">
-        <div class="video"><iframe src="https://www.youtube.com/embed/AX27ImxE0Yc" title="Why This System Works" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
-        <div class="card-body">
-          <span class="num"><span class="dot">3</span> Video Three</span>
-          <h3>Why This System Works</h3>
-          <p>How the framework ties together so you can get repeatable, great-sounding results on every song you record.</p>
+      <article class="trd-card">
+        <div class="trd-video"><iframe src="https://www.youtube.com/embed/AX27ImxE0Yc" title="Why This System Works" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
+        <div class="trd-card-body">
+          <span class="trd-num" style="font-size:12px!important;font-weight:600!important;"><span class="dot">3</span> Video Three</span>
+          <h3 style="font-size:21px!important;font-weight:700!important;line-height:1.3!important;color:#fff!important;margin:0 0 6px!important;">Why This System Works</h3>
+          <p style="font-size:14.5px!important;font-weight:300!important;line-height:1.6!important;color:rgba(255,239,204,.72)!important;margin:0!important;">How the framework ties together so you can get repeatable, great-sounding results on every song you record.</p>
         </div>
       </article>
 
-      <div class="final">
-        <h2>Ready for the full system?</h2>
-        <p>The complete Recording Drummer program is opening soon. Get on the waitlist to be first in line &mdash; and get early-bird access.</p>
-        <a class="btn" href="https://www.therecordingdrummer.com/recording-drummer-waitlist" target="_top">Sign Up For Waitlist</a>
+      <div class="trd-final">
+        <h2 style="font-size:clamp(24px,4.5vw,36px)!important;font-weight:800!important;line-height:1.15!important;letter-spacing:-.4px!important;color:#fff!important;margin:0 0 12px!important;">Ready for the full system?</h2>
+        <p style="font-size:16px!important;font-weight:300!important;line-height:1.6!important;color:rgba(255,239,204,.8)!important;max-width:540px!important;margin:0 auto 26px!important;">The complete Recording Drummer program is opening soon. Get on the waitlist to be first in line — and get early-bird access.</p>
+        <a class="trd-btn" href="https://www.therecordingdrummer.com/recording-drummer-waitlist" style="font-size:17px!important;font-weight:700!important;line-height:1.4!important;">Sign Up For Waitlist</a>
       </div>
 
-      <div class="foot">&copy; The Recording Drummer</div>
+      <div class="trd-foot" style="font-size:12.5px!important;">© The Recording Drummer</div>
     </section>
+
   </div>
+</div>
 
 <script>
-  (function () {
-    var form = document.getElementById('form');
-    var gate = document.getElementById('gate');
-    var videos = document.getElementById('videos');
-    var errBox = document.getElementById('err');
-    var btn = document.getElementById('btn');
-    var KEY = 'trd_mini_unlocked';
+(function () {
+  var form = document.getElementById('trdForm');
+  var gate = document.getElementById('trdGate');
+  var videos = document.getElementById('trdVideos');
+  var errBox = document.getElementById('trdErr');
+  var btn = document.getElementById('trdBtn');
+  var KEY = 'trd_mini_unlocked';
 
-    /* ActiveCampaign master-list config (account "blairdrx", form 18) */
-    var AC_URL = 'https://blairdrx.activehosted.com/proc.php';
-    var AC_HIDDEN = { u:'18', f:'18', s:'', c:'0', m:'0', act:'sub', v:'2', or:'39f90d2f-508b-462b-960a-7e8615f0a935' };
+  /* ActiveCampaign master-list config (account "blairdrx", form 18) */
+  var AC_URL = 'https://blairdrx.activehosted.com/proc.php';
+  var AC_HIDDEN = { u:'18', f:'18', s:'', c:'0', m:'0', act:'sub', v:'2', or:'39f90d2f-508b-462b-960a-7e8615f0a935' };
 
-    window.cfields = window.cfields || [];
-    window._show_thank_you = window._show_thank_you || function(){};
-    window._show_unsubscribe = window._show_unsubscribe || function(){};
-    window._show_pc_confirmation = window._show_pc_confirmation || function(){};
-    window._show_error = window._show_error || function(){};
-    window._load_script = window._load_script || function(u){ var s=document.createElement('script'); s.src=u; document.head.appendChild(s); };
+  window.cfields = window.cfields || [];
+  window._show_thank_you = window._show_thank_you || function(){};
+  window._show_unsubscribe = window._show_unsubscribe || function(){};
+  window._show_pc_confirmation = window._show_pc_confirmation || function(){};
+  window._show_error = window._show_error || function(){};
+  window._load_script = window._load_script || function(u){ var s=document.createElement('script'); s.src=u; document.head.appendChild(s); };
 
-    function subscribeToAC(name, email){
-      var p = Object.assign({}, AC_HIDDEN, { fullname:name, email:email });
-      var qs = Object.keys(p).map(function(k){ return encodeURIComponent(k)+'='+encodeURIComponent(p[k]); }).join('&');
-      var s = document.createElement('script');
-      s.src = AC_URL + '?' + qs + '&jsonp=true';
-      document.body.appendChild(s);
-    }
+  function subscribeToAC(name, email){
+    var p = Object.assign({}, AC_HIDDEN, { fullname:name, email:email });
+    var qs = Object.keys(p).map(function(k){ return encodeURIComponent(k)+'='+encodeURIComponent(p[k]); }).join('&');
+    var s = document.createElement('script');
+    s.src = AC_URL + '?' + qs + '&jsonp=true';
+    document.body.appendChild(s);
+  }
 
-    function report(){
-      var h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
-      parent.postMessage({ __trdHeight: h }, '*');
-    }
+  function reveal(scroll){
+    gate.style.display = 'none';
+    videos.classList.add('is-open');
+    if (scroll) videos.scrollIntoView({ behavior:'smooth', block:'start' });
+  }
 
-    function reveal(){
-      gate.style.display = 'none';
-      videos.classList.add('is-open');
-      report();
-      setTimeout(report, 120);
-    }
+  try { if (localStorage.getItem(KEY) === '1') reveal(false); } catch(e){}
 
-    try { if (localStorage.getItem(KEY) === '1') reveal(); } catch(e){}
-
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
-      errBox.textContent = '';
-      var name = document.getElementById('nm').value.trim();
-      var email = document.getElementById('em').value.trim();
-      var ok = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email);
-      if (!name){ errBox.textContent = 'Please enter your name.'; report(); return; }
-      if (!ok){ errBox.textContent = 'Please enter a valid email address.'; report(); return; }
-      btn.disabled = true; btn.textContent = 'Unlocking\\u2026';
-      subscribeToAC(name, email);
-      try { localStorage.setItem(KEY, '1'); } catch(e){}
-      reveal();
-    });
-
-    window.addEventListener('load', report);
-    window.addEventListener('resize', report);
-    if (window.ResizeObserver){ try { new ResizeObserver(report).observe(document.body); } catch(e){} }
-    setTimeout(report, 300); setTimeout(report, 1200); setTimeout(report, 2500);
-    report();
-  })();
-<\/script>
-</body>
-</html>`;
-
-  var frame = document.getElementById('trdFrame');
-  var doc = frame.contentWindow.document;
-  doc.open(); doc.write(TRD_HTML); doc.close();
-
-  window.addEventListener('message', function (e) {
-    if (e && e.data && typeof e.data.__trdHeight === 'number') {
-      frame.style.height = e.data.__trdHeight + 'px';
-    }
+  if (form) form.addEventListener('submit', function(e){
+    e.preventDefault();
+    errBox.textContent = '';
+    var name = document.getElementById('trdName').value.trim();
+    var email = document.getElementById('trdEmail').value.trim();
+    var ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if (!name){ errBox.textContent = 'Please enter your name.'; return; }
+    if (!ok){ errBox.textContent = 'Please enter a valid email address.'; return; }
+    btn.disabled = true; btn.textContent = 'Unlocking…';
+    subscribeToAC(name, email);
+    try { localStorage.setItem(KEY, '1'); } catch(e){}
+    reveal(true);
   });
 })();
 </script>
